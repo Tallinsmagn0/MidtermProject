@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovementBehavior : MonoBehaviour
 {
     [SerializeField] private float movementSpeed;
 
