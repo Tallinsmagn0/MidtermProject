@@ -449,14 +449,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35572017}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalRotation: {x: 0.10114423, y: -0, z: -0, w: 0.9948718}
+  m_LocalPosition: {x: 0, y: 2.5, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1634003150}
   m_Father: {fileID: 1909443398}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 11.61, y: 0, z: 0}
 --- !u!1 &38320720
 GameObject:
   m_ObjectHideFlags: 0
@@ -23050,6 +23050,8 @@ GameObject:
   - component: {fileID: 1909443401}
   - component: {fileID: 1909443400}
   - component: {fileID: 1909443402}
+  - component: {fileID: 1909443403}
+  - component: {fileID: 1909443404}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -23160,6 +23162,38 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - axisName: Mouse X
+    axisAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1909443403}
+          m_TargetAssemblyTypeName: PlayerTurnXBehavior, Assembly-CSharp
+          m_MethodName: SetTurnInput
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - axisName: Mouse Y
+    axisAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1909443404}
+          m_TargetAssemblyTypeName: PlayerTurnYBehavior, Assembly-CSharp
+          m_MethodName: SetCameraVerticalInput
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   inputButtons:
   - buttonName: Jump
     buttonAction:
@@ -23192,6 +23226,35 @@ MonoBehaviour:
   footPivot: {fileID: 741266259}
   force: 7
   groundedDistance: 1
+--- !u!114 &1909443403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909443397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99895e181005948109b761e0f1cfa2e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerTurnXBehavior
+  turnSpeed: 300
+--- !u!114 &1909443404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909443397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0fbae845a5a14a63a82ad8d7e128f5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerTurnYBehavior
+  cameraPivot: {fileID: 35572018}
+  verticalSpeed: -200
+  maximumAngle: 75
+  minimumAngle: -60
 --- !u!1 &1912544740
 GameObject:
   m_ObjectHideFlags: 0
