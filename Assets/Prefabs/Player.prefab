@@ -272,7 +272,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  force: 7
+  force: 5
 --- !u!114 &9080122441964439349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6945a00c56498471abff9973b01f1e70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RigidbodyDamping
-  horizontalDamping: 2
+  horizontalDamping: 3
 --- !u!1 &6598526267546357224
 GameObject:
   m_ObjectHideFlags: 0
