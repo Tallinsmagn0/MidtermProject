@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerTurnYBehavior : MonoBehaviour
 {
     [SerializeField] private Transform cameraPivot;
+    [SerializeField] private CursorLockMode cursorLockMode = CursorLockMode.Locked;
 
     [SerializeField] private float verticalSpeed;
     [SerializeField] private float maximumAngle;
@@ -13,7 +14,7 @@ public class PlayerTurnYBehavior : MonoBehaviour
 
     private void Start()
     { 
-        Cursor.lockState = CursorLockMode.Locked; 
+        Cursor.lockState = cursorLockMode; 
     }
 
     private void Update()
