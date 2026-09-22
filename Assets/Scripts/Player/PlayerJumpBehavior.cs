@@ -4,8 +4,9 @@ using UnityEngine;
 public class PlayerJumpBehaviour : MonoBehaviour
 {
     [SerializeField] protected Transform footPivot;
-    [SerializeField] protected float force;
     [SerializeField] protected float groundedDistance;
+    [SerializeField] protected LayerMask groundLayer;
+    [SerializeField] protected float force;
     new private Rigidbody rigidbody;
     private bool jumpInput;
 
@@ -26,10 +27,7 @@ public class PlayerJumpBehaviour : MonoBehaviour
     { 
         if (jumpInput)
         {
-            if (rigidbody.linearVelocity.y == 0)
-            {
-                return Physics.Raycast(footPivot.position, Vector3.down, out RaycastHit hit, groundedDistance);
-            }
+            return Physics.Raycast(footPivot.position, Vector3.down, groundedDistance, groundLayer);
         }
         return false;
     }

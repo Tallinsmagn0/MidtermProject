@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 238068349882583252}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.01, z: 0}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -78,6 +78,8 @@ GameObject:
   - component: {fileID: 8496937676093273343}
   - component: {fileID: 9080122441964439349}
   - component: {fileID: 3669886675937550098}
+  - component: {fileID: 2509761962227278715}
+  - component: {fileID: 6388822225031028285}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -112,7 +114,7 @@ Rigidbody:
   m_GameObject: {fileID: 6239227789598618049}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 3
+  m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -224,6 +226,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - buttonName: Fire1
+    buttonAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2509761962227278715}
+          m_TargetAssemblyTypeName: ScreenClickBehavior, Assembly-CSharp
+          m_MethodName: SetClicked
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &6472278203738009418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,8 +268,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerJumpBehaviour
   footPivot: {fileID: 7015692491997423312}
+  groundedDistance: 0.5
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
   force: 7
-  groundedDistance: 1
 --- !u!114 &9080122441964439349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,9 +299,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerTurnYBehavior
   cameraPivot: {fileID: 1760096086016621281}
+  cursorLockMode: 0
   verticalSpeed: -200
   maximumAngle: 75
   minimumAngle: -60
+--- !u!114 &2509761962227278715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6239227789598618049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d7c390fc9d8d4a98966caf1dd765de6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScreenClickBehavior
+  OnClickAt:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: TerrainSculptor, Assembly-CSharp
+        m_MethodName: RaiseTerrainAtPoint
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6388822225031028285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6239227789598618049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6945a00c56498471abff9973b01f1e70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RigidbodyDamping
+  horizontalDamping: 2
 --- !u!1 &6598526267546357224
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,7 +357,7 @@ GameObject:
   - component: {fileID: 2973457836835456127}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
