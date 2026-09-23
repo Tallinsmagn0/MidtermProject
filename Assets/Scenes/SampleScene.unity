@@ -452,7 +452,7 @@ GameObject:
   - component: {fileID: 759983948}
   m_Layer: 6
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1859,6 +1859,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 986959960860166076, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: colliderTag
+      value: Terrain
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111707878463554172, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: colliderTag
+      value: Terrain
+      objectReference: {fileID: 0}
     - target: {fileID: 6239227789598618049, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1885,7 +1893,7 @@ GameObject:
   - component: {fileID: 1896286553}
   m_Layer: 6
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
