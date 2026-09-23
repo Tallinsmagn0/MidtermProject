@@ -28,6 +28,7 @@ public class TerrainController : MonoBehaviour
         if (terrain != null)
         {
             ResetTerrainData();
+            DisableTerrainCollider();
         }
         else
         {
@@ -67,6 +68,20 @@ public class TerrainController : MonoBehaviour
         
         data.heightmapResolution = (int) (Mathf.Sqrt(dataSize.x * dataSize.z) * heightmapResolutionScalingFactor);
         data.size = new Vector3(dataSize.x, dataSize.y, dataSize.z);
+    }
+
+    private void DisableTerrainCollider()
+    {
+        TerrainCollider terrainCollider = terrain.gameObject.GetComponent<TerrainCollider>();
+
+        if (terrainCollider != null)
+        {
+            terrainCollider.enabled = false;
+        }
+        else
+        {
+            throw new NullReferenceException("Current terrain collider was null");
+        }
     }
 
     public Terrain GetTerrain()
