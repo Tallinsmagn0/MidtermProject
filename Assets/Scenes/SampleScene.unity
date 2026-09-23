@@ -286,7 +286,7 @@ TerrainCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 692310651}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 105682dac64c64058909ab8368f109cb, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -529,6 +529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 487e8a342140348718751783c7a3ffe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TerrainSculptor
+  terrain: {fileID: 692310654}
   brushSize: 5
   sculptAmount: 0.003
   sigma: 2
@@ -543,6 +544,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1709906732}
   - component: {fileID: 1709906733}
+  - component: {fileID: 1709906734}
   m_Layer: 0
   m_Name: Level1
   m_TagString: Untagged
@@ -577,6 +579,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff0fdad7764543179d6ba1caa387fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelState
+  tc: {fileID: 0}
+--- !u!114 &1709906734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709906731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8e853c833cb148d692d2098f0977043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TerrainController
   savedTerrainData: {fileID: 15600000, guid: 85cee8f86d7a84e1ca7da9b3f10e4dd4, type: 2}
   terrainPosition: {x: 0, y: 0, z: 0}
   heightmapResolutionScalingFactor: 0.513

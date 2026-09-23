@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class TerrainSculptor : MonoBehaviour
 {
+    [SerializeField] private Terrain terrain;
     [SerializeField] private int brushSize;
     [SerializeField] private float sculptAmount;
     [SerializeField] private float sigma;
@@ -10,16 +11,15 @@ public class TerrainSculptor : MonoBehaviour
 
     bool isAltering = false;
     float alterTime;
-    TerrainData data;
 
     int startX, startZ;
     int width, height;
 
-    float[,] startHeights, alteredHeights;
+    float[,] startHeights, endHeights;
 
     void Update()
     {
-        if (isAltering)
+        if (isAltering && terrain != null)
         {
             if (alterTime < alterDuration)
             {
@@ -29,7 +29,7 @@ public class TerrainSculptor : MonoBehaviour
             } 
             else
             {
-                data.SetHeights(startX, startZ, alteredHeights);
+                SetEndDataHeightmap();
                 isAltering = false;
                 alterTime = 0;
             }
@@ -48,21 +48,18 @@ public class TerrainSculptor : MonoBehaviour
 
     private void AlterTerrainAtPoint(Vector3 worldPos, float amount)
     {
-        if (!isAltering)
+        if (terrain != null)
         {
-            Terrain terrain = LevelManager.Instance.GetCurrentTerrain();
-
-            if (terrain != null)
+            if (!isAltering)
             {
                 isAltering = true;
-                data = terrain.terrainData;
                 CalculateTerrainAlterationLocationValues(terrain.transform.position, worldPos);
                 CalculateHeightMatrixValues(amount);
-            } 
-            else
-            {
-                throw new NullReferenceException("Terrain from level manager was null");
             }
+        }
+        else
+        {
+            throw new NullReferenceException("Tried to alter null terrain");
         }
     }
 
@@ -74,14 +71,21 @@ public class TerrainSculptor : MonoBehaviour
         {
             for (int z = 0; z < height; z++)
             {
-                heights[z, x] = Mathf.Lerp(startHeights[z, x], alteredHeights[z, x], alterTime / alterDuration);
+                heights[z, x] = Mathf.Lerp(startHeights[z, x], endHeights[z, x], alterTime / alterDuration);
             }
         }
-        data.SetHeights(startX, startZ, heights);
+        terrain.terrainData.SetHeights(startX, startZ, heights);
+    }
+
+    private void SetEndDataHeightmap()
+    {
+        terrain.terrainData.SetHeights(startX, startZ, endHeights);
     }
 
     private void CalculateTerrainAlterationLocationValues(Vector3 terrainPos, Vector3 worldPos)
     {
+        TerrainData data = terrain.terrainData;
+
         // Convert world position into Terrain local position
         Vector3 tempCoord = worldPos - terrainPos;
         Vector3 coord;
@@ -105,8 +109,8 @@ public class TerrainSculptor : MonoBehaviour
     private void CalculateHeightMatrixValues(float amount)
     {
         // Fetch the 2D array representing current heights
-        startHeights = data.GetHeights(startX, startZ, width, height);
-        alteredHeights = (float[,]) startHeights.Clone();
+        startHeights = terrain.terrainData.GetHeights(startX, startZ, width, height);
+        endHeights = (float[,]) startHeights.Clone();
 
         Vector2 center = new Vector2(width / 2.0f, height / 2.0f);
 
@@ -117,7 +121,7 @@ public class TerrainSculptor : MonoBehaviour
             {
                 float distX = x + 0.5f - center.x;
                 float distZ = z + 0.5f - center.y;
-                alteredHeights[z, x] += amount * Mathf.Exp(-( (distX * distX + distZ * distZ) / (2.0f * sigma * sigma)));
+                endHeights[z, x] += amount * Mathf.Exp(-( (distX * distX + distZ * distZ) / (2.0f * sigma * sigma)));
             }
         }
     }

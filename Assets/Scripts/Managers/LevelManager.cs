@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LevelManager : Singleton<LevelManager>
 {
@@ -7,6 +8,7 @@ public class LevelManager : Singleton<LevelManager>
 
     [SerializeField]
     private Terrain currentTerrain;
+
     private int currLevel;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -36,9 +38,6 @@ public class LevelManager : Singleton<LevelManager>
 
     void OnDisable()
     {
-        foreach (LevelState levelState in levels)
-        {
-            levelState.OnExit(this);
-        }
+        levels[currLevel].OnExit(this);
     }
 }
