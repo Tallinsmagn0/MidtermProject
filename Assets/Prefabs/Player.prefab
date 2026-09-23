@@ -80,6 +80,7 @@ GameObject:
   - component: {fileID: 3669886675937550098}
   - component: {fileID: 2509761962227278715}
   - component: {fileID: 6388822225031028285}
+  - component: {fileID: 9125412520629995288}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -318,7 +319,7 @@ MonoBehaviour:
   OnClickAt:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 9125412520629995288}
         m_TargetAssemblyTypeName: TerrainSculptor, Assembly-CSharp
         m_MethodName: RaiseTerrainAtPoint
         m_Mode: 0
@@ -343,6 +344,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RigidbodyDamping
   horizontalDamping: 3
+--- !u!114 &9125412520629995288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6239227789598618049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 487e8a342140348718751783c7a3ffe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TerrainSculptor
+  terrain: {fileID: 0}
+  brushSize: 5
+  sculptAmount: 0.003
+  sigma: 2
+  alterDuration: 1
 --- !u!1 &6598526267546357224
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,7 +565,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fa0208064f62c47398ca5a24907f1158, type: 2}
+  - {fileID: 2100000, guid: 220982a7afc1245d4bdc3ed0bdb60ee7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
