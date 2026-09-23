@@ -1,0 +1,23 @@
+using UnityEngine;
+
+public class GameManager : Singleton<GameManager>
+{
+    IGameState currState;
+
+    void Start()
+    {
+        currState = new PlayState();
+    }
+
+    void Update()
+    {
+        currState.Run(this);
+    }
+
+    public void Transition(IGameState newState)
+    {
+        currState?.OnExit(this);
+        newState.OnEnter(this);
+        currState = newState;
+    }
+}

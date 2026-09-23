@@ -1,27 +1,38 @@
+using System;
 using UnityEngine;
 
 public class TerrainSculptor : MonoBehaviour
 {
-    [SerializeField] private Terrain terrain;
     [SerializeField] private int brushSize;
-    [SerializeField] private float maxAmount;
+    [SerializeField] private float sculptAmount;
     [SerializeField] private float sigma;
 
-    private Terrain savedTerrain;
-
-    public void SetTerrain(Terrain newTerrain)
-    {
-        savedTerrain = newTerrain;
-        ResetTerrain();
-    }
-
-    public void ResetTerrain()
-    {
-        terrain = savedTerrain;
-    }
-
     public void RaiseTerrainAtPoint(Vector3 worldPos)
-    {   
+    {
+        AlterTerrainAtPoint(worldPos, sculptAmount);
+    }
+
+    public void LowerTerrainAtPoint(Vector3 worldPos)
+    {
+        AlterTerrainAtPoint(worldPos, -sculptAmount);
+    }
+
+    public void AlterTerrainAtPoint(Vector3 worldPos, float amount)
+    {
+        Terrain terrain = LevelManager.Instance.GetCurrentTerrain();
+
+        if (terrain != null)
+        {
+            CalculateTerrainAlterationAt(terrain, worldPos, amount);
+            ResetTerrainCollider();
+        } else
+        {
+            throw new NullReferenceException("Terrain from level manager was null");
+        }
+    }
+
+    private void CalculateTerrainAlterationAt(Terrain terrain, Vector3 worldPos, float amount)
+    {
         TerrainData data = terrain.terrainData;
 
         // Convert world position into Terrain local position
@@ -53,11 +64,22 @@ public class TerrainSculptor : MonoBehaviour
             {
                 float distX = x - center.x;
                 float distZ = z - center.y;
-                heights[z, x] += maxAmount * Mathf.Exp(-( (distX * distX + distZ * distZ) / (2.0f * sigma * sigma))); // 1.0 represents max terrain height
+                heights[z, x] += amount * Mathf.Exp(-( (distX * distX + distZ * distZ) / (2.0f * sigma * sigma)));
             }
         }
 
         // Apply back to the terrain
         data.SetHeights(startX, startZ, heights);
+    }
+
+    private void ResetTerrainCollider()
+    {
+        Terrain terrain = LevelManager.Instance.GetCurrentTerrain();
+        TerrainCollider terrainCollider = terrain.GetComponent<TerrainCollider>();
+
+        if (terrainCollider != null)
+        {
+            terrainCollider.terrainData = terrain.terrainData;
+        }
     }
 }
