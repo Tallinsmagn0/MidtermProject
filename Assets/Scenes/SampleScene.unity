@@ -532,6 +532,7 @@ MonoBehaviour:
   brushSize: 5
   sculptAmount: 0.003
   sigma: 2
+  alterDuration: 1
 --- !u!1 &1709906731
 GameObject:
   m_ObjectHideFlags: 0
