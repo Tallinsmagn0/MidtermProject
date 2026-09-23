@@ -3,21 +3,19 @@ using System;
 
 public class TerrainController : MonoBehaviour
 {
+    [SerializeField] private Terrain terrain;
     [SerializeField] private TerrainData savedTerrainData;
-
-    [SerializeField] private Vector3 terrainPosition;
 
     [SerializeField] [Range(0f, 1f)] 
     private float heightmapResolutionScalingFactor = 0.513f;
 
     
-    public void LoadTerrain(Terrain currentTerrain)
+    public void LoadTerrain()
     {
-        if (currentTerrain != null)
+        if (terrain != null)
         {
-            ResetTerrainData(currentTerrain);
-            ResetTerrainPosition(currentTerrain);
-            ScaleTerrain(currentTerrain);
+            ResetTerrainData();
+            ScaleTerrain();
         }
         else
         {
@@ -25,11 +23,11 @@ public class TerrainController : MonoBehaviour
         }
     }
 
-    public void UnloadTerrain(Terrain currentTerrain)
+    public void UnloadTerrain()
     {
-        if (currentTerrain != null)
+        if (terrain != null)
         {
-            ResetTerrainData(currentTerrain);
+            ResetTerrainData();
         }
         else
         {
@@ -37,14 +35,14 @@ public class TerrainController : MonoBehaviour
         }
     }
 
-    private void ResetTerrainData(Terrain currentTerrain)
+    private void ResetTerrainData()
     {
         if (savedTerrainData != null)
         {
             TerrainData terrainData = Instantiate(savedTerrainData);
 
-            currentTerrain.terrainData = terrainData;
-            TerrainCollider terrainCollider = currentTerrain.gameObject.GetComponent<TerrainCollider>();
+            terrain.terrainData = terrainData;
+            TerrainCollider terrainCollider = terrain.gameObject.GetComponent<TerrainCollider>();
             
             if (terrainCollider != null)
             {
@@ -62,17 +60,17 @@ public class TerrainController : MonoBehaviour
         }
     }
 
-    private void ResetTerrainPosition(Terrain currentTerrain)
+    private void ScaleTerrain()
     {
-        currentTerrain.transform.position = terrainPosition;
-    }
-
-    private void ScaleTerrain(Terrain currentTerrain)
-    {
-        TerrainData data = currentTerrain.terrainData;
+        TerrainData data = terrain.terrainData;
         Vector3 dataSize = data.size;
         
         data.heightmapResolution = (int) (Mathf.Sqrt(dataSize.x * dataSize.z) * heightmapResolutionScalingFactor);
         data.size = new Vector3(dataSize.x, dataSize.y, dataSize.z);
+    }
+
+    public Terrain GetTerrain()
+    {
+        return terrain;
     }
 }

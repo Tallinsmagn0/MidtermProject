@@ -327,6 +327,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 759983953}
+  - {fileID: 1896286552}
   m_Father: {fileID: 706986245}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &706986244
@@ -420,7 +421,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelManager
   levels:
   - {fileID: 1709906733}
-  currentTerrain: {fileID: 1896286554}
+  OnLevelChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1068370446}
+        m_TargetAssemblyTypeName: TerrainSculptor, Assembly-CSharp
+        m_MethodName: ResetCurrentTerrain
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &759983947
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,6 +1549,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 174391255}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1068370446 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9125412520629995288, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+  m_PrefabInstance: {fileID: 1749976862}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 487e8a342140348718751783c7a3ffe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TerrainSculptor
 --- !u!1 &1178425336
 GameObject:
   m_ObjectHideFlags: 0
@@ -1723,7 +1749,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 706986245}
-  - {fileID: 1896286552}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1709906731
@@ -1783,8 +1808,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8e853c833cb148d692d2098f0977043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TerrainController
+  terrain: {fileID: 1896286554}
   savedTerrainData: {fileID: 15600000, guid: 7402a34ab3c334c6fbe56d40b5730892, type: 2}
-  terrainPosition: {x: -20, y: 9.5, z: -25}
   heightmapResolutionScalingFactor: 0.513
 --- !u!1001 &1749976862
 PrefabInstance:
@@ -1796,15 +1821,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 855195355245334166, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.53
+      value: -27.47
       objectReference: {fileID: 0}
     - target: {fileID: 855195355245334166, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 37.48
+      value: 15.87
       objectReference: {fileID: 0}
     - target: {fileID: 855195355245334166, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 23.83
+      value: -23.64
       objectReference: {fileID: 0}
     - target: {fileID: 855195355245334166, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1873,12 +1898,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1896286551}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -20, y: 9.5, z: -25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1632818353}
+  m_Father: {fileID: 174391255}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!154 &1896286553
 TerrainCollider:

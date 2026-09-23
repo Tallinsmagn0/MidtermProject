@@ -3,11 +3,8 @@ using UnityEngine.Events;
 
 public class LevelManager : Singleton<LevelManager>
 {
-    [SerializeField]
-    private LevelState[] levels;
-
-    [SerializeField]
-    private Terrain currentTerrain;
+    [SerializeField] private LevelState[] levels;
+    [SerializeField] private UnityEvent OnLevelChange;
 
     private int currLevel;
 
@@ -15,7 +12,8 @@ public class LevelManager : Singleton<LevelManager>
     void Start()
     {
         currLevel = 0;
-        levels[currLevel]?.OnEnter(this);
+        levels[currLevel]?.OnEnter();
+        OnLevelChange?.Invoke();
     }
 
     // Update is called once per frame
@@ -26,18 +24,14 @@ public class LevelManager : Singleton<LevelManager>
 
     public void IncrementLevel()
     {
-        levels[currLevel]?.OnExit(this);
+        levels[currLevel]?.OnExit();
         currLevel++;
-        levels[currLevel]?.OnEnter(this);
+        levels[currLevel]?.OnEnter();
+        OnLevelChange?.Invoke();
     }
 
     public Terrain GetCurrentTerrain()
     {
-        return currentTerrain;
-    }
-
-    void OnDisable()
-    {
-        levels[currLevel].OnExit(this);
+        return levels[currLevel]?.GetLevelTerrain();
     }
 }

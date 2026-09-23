@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class TerrainSculptor : MonoBehaviour
 {
-    [SerializeField] private Terrain terrain;
     [SerializeField] private int brushSize;
     [SerializeField] private float sculptAmount;
     [SerializeField] private float sigma;
     [SerializeField] private float alterDuration;
 
+    private Terrain currentTerrain;
     bool isAltering = false;
     float alterTime;
 
@@ -19,19 +19,19 @@ public class TerrainSculptor : MonoBehaviour
 
     void Update()
     {
-        if (isAltering && terrain != null)
+        if (isAltering)
         {
             if (alterTime < alterDuration)
             {
                 SetTerrainDataHeightmap();
                 ResetTerrainCollider();
+
                 alterTime += Time.deltaTime;
             } 
             else
             {
                 SetEndDataHeightmap();
-                isAltering = false;
-                alterTime = 0;
+                ResetAlterTimer(false);
             }
         }
     }
@@ -48,12 +48,13 @@ public class TerrainSculptor : MonoBehaviour
 
     private void AlterTerrainAtPoint(Vector3 worldPos, float amount)
     {
-        if (terrain != null)
+
+        if (currentTerrain != null)
         {
             if (!isAltering)
             {
-                isAltering = true;
-                CalculateTerrainAlterationLocationValues(terrain.transform.position, worldPos);
+                ResetAlterTimer(true);
+                CalculateTerrainAlterationLocationValues(worldPos);
                 CalculateHeightMatrixValues(amount);
             }
         }
@@ -74,20 +75,20 @@ public class TerrainSculptor : MonoBehaviour
                 heights[z, x] = Mathf.Lerp(startHeights[z, x], endHeights[z, x], alterTime / alterDuration);
             }
         }
-        terrain.terrainData.SetHeights(startX, startZ, heights);
+        currentTerrain.terrainData.SetHeights(startX, startZ, heights);
     }
 
     private void SetEndDataHeightmap()
     {
-        terrain.terrainData.SetHeights(startX, startZ, endHeights);
+        currentTerrain.terrainData.SetHeights(startX, startZ, endHeights);
     }
 
-    private void CalculateTerrainAlterationLocationValues(Vector3 terrainPos, Vector3 worldPos)
+    private void CalculateTerrainAlterationLocationValues(Vector3 worldPos)
     {
-        TerrainData data = terrain.terrainData;
+        TerrainData data = currentTerrain.terrainData;
 
         // Convert world position into Terrain local position
-        Vector3 tempCoord = worldPos - terrainPos;
+        Vector3 tempCoord = worldPos - currentTerrain.transform.position;
         Vector3 coord;
         coord.x = tempCoord.x / data.size.x;
         coord.z = tempCoord.z / data.size.z;
@@ -109,7 +110,7 @@ public class TerrainSculptor : MonoBehaviour
     private void CalculateHeightMatrixValues(float amount)
     {
         // Fetch the 2D array representing current heights
-        startHeights = terrain.terrainData.GetHeights(startX, startZ, width, height);
+        startHeights = currentTerrain.terrainData.GetHeights(startX, startZ, width, height);
         endHeights = (float[,]) startHeights.Clone();
 
         Vector2 center = new Vector2(width / 2.0f, height / 2.0f);
@@ -128,12 +129,23 @@ public class TerrainSculptor : MonoBehaviour
 
     private void ResetTerrainCollider()
     {
-        Terrain terrain = LevelManager.Instance.GetCurrentTerrain();
-        TerrainCollider terrainCollider = terrain.GetComponent<TerrainCollider>();
+        TerrainCollider terrainCollider = currentTerrain.GetComponent<TerrainCollider>();
 
         if (terrainCollider != null)
         {
-            terrainCollider.terrainData = terrain.terrainData;
+            terrainCollider.terrainData = currentTerrain.terrainData;
         }
+    }
+
+    public void ResetCurrentTerrain()
+    {
+        this.currentTerrain = LevelManager.Instance.GetCurrentTerrain();
+        ResetAlterTimer(false);
+    }
+
+    private void ResetAlterTimer(bool isAltering)
+    {
+        this.isAltering = isAltering;
+        alterTime = 0;
     }
 }

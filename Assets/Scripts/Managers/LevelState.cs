@@ -15,19 +15,18 @@ public class LevelState : MonoBehaviour
         
     }
 
-    public void OnEnter(LevelManager lm)
+    public void OnEnter()
     {
-        if (lm != null)
-        {
-            tc.LoadTerrain(lm.GetCurrentTerrain());
-        }
+        tc.LoadTerrain();
     }
 
-    public void OnExit(LevelManager lm)
+    public void OnExit()
     {
-        if (lm != null)
-        {
-            tc.UnloadTerrain(lm.GetCurrentTerrain());
-        }
+        tc.UnloadTerrain();
+    }
+
+    public Terrain GetLevelTerrain()
+    {
+        return tc.GetTerrain();
     }
 }
