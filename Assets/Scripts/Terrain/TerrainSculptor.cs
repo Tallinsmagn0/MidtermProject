@@ -49,6 +49,7 @@ public class TerrainSculptor : MonoBehaviour
         int offset = brushSize / 2;
         int startX = Mathf.Clamp(xMap - offset, 0, data.heightmapResolution - 1);
         int startZ = Mathf.Clamp(zMap - offset, 0, data.heightmapResolution - 1);
+
         int width = Mathf.Min(brushSize, data.heightmapResolution - startX);
         int height = Mathf.Min(brushSize, data.heightmapResolution - startZ);
 
@@ -62,8 +63,8 @@ public class TerrainSculptor : MonoBehaviour
         {
             for (int z = 0; z < height; z++)
             {
-                float distX = x - center.x;
-                float distZ = z - center.y;
+                float distX = x + 0.5f - center.x;
+                float distZ = z + 0.5f - center.y;
                 heights[z, x] += amount * Mathf.Exp(-( (distX * distX + distZ * distZ) / (2.0f * sigma * sigma)));
             }
         }

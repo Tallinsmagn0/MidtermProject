@@ -1,43 +1,76 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class LevelState : MonoBehaviour
 {
     [SerializeField]
-    TerrainData savedTerrainData;
+    private TerrainData savedTerrainData;
 
     [SerializeField]
-    Terrain currentTerrain;
+    private Vector3 terrainPosition;
+
+    [SerializeField] [Range(0f, 1f)]
+    private float heightmapResolutionScalingFactor;
 
     public void Run()
     {
         
     }
 
-    public void OnEnter()
+    public void OnEnter(LevelManager lm)
     {
-        LoadTerrain();
+        LoadTerrain(lm.GetCurrentTerrain());
     }
 
-    public void OnExit()
+    public void OnExit(LevelManager lm)
     {
-        LoadTerrain();
+        UnloadTerrain(lm.GetCurrentTerrain());
     }
 
-    public void LoadTerrain()
+    public void LoadTerrain(Terrain currentTerrain)
+    {
+        if (currentTerrain != null)
+        {
+            ResetTerrainData(currentTerrain);
+            ResetTerrainPosition(currentTerrain);
+            ScaleTerrainHeightmapResolution(currentTerrain);
+        }
+        else
+        {
+            throw new NullReferenceException("Tried to access null current terrain while loading");
+        }
+    }
+
+    public void UnloadTerrain(Terrain currentTerrain)
+    {
+        if (currentTerrain != null)
+        {
+            ResetTerrainData(currentTerrain);
+        }
+        else
+        {
+            throw new NullReferenceException("Tried to access null current terrain while unloading");
+        }
+    }
+
+    public void ResetTerrainData(Terrain currentTerrain)
     {
         if (savedTerrainData != null)
         {
             TerrainData terrainData = Instantiate(savedTerrainData);
+
             currentTerrain.terrainData = terrainData;
-
             TerrainCollider terrainCollider = currentTerrain.gameObject.GetComponent<TerrainCollider>();
-
+            
             if (terrainCollider != null)
             {
                 terrainCollider.terrainData = savedTerrainData;
+            } 
+            else
+            {
+                throw new NullReferenceException("Current terrain collider was null");
             }
+        
         }
         else
         {
@@ -45,8 +78,17 @@ public class LevelState : MonoBehaviour
         }
     }
 
-    public Terrain GetCurrentTerrain()
+    public void ResetTerrainPosition(Terrain currentTerrain)
     {
-        return currentTerrain;
+        currentTerrain.transform.position = terrainPosition;
+    }
+
+    public void ScaleTerrainHeightmapResolution(Terrain currentTerrain)
+    {
+        TerrainData data = currentTerrain.terrainData;
+        Vector3 dataSize = data.size;
+        
+        data.heightmapResolution = (int) (Mathf.Sqrt(dataSize.x * dataSize.z) * heightmapResolutionScalingFactor);
+        data.size = new Vector3(dataSize.x, dataSize.y, dataSize.z);
     }
 }

@@ -5,13 +5,15 @@ public class LevelManager : Singleton<LevelManager>
     [SerializeField]
     private LevelState[] levels;
 
+    [SerializeField]
+    private Terrain currentTerrain;
     private int currLevel;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         currLevel = 0;
-        levels[currLevel]?.OnEnter();
+        levels[currLevel]?.OnEnter(this);
     }
 
     // Update is called once per frame
@@ -22,21 +24,21 @@ public class LevelManager : Singleton<LevelManager>
 
     public void IncrementLevel()
     {
-        levels[currLevel]?.OnExit();
+        levels[currLevel]?.OnExit(this);
         currLevel++;
-        levels[currLevel]?.OnEnter();
+        levels[currLevel]?.OnEnter(this);
     }
 
     public Terrain GetCurrentTerrain()
     {
-        return levels[currLevel]?.GetCurrentTerrain();
+        return currentTerrain;
     }
 
     void OnDisable()
     {
         foreach (LevelState levelState in levels)
         {
-            levelState.OnExit();
+            levelState.OnExit(this);
         }
     }
 }
