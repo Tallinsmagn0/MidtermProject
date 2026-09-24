@@ -2178,15 +2178,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 855195355245334166, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -27
+      value: 43.83
       objectReference: {fileID: 0}
     - target: {fileID: 855195355245334166, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.31
+      value: 21.45
       objectReference: {fileID: 0}
     - target: {fileID: 855195355245334166, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -23.56
+      value: 0.38
       objectReference: {fileID: 0}
     - target: {fileID: 855195355245334166, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2239,7 +2239,7 @@ PrefabInstance:
     - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: inputAxes.Array.data[4].axisAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1804671749}
+      objectReference: {fileID: 1749976873}
     - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: inputAxes.Array.data[4].axisAction.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -2250,7 +2250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: inputAxes.Array.data[4].axisAction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: TerrainSculptBrushBehavior, Assembly-CSharp
+      value: BrushSizeScrollBehavior, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: inputAxes.Array.data[4].axisAction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -2283,13 +2283,34 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 855195355245334166, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1804671748}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6239227789598618049, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1749976873}
   m_SourcePrefab: {fileID: 100100000, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+--- !u!1 &1749976863 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6239227789598618049, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+  m_PrefabInstance: {fileID: 1749976862}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1749976872 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 855195355245334166, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
   m_PrefabInstance: {fileID: 1749976862}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1749976873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749976863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19a4a6909e6c24296b213ad3eb2e8b79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TerrainSculptBrushBehavior
+  ts: {fileID: 1804671750}
 --- !u!43 &1759778382
 Mesh:
   m_ObjectHideFlags: 0
@@ -2478,7 +2499,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1804671748}
   - component: {fileID: 1804671750}
-  - component: {fileID: 1804671749}
+  - component: {fileID: 1804671752}
+  - component: {fileID: 1804671751}
   m_Layer: 0
   m_Name: TerrainSculptor
   m_TagString: Untagged
@@ -2501,19 +2523,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1749976872}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1804671749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1804671747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19a4a6909e6c24296b213ad3eb2e8b79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TerrainSculptBrushBehavior
-  ts: {fileID: 1804671750}
 --- !u!114 &1804671750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2526,6 +2535,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 487e8a342140348718751783c7a3ffe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TerrainSculptor
+  brushBehavior: {fileID: 1804671752}
+  dataBehavior: {fileID: 1804671751}
+  alterDuration: 1
+--- !u!114 &1804671751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804671747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6617732314c7d4bfda7491f9b4df0763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TerrainDataAlterBehavior
+  sculptAmount: 0.003
+  sigma: 3
+--- !u!114 &1804671752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804671747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c664ce94db1e454f81e1d8f4598ccd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TerrainSculptBrushBehavior
   maxBrushSize: 15
   minBrushSize: 3
   OnBrushSizeChange:
@@ -2543,9 +2581,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  sculptAmount: 0.003
-  sigma: 2
-  alterDuration: 1
 --- !u!1 &1935191585
 GameObject:
   m_ObjectHideFlags: 0

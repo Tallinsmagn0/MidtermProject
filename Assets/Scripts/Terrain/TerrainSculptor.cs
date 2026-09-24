@@ -1,32 +1,17 @@
 using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class TerrainSculptor : MonoBehaviour
 {
     // Terrain references
     private Terrain currentTerrain;
-
-    // Brush variables and references
-    [SerializeField] private int maxBrushSize;
-    [SerializeField] private int minBrushSize;
-    [SerializeField] private UnityEvent<int> OnBrushSizeChange;
-    private int brushSize = 5;
-
-    // Sculpt variables
-    [SerializeField] private float sculptAmount;
-    [SerializeField] private float sigma;
+    [SerializeField] private TerrainSculptBrushBehavior brushBehavior;
+    [SerializeField] private TerrainDataAlterBehavior dataBehavior;
 
     // Altering variables and references
     [SerializeField] private float alterDuration;
     bool isAltering = false;
     float alterTime;
-
-    // Heightmap matrix references
-    int startX, startZ;
-    int width, height;
-
-    float[,] startHeights, endHeights;
 
     void Update()
     {
@@ -34,39 +19,33 @@ public class TerrainSculptor : MonoBehaviour
         {
             if (alterTime < alterDuration)
             {
-                SetTerrainDataHeightmap();
-                ResetTerrainCollider();
-
-                alterTime += Time.deltaTime;
+                UpdateTerrainAlter();
             } 
             else
             {
-                SetEndDataHeightmap();
-                ResetAlterTimer(false);
+                FinishTerrainAlter();
             }
         }
     }
 
     public void RaiseTerrainAtPoint(Vector3 worldPos)
     {
-        AlterTerrainAtPoint(worldPos, sculptAmount);
+        AlterTerrainAtPoint(worldPos, true);
     }
 
     public void LowerTerrainAtPoint(Vector3 worldPos)
     {
-        AlterTerrainAtPoint(worldPos, -sculptAmount);
+        AlterTerrainAtPoint(worldPos, false);
     }
 
-    private void AlterTerrainAtPoint(Vector3 worldPos, float amount)
+    private void AlterTerrainAtPoint(Vector3 worldPos, bool isRaising)
     {
 
         if (currentTerrain != null)
         {
             if (!isAltering)
             {
-                ResetAlterTimer(true);
-                CalculateTerrainAlterationLocationValues(worldPos);
-                CalculateHeightMatrixValues(amount);
+                StartTerrainAlter(worldPos, isRaising);
             }
         }
         else
@@ -75,67 +54,29 @@ public class TerrainSculptor : MonoBehaviour
         }
     }
 
-    private void SetTerrainDataHeightmap()
+    private void StartTerrainAlter(Vector3 worldPos, bool isRaising)
     {
-        float[,] heights = new float[height, width];
-
-        for (int x = 0; x < width; x++)
-        {
-            for (int z = 0; z < height; z++)
-            {
-                heights[z, x] = Mathf.Lerp(startHeights[z, x], endHeights[z, x], alterTime / alterDuration);
-            }
-        }
-        currentTerrain.terrainData.SetHeights(startX, startZ, heights);
+        dataBehavior.CalculateTerrainAlteration(worldPos, currentTerrain.transform.position, brushBehavior.GetBrushSize(), isRaising);
+        ResetAlterTimer(true);
     }
 
-    private void SetEndDataHeightmap()
+    private void UpdateTerrainAlter()
     {
-        currentTerrain.terrainData.SetHeights(startX, startZ, endHeights);
+        dataBehavior.LerpTerrainData(alterTime / alterDuration);
+        ResetTerrainCollider();
+        alterTime += Time.deltaTime;
     }
 
-    private void CalculateTerrainAlterationLocationValues(Vector3 worldPos)
+    private void FinishTerrainAlter()
     {
-        TerrainData data = currentTerrain.terrainData;
-
-        // Convert world position into Terrain local position
-        Vector3 tempCoord = worldPos - currentTerrain.transform.position;
-        Vector3 coord;
-        coord.x = tempCoord.x / data.size.x;
-        coord.z = tempCoord.z / data.size.z;
-
-        // Convert local fractional positions to heightmap matrix coordinates
-        int xMap = (int)(coord.x * data.heightmapResolution);
-        int zMap = (int)(coord.z * data.heightmapResolution);
-
-        // Define the modification area bounds
-        int offset = brushSize / 2;
-
-        startX = Mathf.Clamp(xMap - offset, 0, data.heightmapResolution - 1);
-        startZ = Mathf.Clamp(zMap - offset, 0, data.heightmapResolution - 1);
-
-        width = Mathf.Min(brushSize, data.heightmapResolution - startX);
-        height = Mathf.Min(brushSize, data.heightmapResolution - startZ);
+        dataBehavior.FinalizeTerrainData();
+        ResetAlterTimer(false);
     }
 
-    private void CalculateHeightMatrixValues(float amount)
+    private void ResetAlterTimer(bool isAltering)
     {
-        // Fetch the 2D array representing current heights
-        startHeights = currentTerrain.terrainData.GetHeights(startX, startZ, width, height);
-        endHeights = (float[,]) startHeights.Clone();
-
-        Vector2 center = new Vector2(width / 2.0f, height / 2.0f);
-
-        // Modify the heights inside the matrix
-        for (int x = 0; x < width; x++)
-        {
-            for (int z = 0; z < height; z++)
-            {
-                float distX = x + 0.5f - center.x;
-                float distZ = z + 0.5f - center.y;
-                endHeights[z, x] += amount * Mathf.Exp(-( (distX * distX + distZ * distZ) / (2.0f * sigma * sigma)));
-            }
-        }
+        this.isAltering = isAltering;
+        alterTime = 0;
     }
 
     private void ResetTerrainCollider()
@@ -150,14 +91,13 @@ public class TerrainSculptor : MonoBehaviour
 
     public void ResetCurrentTerrain()
     {
-        this.currentTerrain = LevelManager.Instance.GetCurrentTerrain();
-        ResetAlterTimer(false);
-    }
+        currentTerrain = LevelManager.Instance.GetCurrentTerrain();
 
-    private void ResetAlterTimer(bool isAltering)
-    {
-        this.isAltering = isAltering;
-        alterTime = 0;
+        if (currentTerrain != null)
+        {
+            dataBehavior.SetTerrainData(currentTerrain.terrainData);
+        }
+        ResetAlterTimer(false);
     }
 
     public bool IsAlteringTerrain()
@@ -167,12 +107,11 @@ public class TerrainSculptor : MonoBehaviour
 
     public int GetBrushSize()
     {
-        return brushSize;
+        return brushBehavior.GetBrushSize();
     }
 
     public void SetBrushSize(int newSize)
     {
-        brushSize = Mathf.Clamp(newSize, minBrushSize, maxBrushSize);
-        OnBrushSizeChange?.Invoke(brushSize);
+        brushBehavior.SetBrushSize(newSize);
     }
 }
