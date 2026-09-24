@@ -7,6 +7,7 @@ public class TerrainDataAlterBehavior : MonoBehaviour
     // Sculpt variables
     [SerializeField] private float sculptAmount;
     [SerializeField] private float sigma;
+    [SerializeField] private float alterDuration;
 
     // Heightmap matrix references
     int startX, startZ;
@@ -70,19 +71,29 @@ public class TerrainDataAlterBehavior : MonoBehaviour
         {
             for (int z = 0; z < height; z++)
             {
-                heights[z, x] = Mathf.Lerp(startHeights[z, x], endHeights[z, x], t);
+                heights[z, x] = Mathf.Lerp(startHeights[z, x], endHeights[z, x], t / alterDuration);
             }
         }
-        terrainData.SetHeights(startX, startZ, heights);
+        SetDataHeightmap(heights);
     }
 
     public void FinalizeTerrainData()
     {
-        terrainData.SetHeights(startX, startZ, endHeights);
+        SetDataHeightmap(endHeights);
+    }
+
+    private void SetDataHeightmap(float[,] heights)
+    {
+        terrainData.SetHeights(startX, startZ, heights);
     }
 
     public void SetTerrainData(TerrainData terrainData)
     {
         this.terrainData = terrainData;
+    }
+
+    public float GetAlterDuration()
+    {
+        return alterDuration;
     }
 }

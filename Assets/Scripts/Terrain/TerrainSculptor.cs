@@ -6,10 +6,9 @@ public class TerrainSculptor : MonoBehaviour
     // Terrain references
     private Terrain currentTerrain;
     [SerializeField] private TerrainSculptBrushBehavior brushBehavior;
-    [SerializeField] private TerrainDataAlterBehavior dataBehavior;
+    [SerializeField] private TerrainDataAlterBehavior dataAlterBehavior;
 
-    // Altering variables and references
-    [SerializeField] private float alterDuration;
+    // Alter variables
     bool isAltering = false;
     float alterTime;
 
@@ -17,7 +16,7 @@ public class TerrainSculptor : MonoBehaviour
     {
         if (isAltering)
         {
-            if (alterTime < alterDuration)
+            if (alterTime < dataAlterBehavior.GetAlterDuration())
             {
                 UpdateTerrainAlter();
             } 
@@ -56,20 +55,20 @@ public class TerrainSculptor : MonoBehaviour
 
     private void StartTerrainAlter(Vector3 worldPos, bool isRaising)
     {
-        dataBehavior.CalculateTerrainAlteration(worldPos, currentTerrain.transform.position, brushBehavior.GetBrushSize(), isRaising);
+        dataAlterBehavior.CalculateTerrainAlteration(worldPos, currentTerrain.transform.position, brushBehavior.GetBrushSize(), isRaising);
         ResetAlterTimer(true);
     }
 
     private void UpdateTerrainAlter()
     {
-        dataBehavior.LerpTerrainData(alterTime / alterDuration);
+        dataAlterBehavior.LerpTerrainData(alterTime);
         ResetTerrainCollider();
         alterTime += Time.deltaTime;
     }
 
     private void FinishTerrainAlter()
     {
-        dataBehavior.FinalizeTerrainData();
+        dataAlterBehavior.FinalizeTerrainData();
         ResetAlterTimer(false);
     }
 
@@ -95,7 +94,7 @@ public class TerrainSculptor : MonoBehaviour
 
         if (currentTerrain != null)
         {
-            dataBehavior.SetTerrainData(currentTerrain.terrainData);
+            dataAlterBehavior.SetTerrainData(currentTerrain.terrainData);
         }
         ResetAlterTimer(false);
     }

@@ -2536,8 +2536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TerrainSculptor
   brushBehavior: {fileID: 1804671752}
-  dataBehavior: {fileID: 1804671751}
-  alterDuration: 1
+  dataAlterBehavior: {fileID: 1804671751}
 --- !u!114 &1804671751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2552,6 +2551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TerrainDataAlterBehavior
   sculptAmount: 0.003
   sigma: 3
+  alterDuration: 1
 --- !u!114 &1804671752
 MonoBehaviour:
   m_ObjectHideFlags: 0
