@@ -90,6 +90,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  colliderTag: Terrain
 --- !u!1 &4913671816500581938
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,7 +175,7 @@ GameObject:
   - component: {fileID: 9125412520629995288}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -437,7 +438,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 487e8a342140348718751783c7a3ffe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TerrainSculptor
-  terrain: {fileID: 0}
   brushSize: 5
   sculptAmount: 0.003
   sigma: 2
@@ -638,6 +638,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  colliderTag: Terrain
 --- !u!1 &8903131693690811863
 GameObject:
   m_ObjectHideFlags: 0
