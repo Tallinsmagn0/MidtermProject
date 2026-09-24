@@ -3,12 +3,14 @@ using UnityEngine;
 
 public class TerrainSculptor : MonoBehaviour
 {
-    [SerializeField] private int brushSize;
+    [SerializeField] private int maxBrushSize;
+    [SerializeField] private int minBrushSize;
     [SerializeField] private float sculptAmount;
     [SerializeField] private float sigma;
     [SerializeField] private float alterDuration;
 
     private Terrain currentTerrain;
+    private int brushSize = 5;
     bool isAltering = false;
     float alterTime;
 
@@ -147,5 +149,20 @@ public class TerrainSculptor : MonoBehaviour
     {
         this.isAltering = isAltering;
         alterTime = 0;
+    }
+
+    public bool IsAlteringTerrain()
+    {
+        return isAltering;
+    }
+
+    public int GetBrushSize()
+    {
+        return brushSize;
+    }
+
+    public void SetBrushSize(int newSize)
+    {
+        brushSize = Mathf.Clamp(newSize, minBrushSize, maxBrushSize);
     }
 }
