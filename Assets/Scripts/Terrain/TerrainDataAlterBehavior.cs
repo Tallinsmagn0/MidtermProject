@@ -6,7 +6,7 @@ public class TerrainDataAlterBehavior : MonoBehaviour
 
     // Sculpt variables
     [SerializeField] private float sculptAmount;
-    [SerializeField] private float sigma;
+    [SerializeField] [Range(0f, 1f)] private float sculptDeviation;
     [SerializeField] private float alterDuration;
 
     // Heightmap matrix references
@@ -17,7 +17,7 @@ public class TerrainDataAlterBehavior : MonoBehaviour
     public void CalculateTerrainAlteration(Vector3 worldPos, Vector3 terrainPos, int brushSize, bool isRaising)
     {
         CalculateTerrainAlterationLocationValues(worldPos, terrainPos, brushSize);
-        CalculateHeightMatrixValues(isRaising);
+        CalculateHeightMatrixValues(brushSize, isRaising);
     }
 
     private void CalculateTerrainAlterationLocationValues(Vector3 worldPos, Vector3 terrainPos, int brushSize)
@@ -42,13 +42,14 @@ public class TerrainDataAlterBehavior : MonoBehaviour
         height = Mathf.Min(brushSize, terrainData.heightmapResolution - startZ);
     }
 
-    private void CalculateHeightMatrixValues(bool isRaising)
+    private void CalculateHeightMatrixValues(int brushSize, bool isRaising)
     {
         // Fetch the 2D array representing current heights
         startHeights = terrainData.GetHeights(startX, startZ, width, height);
         endHeights = (float[,]) startHeights.Clone();
 
         Vector2 center = new Vector2(width / 2.0f, height / 2.0f);
+        float sigma = sculptDeviation * brushSize;
         int amountSign = isRaising ? 1 : -1;
 
         // Modify the heights inside the matrix

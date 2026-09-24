@@ -2550,7 +2550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TerrainDataAlterBehavior
   sculptAmount: 0.003
-  sigma: 3
+  sculptDeviation: 0.35
   alterDuration: 1
 --- !u!114 &1804671752
 MonoBehaviour:
@@ -2564,7 +2564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c664ce94db1e454f81e1d8f4598ccd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TerrainSculptBrushBehavior
-  maxBrushSize: 15
+  maxBrushSize: 10
   minBrushSize: 3
   OnBrushSizeChange:
     m_PersistentCalls:
