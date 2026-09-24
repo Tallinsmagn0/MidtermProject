@@ -1,10 +1,11 @@
 using UnityEngine;
 
-public class TerrainBrushScrollBehavior : MonoBehaviour
+public class BrushSizeScrollBehavior : MonoBehaviour
 {
     [SerializeField] private TerrainSculptor ts;
-    private float scrollInput;
+
     private float tempBrushSize;
+    private float scrollInput;
     private bool hasScrolled = false;
 
     // Update is called once per frame
@@ -12,15 +13,21 @@ public class TerrainBrushScrollBehavior : MonoBehaviour
     {
         if (scrollInput != 0)
         {
-            tempBrushSize = ts.GetBrushSize();
+            tempBrushSize = ts.GetBrushSize();;
             tempBrushSize -= scrollInput;
             hasScrolled = true;
         }
         if (hasScrolled && !ts.IsAlteringTerrain())
         {
-            ts.SetBrushSize((int) Mathf.Round(tempBrushSize));
+            UpdateBrushSize();
             hasScrolled = false;
         }
+    }
+
+    private void UpdateBrushSize()
+    {
+        int roundedBrushSize = (int) Mathf.Round(tempBrushSize);
+        ts.SetBrushSize(roundedBrushSize);
     }
 
     public void SetScrollInput(float scrollInput)

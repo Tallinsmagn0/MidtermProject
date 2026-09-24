@@ -1,19 +1,28 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TerrainSculptor : MonoBehaviour
 {
+    // Terrain references
+    private Terrain currentTerrain;
+
+    // Brush variables and references
     [SerializeField] private int maxBrushSize;
     [SerializeField] private int minBrushSize;
+    [SerializeField] private UnityEvent<int> OnBrushSizeChange;
+    private int brushSize = 5;
+
+    // Sculpt variables
     [SerializeField] private float sculptAmount;
     [SerializeField] private float sigma;
-    [SerializeField] private float alterDuration;
 
-    private Terrain currentTerrain;
-    private int brushSize = 5;
+    // Altering variables and references
+    [SerializeField] private float alterDuration;
     bool isAltering = false;
     float alterTime;
 
+    // Heightmap matrix references
     int startX, startZ;
     int width, height;
 
@@ -164,5 +173,6 @@ public class TerrainSculptor : MonoBehaviour
     public void SetBrushSize(int newSize)
     {
         brushSize = Mathf.Clamp(newSize, minBrushSize, maxBrushSize);
+        OnBrushSizeChange?.Invoke(brushSize);
     }
 }

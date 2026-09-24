@@ -1231,6 +1231,7 @@ GameObject:
   - component: {fileID: 751955708}
   - component: {fileID: 751955709}
   - component: {fileID: 751955710}
+  - component: {fileID: 751955711}
   m_Layer: 0
   m_Name: _Managers
   m_TagString: Untagged
@@ -1283,7 +1284,7 @@ MonoBehaviour:
   OnLevelChange:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1068370446}
+      - m_Target: {fileID: 1804671750}
         m_TargetAssemblyTypeName: TerrainSculptor, Assembly-CSharp
         m_MethodName: ResetCurrentTerrain
         m_Mode: 1
@@ -1295,6 +1296,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &751955711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751955707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad8c62b285db74d459195aa22a4c103e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIManager
+  brushSizeText: {fileID: 756941246}
 --- !u!1 &756941240
 GameObject:
   m_ObjectHideFlags: 0
@@ -1583,17 +1597,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1068370446 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9125412520629995288, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-  m_PrefabInstance: {fileID: 1749976862}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1749976863}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 487e8a342140348718751783c7a3ffe0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TerrainSculptor
 --- !u!1 &1178425336
 GameObject:
   m_ObjectHideFlags: 0
@@ -2213,6 +2216,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 986959960860166076, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: OnClickAt.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1804671750}
+    - target: {fileID: 986959960860166076, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: OnClickAt.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LowerTerrainAtPoint
+      objectReference: {fileID: 0}
     - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: inputAxes.Array.size
       value: 5
@@ -2228,7 +2239,7 @@ PrefabInstance:
     - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: inputAxes.Array.data[4].axisAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1749976864}
+      objectReference: {fileID: 1804671749}
     - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: inputAxes.Array.data[4].axisAction.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -2239,11 +2250,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: inputAxes.Array.data[4].axisAction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: TerrainBrushScrollBehavior, Assembly-CSharp
+      value: TerrainSculptBrushBehavior, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: inputAxes.Array.data[4].axisAction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111707878463554172, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: OnClickAt.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1804671750}
+    - target: {fileID: 3111707878463554172, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: OnClickAt.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RaiseTerrainAtPoint
       objectReference: {fileID: 0}
     - target: {fileID: 6239227789598618049, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: m_Name
@@ -2257,32 +2276,20 @@ PrefabInstance:
       propertyPath: minBrushSize
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9125412520629995288, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6239227789598618049, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 855195355245334166, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1749976864}
+      addedObject: {fileID: 1804671748}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
---- !u!1 &1749976863 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6239227789598618049, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+--- !u!4 &1749976872 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 855195355245334166, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
   m_PrefabInstance: {fileID: 1749976862}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1749976864
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1749976863}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19a4a6909e6c24296b213ad3eb2e8b79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TerrainBrushScrollBehavior
-  ts: {fileID: 1068370446}
 --- !u!43 &1759778382
 Mesh:
   m_ObjectHideFlags: 0
@@ -2461,6 +2468,84 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1 &1804671747
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1804671748}
+  - component: {fileID: 1804671750}
+  - component: {fileID: 1804671749}
+  m_Layer: 0
+  m_Name: TerrainSculptor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1804671748
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804671747}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1749976872}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1804671749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804671747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19a4a6909e6c24296b213ad3eb2e8b79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TerrainSculptBrushBehavior
+  ts: {fileID: 1804671750}
+--- !u!114 &1804671750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804671747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 487e8a342140348718751783c7a3ffe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TerrainSculptor
+  maxBrushSize: 15
+  minBrushSize: 3
+  OnBrushSizeChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 751955711}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: SetBrushSizeText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sculptAmount: 0.003
+  sigma: 2
+  alterDuration: 1
 --- !u!1 &1935191585
 GameObject:
   m_ObjectHideFlags: 0
