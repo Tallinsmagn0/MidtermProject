@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public interface ITerrainSculptManager
+public interface ITerrainSculptStrategy
 {
     public void PrecomputeTerrainAlterationAt(Vector3 worldPos, bool isRaising);
     public void PerformTerainAlteration(float time);

@@ -1,13 +1,13 @@
 using System;
 using UnityEngine;
 
-public class SoloTerrainSculptManager : ITerrainSculptManager
+public class SoloTerrainSculptStrategy : ITerrainSculptStrategy
 {
     private Terrain terrain;
     private TerrainSculptBrushBehavior brushBehavior;
     private TerrainDataAlterBehavior dataAlterBehavior;
 
-    public SoloTerrainSculptManager()
+    public SoloTerrainSculptStrategy()
     {
         terrain = LevelManager.Instance.GetCurrentTerrain();
         brushBehavior = UnityEngine.Object.FindFirstObjectByType<TerrainSculptBrushBehavior>();

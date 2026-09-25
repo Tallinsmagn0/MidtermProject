@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TerrainSculptor : MonoBehaviour
 {   
-    private ITerrainSculptManager sculptManager;
+    private ITerrainSculptStrategy sculptStrategy;
 
     // Alter variables
     bool isAltering = false;
@@ -10,19 +10,19 @@ public class TerrainSculptor : MonoBehaviour
 
     void Start()
     {
-        SetupSculptManager();
+        SetupSculptStrategy();
     }
 
-    private void SetupSculptManager()
+    private void SetupSculptStrategy()
     {
-        sculptManager = new SoloTerrainSculptManager();
+        sculptStrategy = GameManager.Instance.GetPlayStyle()?.CreateSculptStrategy();
     }
 
     void Update()
     {
         if (isAltering)
         {
-            if (alterTime < sculptManager.GetAlterDuration())
+            if (alterTime < sculptStrategy.GetAlterDuration())
             {
                 UpdateTerrainAlter();
             } 
@@ -53,19 +53,19 @@ public class TerrainSculptor : MonoBehaviour
 
     private void StartTerrainAlter(Vector3 worldPos, bool isRaising)
     {
-        sculptManager.PrecomputeTerrainAlterationAt(worldPos, isRaising);
+        sculptStrategy.PrecomputeTerrainAlterationAt(worldPos, isRaising);
         ResetAlterTimer(true);
     }
 
     private void UpdateTerrainAlter()
     {
-        sculptManager.PerformTerainAlteration(alterTime);
+        sculptStrategy.PerformTerainAlteration(alterTime);
         alterTime += Time.deltaTime;
     }
 
     private void FinishTerrainAlter()
     {
-        sculptManager.FinishTerainAlteration();
+        sculptStrategy.FinishTerainAlteration();
         ResetAlterTimer(false);
     }
 
@@ -77,11 +77,11 @@ public class TerrainSculptor : MonoBehaviour
 
     public void ResetCurrentTerrain()
     {
-        if (sculptManager == null)
+        if (sculptStrategy == null)
         {
-            SetupSculptManager();
+            SetupSculptStrategy();
         }
-        sculptManager.ResetTerrain();
+        sculptStrategy.ResetTerrain();
         ResetAlterTimer(false);
     }
 
@@ -92,11 +92,11 @@ public class TerrainSculptor : MonoBehaviour
 
     public int GetBrushSize()
     {
-        return sculptManager.GetBrushSize();
+        return sculptStrategy.GetBrushSize();
     }
 
     public void SetBrushSize(int brushSize)
     {
-        sculptManager.SetBrushSize(brushSize);
+        sculptStrategy.SetBrushSize(brushSize);
     }
 }
