@@ -72,10 +72,10 @@ public class TerrainDataAlterBehavior : MonoBehaviour
                 float distX = x + 0.5f - center.x;
                 float distZ = z + 0.5f - center.y;
                 float deltaAmount = amountSign * sculptSize * Mathf.Exp(-( (distX * distX + distZ * distZ) / (2.0f * sigma * sigma)));
-                float endHeight = Mathf.Clamp(endHeights[z, x] + deltaAmount, 0f, 1f);
+                float endHeight = startHeights[z, x] + deltaAmount;
 
-                tempSculptAmount += endHeight - endHeights[z, x];
-                endHeights[z, x] = endHeight;
+                tempSculptAmount += deltaAmount;
+                endHeights[z, x] = Mathf.Clamp(endHeight, 0f, 1f);
             }
         }
         return tempSculptAmount;
@@ -83,7 +83,7 @@ public class TerrainDataAlterBehavior : MonoBehaviour
 
     private bool CanSculptTerrainByAmount(float tempSculptAmount)
     {
-        return tempSculptAmount > 0f && tempSculptAmount < LevelManager.Instance.GetMaxSandAmount() * terrainData.heightmapResolution;
+        return SandManager.Instance.CanSculptMoreTerrain(tempSculptAmount);
     }
 
     private void ResetSculptVariables()
