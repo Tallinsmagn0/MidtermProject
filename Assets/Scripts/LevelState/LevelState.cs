@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class LevelState : MonoBehaviour
 {
-    private TerrainController terrainController;
+    private TerrainLoader terrainLoader;
 
     private void Awake()
     {
-        terrainController = GetComponent<TerrainController>();
+        terrainLoader = GetComponent<TerrainLoader>();
     }
 
     public void Run()
@@ -17,16 +17,16 @@ public class LevelState : MonoBehaviour
 
     public void OnEnter()
     {
-        terrainController.LoadTerrain();
+        terrainLoader.LoadTerrain();
     }
 
     public void OnExit()
     {
-        terrainController.UnloadTerrain();
+        terrainLoader.UnloadTerrain();
     }
 
     public Terrain GetLevelTerrain()
     {
-        return terrainController.GetTerrain();
+        return terrainLoader.GetTerrain();
     }
 }

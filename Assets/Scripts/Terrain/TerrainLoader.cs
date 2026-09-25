@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-public class TerrainController : MonoBehaviour
+public class TerrainLoader : MonoBehaviour
 {
     [SerializeField] private Terrain terrain;
     [SerializeField] private TerrainData savedTerrainData;
