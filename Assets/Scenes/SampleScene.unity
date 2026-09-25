@@ -797,6 +797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff0fdad7764543179d6ba1caa387fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelState
+  maxSandAmount: 100
 --- !u!1001 &574808618
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2153,6 +2154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff0fdad7764543179d6ba1caa387fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelState
+  maxSandAmount: 100
 --- !u!114 &1709906734
 MonoBehaviour:
   m_ObjectHideFlags: 0

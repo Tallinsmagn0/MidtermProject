@@ -1,8 +1,9 @@
 using System;
 using UnityEngine;
 
-public class LevelState : MonoBehaviour
+public class LevelData : MonoBehaviour
 {
+    [SerializeField] private float maxSandAmount;
     private TerrainLoader terrainLoader;
 
     private void Awake()
@@ -10,17 +11,12 @@ public class LevelState : MonoBehaviour
         terrainLoader = GetComponent<TerrainLoader>();
     }
 
-    public void Run()
-    {
-        
-    }
-
-    public void OnEnter()
+    public void Load()
     {
         terrainLoader.LoadTerrain();
     }
 
-    public void OnExit()
+    public void Unload()
     {
         terrainLoader.UnloadTerrain();
     }
@@ -28,5 +24,10 @@ public class LevelState : MonoBehaviour
     public Terrain GetLevelTerrain()
     {
         return terrainLoader.GetTerrain();
+    }
+
+    public float GetMaxSandAmount()
+    {
+        return maxSandAmount;
     }
 }
