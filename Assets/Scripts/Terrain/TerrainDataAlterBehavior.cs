@@ -75,44 +75,44 @@ public class TerrainDataAlterBehavior : MonoBehaviour
     {
         float[,] currHeights = terrainData.GetHeights(startX, startZ, width, height);
         float[,] lerpHeights = new float[height, width];
-        float sculptAmount = 0;
+        float sculptDelta = 0;
 
         for (int x = 0; x < width; x++)
         {
             for (int z = 0; z < height; z++)
             {
                 lerpHeights[z, x] = Mathf.Lerp(startHeights[z, x], endHeights[z, x], t / alterDuration);
-                sculptAmount += lerpHeights[z, x] - currHeights[z, x];
+                sculptDelta += lerpHeights[z, x] - currHeights[z, x];
             }
         }
-        SetDataHeightmap(lerpHeights, sculptAmount);
+        SetDataHeightmap(lerpHeights, sculptDelta);
     }
 
     public void FinalizeTerrainData()
     {
         float[,] currHeights = terrainData.GetHeights(startX, startZ, width, height);
-        float sculptAmount = 0;
+        float sculptDelta = 0;
 
         for (int x = 0; x < width; x++)
         {
             for (int z = 0; z < height; z++)
             {
-                sculptAmount += endHeights[z, x] - currHeights[z, x];
+                sculptDelta += endHeights[z, x] - currHeights[z, x];
             }
         }
-        SetDataHeightmap(endHeights, sculptAmount);
+        SetDataHeightmap(endHeights, sculptDelta);
     }
 
-    private void SetDataHeightmap(float[,] heights, float sculptAmount)
+    private void SetDataHeightmap(float[,] heights, float sculptDelta)
     {
         terrainData.SetHeights(startX, startZ, heights);
-        OnSculptTerrain?.Invoke(sculptAmount);
+        OnSculptTerrain?.Invoke(sculptDelta);
     }
 
     public void ResetTerrainData(TerrainData terrainData)
     {
         this.terrainData = terrainData;
-        this.sculptAmount = 0;
+        sculptAmount = 0;
     }
 
     public float GetAlterDuration()

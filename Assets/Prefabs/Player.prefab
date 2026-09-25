@@ -31,6 +31,111 @@ Transform:
   m_Children: []
   m_Father: {fileID: 855195355245334166}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &267952029401061897
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8500671281806907468}
+  - component: {fileID: 3772721113015331469}
+  - component: {fileID: 2823977195493724574}
+  - component: {fileID: 8696427965730654194}
+  m_Layer: 0
+  m_Name: PlayerSandBehavior
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8500671281806907468
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267952029401061897}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 855195355245334166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3772721113015331469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267952029401061897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 487e8a342140348718751783c7a3ffe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TerrainSculptor
+--- !u!114 &2823977195493724574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267952029401061897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c664ce94db1e454f81e1d8f4598ccd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TerrainSculptBrushBehavior
+  maxBrushSize: 10
+  minBrushSize: 3
+  OnBrushSizeChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: SetBrushSizeText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8696427965730654194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267952029401061897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6617732314c7d4bfda7491f9b4df0763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TerrainDataAlterBehavior
+  sculptSize: 0.003
+  sculptDeviation: 0.35
+  alterDuration: 1
+  OnSculptTerrain:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SandAmountBehavior, Assembly-CSharp
+        m_MethodName: UpdateSandAmount
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1497121927977515891
 GameObject:
   m_ObjectHideFlags: 0
@@ -78,9 +183,9 @@ MonoBehaviour:
   OnClickAt:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9125412520629995288}
-        m_TargetAssemblyTypeName: TerrainSculptor, Assembly-CSharp
-        m_MethodName: LowerTerrainAtPoint
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SandController, Assembly-CSharp
+        m_MethodName: LowerSandAt
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -172,7 +277,7 @@ GameObject:
   - component: {fileID: 9080122441964439349}
   - component: {fileID: 3669886675937550098}
   - component: {fileID: 6388822225031028285}
-  - component: {fileID: 9125412520629995288}
+  - component: {fileID: 4014784276318537498}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -197,6 +302,7 @@ Transform:
   - {fileID: 4780368283492396572}
   - {fileID: 1760096086016621281}
   - {fileID: 4558994279770743131}
+  - {fileID: 8500671281806907468}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &7314862389613339294
@@ -294,6 +400,22 @@ MonoBehaviour:
         - m_Target: {fileID: 3669886675937550098}
           m_TargetAssemblyTypeName: PlayerTurnYBehavior, Assembly-CSharp
           m_MethodName: SetCameraVerticalInput
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - axisName: Mouse ScrollWheel
+    axisAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4014784276318537498}
+          m_TargetAssemblyTypeName: BrushSizeScrollBehavior, Assembly-CSharp
+          m_MethodName: SetScrollInput
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -426,7 +548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RigidbodyDamping
   horizontalDamping: 3
---- !u!114 &9125412520629995288
+--- !u!114 &4014784276318537498
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -435,13 +557,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6239227789598618049}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 487e8a342140348718751783c7a3ffe0, type: 3}
+  m_Script: {fileID: 11500000, guid: 19a4a6909e6c24296b213ad3eb2e8b79, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TerrainSculptor
-  brushSize: 5
-  sculptAmount: 0.003
-  sigma: 2
-  alterDuration: 1
+  m_EditorClassIdentifier: Assembly-CSharp::TerrainSculptBrushBehavior
+  ts: {fileID: 3772721113015331469}
 --- !u!1 &6598526267546357224
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,9 +745,9 @@ MonoBehaviour:
   OnClickAt:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9125412520629995288}
-        m_TargetAssemblyTypeName: TerrainSculptor, Assembly-CSharp
-        m_MethodName: RaiseTerrainAtPoint
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SandController, Assembly-CSharp
+        m_MethodName: RaiseSandAt
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

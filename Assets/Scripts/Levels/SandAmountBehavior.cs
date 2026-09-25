@@ -27,14 +27,4 @@ public class SandAmountBehavior : MonoBehaviour
         sandAmount = maxSandAmount;
         OnResetMaxSandAmount?.Invoke();
     }
-
-    public bool IsFull()
-    {
-        return sandAmount >= maxSandAmount;
-    }
-
-    public bool IsEmpty()
-    {
-        return sandAmount <= 0f;
-    }
 }

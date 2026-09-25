@@ -7,8 +7,9 @@ public class SoloTerrainSculptManager : ITerrainSculptManager
     private TerrainSculptBrushBehavior brushBehavior;
     private TerrainDataAlterBehavior dataAlterBehavior;
 
-    public void Setup()
+    public SoloTerrainSculptManager()
     {
+        terrain = LevelManager.Instance.GetCurrentTerrain();
         brushBehavior = UnityEngine.Object.FindFirstObjectByType<TerrainSculptBrushBehavior>();
         dataAlterBehavior = UnityEngine.Object.FindFirstObjectByType<TerrainDataAlterBehavior>();
     }

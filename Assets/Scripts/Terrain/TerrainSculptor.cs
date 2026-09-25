@@ -10,7 +10,12 @@ public class TerrainSculptor : MonoBehaviour
 
     void Start()
     {
-        sculptManager.Setup();
+        SetupSculptManager();
+    }
+
+    private void SetupSculptManager()
+    {
+        sculptManager = new SoloTerrainSculptManager();
     }
 
     void Update()
@@ -72,6 +77,10 @@ public class TerrainSculptor : MonoBehaviour
 
     public void ResetCurrentTerrain()
     {
+        if (sculptManager == null)
+        {
+            SetupSculptManager();
+        }
         sculptManager.ResetTerrain();
         ResetAlterTimer(false);
     }
