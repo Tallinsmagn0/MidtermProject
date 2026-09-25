@@ -53,8 +53,8 @@ public class TerrainSculptor : MonoBehaviour
 
     private void StartTerrainAlter(Vector3 worldPos, bool isRaising)
     {
-        sculptStrategy.PrecomputeTerrainAlterationAt(worldPos, isRaising);
-        ResetAlterTimer(true);
+        bool canAlterAt = sculptStrategy.AssessTerrainAlterationAt(worldPos, isRaising);
+        ResetAlterStatus(canAlterAt);
     }
 
     private void UpdateTerrainAlter()
@@ -66,10 +66,10 @@ public class TerrainSculptor : MonoBehaviour
     private void FinishTerrainAlter()
     {
         sculptStrategy.FinishTerainAlteration();
-        ResetAlterTimer(false);
+        ResetAlterStatus(false);
     }
 
-    private void ResetAlterTimer(bool isAltering)
+    private void ResetAlterStatus(bool isAltering)
     {
         this.isAltering = isAltering;
         alterTime = 0;
@@ -82,7 +82,7 @@ public class TerrainSculptor : MonoBehaviour
             SetupSculptStrategy();
         }
         sculptStrategy.ResetTerrain();
-        ResetAlterTimer(false);
+        ResetAlterStatus(false);
     }
 
     public bool IsAlteringTerrain()

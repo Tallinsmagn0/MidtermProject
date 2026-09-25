@@ -5,26 +5,24 @@ public class SandAmountBehavior : MonoBehaviour
 {
 
     [SerializeField] private UnityEvent<float> OnUpdateSandAmount;
-    [SerializeField] private UnityEvent OnResetMaxSandAmount;
-    [SerializeField] private float amountMultiplier;
-    private float maxSandAmount;
+    [SerializeField] private UnityEvent<float> OnResetMaxSandAmount;
     private float sandAmount;
 
-    public void UpdateSandAmount(float deltaAmount)
+    public void UpdateSandAmount(float _sandAmount)
     {
-        float newAmount = Mathf.Clamp(sandAmount - deltaAmount * amountMultiplier, 0, maxSandAmount);
+        float maxSandAmount = LevelManager.Instance.GetMaxSandAmount();
+        float clampedSandAmount = Mathf.Clamp(_sandAmount , 0, maxSandAmount);
 
-        if (newAmount != sandAmount)
+        if (clampedSandAmount != sandAmount)
         {
-            sandAmount = newAmount;
-            OnUpdateSandAmount?.Invoke(sandAmount / maxSandAmount);
+            sandAmount = clampedSandAmount;
+            OnUpdateSandAmount?.Invoke(sandAmount);
         }
     }
 
     public void ResetMaxSandAmount()
     {
-        maxSandAmount = LevelManager.Instance.GetMaxSandAmount();
-        sandAmount = maxSandAmount;
-        OnResetMaxSandAmount?.Invoke();
+        sandAmount = LevelManager.Instance.GetMaxSandAmount();
+        OnResetMaxSandAmount?.Invoke(sandAmount);
     }
 }

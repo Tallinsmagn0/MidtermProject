@@ -14,11 +14,11 @@ public class SoloTerrainSculptStrategy : ITerrainSculptStrategy
         dataAlterBehavior = UnityEngine.Object.FindFirstObjectByType<TerrainDataAlterBehavior>();
     }
 
-    public void PrecomputeTerrainAlterationAt(Vector3 worldPos, bool isRaising)
+    public bool AssessTerrainAlterationAt(Vector3 worldPos, bool isRaising)
     {
         if (terrain != null)
         {
-            dataAlterBehavior.CalculateTerrainAlteration(worldPos, terrain.transform.position, brushBehavior.GetBrushSize(), isRaising);
+            return dataAlterBehavior.CalculateTerrainDataAlter(worldPos, terrain.transform.position, brushBehavior.GetBrushSize(), isRaising);
         }
         else
         {

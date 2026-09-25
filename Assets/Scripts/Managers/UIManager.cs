@@ -12,9 +12,10 @@ public class UIManager : Singleton<UIManager>
         brushSizeText.text = $"{brushSize}";
     }
 
-    public void SetSliderMaxValue()
+    public void SetSliderMaxValue(float maxValue)
     {
-        sandSlider.value = sandSlider.maxValue;
+        sandSlider.maxValue = maxValue;
+        SetSliderValue(sandSlider.maxValue);
     }
 
     public void SetSliderValue(float value)

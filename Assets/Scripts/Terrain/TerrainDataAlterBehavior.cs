@@ -8,22 +8,29 @@ public class TerrainDataAlterBehavior : MonoBehaviour
     // Sculpt variables
     [SerializeField] private float sculptSize;
     [SerializeField] [Range(0f, 1f)] private float sculptDeviation;
-    [SerializeField] private float alterDuration;
+    [SerializeField] private float sculptDuration;
     [SerializeField] private UnityEvent<float> OnSculptTerrain;
 
     // Heightmap matrix references
     float sculptAmount;
-    int startX, startZ;
-    int width, height;
+    int startX, startZ = -1;
+    int width, height = 0;
     float[,] startHeights, endHeights;
 
-    public void CalculateTerrainAlteration(Vector3 worldPos, Vector3 terrainPos, int brushSize, bool isRaising)
+    public bool CalculateTerrainDataAlter(Vector3 worldPos, Vector3 terrainPos, int brushSize, bool isRaising)
     {
-        CalculateTerrainAlterationLocationValues(worldPos, terrainPos, brushSize);
-        CalculateHeightMatrixValues(brushSize, isRaising);
+        CalculateTerrainDataAlterVariables(worldPos, terrainPos, brushSize);
+        float finalSculptAmount = CalculateSculptAmountOnMatrix(brushSize, isRaising);
+        bool canSculptTerrain = CanSculptTerrainByAmount(finalSculptAmount);
+
+        if (!canSculptTerrain)
+        {
+            ResetSculptVariables();
+        }
+        return canSculptTerrain;
     }
 
-    private void CalculateTerrainAlterationLocationValues(Vector3 worldPos, Vector3 terrainPos, int brushSize)
+    private void CalculateTerrainDataAlterVariables(Vector3 worldPos, Vector3 terrainPos, int brushSize)
     {
         // Convert world position into Terrain local position
         Vector3 tempCoord = worldPos - terrainPos;
@@ -45,7 +52,7 @@ public class TerrainDataAlterBehavior : MonoBehaviour
         height = Mathf.Min(brushSize, terrainData.heightmapResolution - startZ);
     }
 
-    private void CalculateHeightMatrixValues(int brushSize, bool isRaising)
+    private float CalculateSculptAmountOnMatrix(int brushSize, bool isRaising)
     {
         // Fetch the 2D array representing current heights
         startHeights = terrainData.GetHeights(startX, startZ, width, height);
@@ -55,6 +62,8 @@ public class TerrainDataAlterBehavior : MonoBehaviour
         float sigma = sculptDeviation * brushSize;
         int amountSign = isRaising ? 1 : -1;
 
+        float tempSculptAmount = sculptAmount;
+
         // Modify the heights inside the matrix
         for (int x = 0; x < width; x++)
         {
@@ -63,60 +72,81 @@ public class TerrainDataAlterBehavior : MonoBehaviour
                 float distX = x + 0.5f - center.x;
                 float distZ = z + 0.5f - center.y;
                 float deltaAmount = amountSign * sculptSize * Mathf.Exp(-( (distX * distX + distZ * distZ) / (2.0f * sigma * sigma)));
-                endHeights[z, x] = Mathf.Clamp(endHeights[z, x] + deltaAmount, 0f, 1f);
+                float endHeight = Mathf.Clamp(endHeights[z, x] + deltaAmount, 0f, 1f);
+
+                tempSculptAmount += endHeight - endHeights[z, x];
+                endHeights[z, x] = endHeight;
             }
         }
+        return tempSculptAmount;
+    }
 
-        // TODO: update sculptAmount with deltaAmounts
-        // if sculptAmout is outside ranges, then do nothing
+    private bool CanSculptTerrainByAmount(float tempSculptAmount)
+    {
+        return tempSculptAmount > 0f && tempSculptAmount < LevelManager.Instance.GetMaxSandAmount() * terrainData.heightmapResolution;
+    }
+
+    private void ResetSculptVariables()
+    {
+        startX = -1;
+        startZ = -1;
+        height = 0;
+        width = 0;
+        startHeights = null;
+        endHeights = null;
     }
 
     public void LerpTerrainData(float t)
     {
         float[,] currHeights = terrainData.GetHeights(startX, startZ, width, height);
         float[,] lerpHeights = new float[height, width];
-        float sculptDelta = 0;
 
         for (int x = 0; x < width; x++)
         {
             for (int z = 0; z < height; z++)
             {
-                lerpHeights[z, x] = Mathf.Lerp(startHeights[z, x], endHeights[z, x], t / alterDuration);
-                sculptDelta += lerpHeights[z, x] - currHeights[z, x];
+                lerpHeights[z, x] = Mathf.Lerp(startHeights[z, x], endHeights[z, x], t / sculptDuration);
+                sculptAmount += lerpHeights[z, x] - currHeights[z, x];
             }
         }
-        SetDataHeightmap(lerpHeights, sculptDelta);
+        SculptTerrain(lerpHeights);
     }
 
     public void FinalizeTerrainData()
     {
         float[,] currHeights = terrainData.GetHeights(startX, startZ, width, height);
-        float sculptDelta = 0;
 
         for (int x = 0; x < width; x++)
         {
             for (int z = 0; z < height; z++)
             {
-                sculptDelta += endHeights[z, x] - currHeights[z, x];
+                sculptAmount += endHeights[z, x] - currHeights[z, x];
             }
         }
-        SetDataHeightmap(endHeights, sculptDelta);
+        SculptTerrain(endHeights);
+        ResetSculptVariables();
     }
 
-    private void SetDataHeightmap(float[,] heights, float sculptDelta)
+    private void SculptTerrain(float[,] heights)
+    {
+        SetDataHeightmap(heights);
+        OnSculptTerrain?.Invoke(sculptAmount);
+    }
+
+    private void SetDataHeightmap(float[,] heights)
     {
         terrainData.SetHeights(startX, startZ, heights);
-        OnSculptTerrain?.Invoke(sculptDelta);
     }
 
     public void ResetTerrainData(TerrainData terrainData)
     {
         this.terrainData = terrainData;
         sculptAmount = 0;
+        ResetSculptVariables();
     }
 
     public float GetAlterDuration()
     {
-        return alterDuration;
+        return sculptDuration;
     }
 }

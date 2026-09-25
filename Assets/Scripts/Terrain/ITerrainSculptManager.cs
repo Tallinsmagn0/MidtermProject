@@ -2,7 +2,7 @@ using UnityEngine;
 
 public interface ITerrainSculptStrategy
 {
-    public void PrecomputeTerrainAlterationAt(Vector3 worldPos, bool isRaising);
+    public bool AssessTerrainAlterationAt(Vector3 worldPos, bool isRaising);
     public void PerformTerainAlteration(float time);
     public void FinishTerainAlteration();
     public void ResetTerrain();

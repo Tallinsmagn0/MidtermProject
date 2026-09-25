@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class LevelData : MonoBehaviour
 {
-    [SerializeField] private float maxSandAmount;
+    [SerializeField] [Range(0f, 1f)] private float maxSandAmount;
     private TerrainLoader terrainLoader;
 
     private void Awake()
