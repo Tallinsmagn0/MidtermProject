@@ -1,13 +1,15 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TerrainDataAlterBehavior : MonoBehaviour
 {
     TerrainData terrainData;
 
     // Sculpt variables
-    [SerializeField] private float sculptAmount;
+    [SerializeField] private float sculptSize;
     [SerializeField] [Range(0f, 1f)] private float sculptDeviation;
     [SerializeField] private float alterDuration;
+    [SerializeField] private UnityEvent<float> OnSculptTerrain;
 
     // Heightmap matrix references
     int startX, startZ;
@@ -59,33 +61,48 @@ public class TerrainDataAlterBehavior : MonoBehaviour
             {
                 float distX = x + 0.5f - center.x;
                 float distZ = z + 0.5f - center.y;
-                endHeights[z, x] += amountSign * sculptAmount * Mathf.Exp(-( (distX * distX + distZ * distZ) / (2.0f * sigma * sigma)));
+                float deltaAmount = amountSign * sculptSize * Mathf.Exp(-( (distX * distX + distZ * distZ) / (2.0f * sigma * sigma)));
+                endHeights[z, x] = Mathf.Clamp(endHeights[z, x] + deltaAmount, 0f, 1f);
             }
         }
     }
 
     public void LerpTerrainData(float t)
     {
-        float[,] heights = new float[height, width];
+        float[,] currHeights = terrainData.GetHeights(startX, startZ, width, height);
+        float[,] lerpHeights = new float[height, width];
+        float sculptAmount = 0;
 
         for (int x = 0; x < width; x++)
         {
             for (int z = 0; z < height; z++)
             {
-                heights[z, x] = Mathf.Lerp(startHeights[z, x], endHeights[z, x], t / alterDuration);
+                lerpHeights[z, x] = Mathf.Lerp(startHeights[z, x], endHeights[z, x], t / alterDuration);
+                sculptAmount += lerpHeights[z, x] - currHeights[z, x];
             }
         }
-        SetDataHeightmap(heights);
+        SetDataHeightmap(lerpHeights, sculptAmount);
     }
 
     public void FinalizeTerrainData()
     {
-        SetDataHeightmap(endHeights);
+        float[,] currHeights = terrainData.GetHeights(startX, startZ, width, height);
+        float sculptAmount = 0;
+
+        for (int x = 0; x < width; x++)
+        {
+            for (int z = 0; z < height; z++)
+            {
+                sculptAmount += endHeights[z, x] - currHeights[z, x];
+            }
+        }
+        SetDataHeightmap(endHeights, sculptAmount);
     }
 
-    private void SetDataHeightmap(float[,] heights)
+    private void SetDataHeightmap(float[,] heights, float sculptAmount)
     {
         terrainData.SetHeights(startX, startZ, heights);
+        OnSculptTerrain?.Invoke(sculptAmount);
     }
 
     public void SetTerrainData(TerrainData terrainData)

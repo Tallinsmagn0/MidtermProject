@@ -797,7 +797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff0fdad7764543179d6ba1caa387fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelState
-  maxSandAmount: 100
+  maxSandAmount: 1
 --- !u!1001 &574808618
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -975,7 +975,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.291
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1297,6 +1297,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1294735762}
+        m_TargetAssemblyTypeName: LevelSandBehavior, Assembly-CSharp
+        m_MethodName: ResetMaxSandAmount
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &751955711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1310,6 +1322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
   brushSizeText: {fileID: 756941246}
+  sandSlider: {fileID: 584912492}
 --- !u!1 &756941240
 GameObject:
   m_ObjectHideFlags: 0
@@ -1836,6 +1849,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1294735761}
+  - component: {fileID: 1294735762}
   m_Layer: 0
   m_Name: _Levels
   m_TagString: Untagged
@@ -1860,6 +1874,49 @@ Transform:
   - {fileID: 468896565}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1294735762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1294735760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbcb36ff35e2a40c3b44539d9bebc65b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelSandBehavior
+  OnUpdateSandAmount:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 751955711}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: SetSliderValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnResetMaxSandAmount:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 751955711}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: SetSliderMaxValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  amountMultiplier: 1
 --- !u!1 &1390225298
 GameObject:
   m_ObjectHideFlags: 0
@@ -2154,7 +2211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff0fdad7764543179d6ba1caa387fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelState
-  maxSandAmount: 100
+  maxSandAmount: 1
 --- !u!114 &1709906734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2180,15 +2237,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 855195355245334166, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 43.83
+      value: 26.55
       objectReference: {fileID: 0}
     - target: {fileID: 855195355245334166, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 21.45
+      value: 17.61
       objectReference: {fileID: 0}
     - target: {fileID: 855195355245334166, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.38
+      value: -0.88
       objectReference: {fileID: 0}
     - target: {fileID: 855195355245334166, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2551,9 +2608,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6617732314c7d4bfda7491f9b4df0763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TerrainDataAlterBehavior
-  sculptAmount: 0.003
+  sculptSize: 0.003
   sculptDeviation: 0.35
   alterDuration: 1
+  OnSculptTerrain:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1294735762}
+        m_TargetAssemblyTypeName: LevelSandBehavior, Assembly-CSharp
+        m_MethodName: UpdateSandAmount
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1804671752
 MonoBehaviour:
   m_ObjectHideFlags: 0
