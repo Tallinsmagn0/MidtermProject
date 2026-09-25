@@ -1285,7 +1285,7 @@ MonoBehaviour:
   OnLevelChange:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1294735762}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SandController, Assembly-CSharp
         m_MethodName: ResetSand
         m_Mode: 1
@@ -1837,7 +1837,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1294735761}
-  - component: {fileID: 1294735762}
   - component: {fileID: 1294735763}
   m_Layer: 0
   m_Name: _Levels
@@ -1863,20 +1862,6 @@ Transform:
   - {fileID: 468896565}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1294735762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1294735760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbcb36ff35e2a40c3b44539d9bebc65b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LevelSandBehavior
-  terrainSculptor: {fileID: 1804671750}
-  sandAmountBehavior: {fileID: 1294735763}
 --- !u!114 &1294735763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2281,7 +2266,7 @@ PrefabInstance:
     - target: {fileID: 986959960860166076, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: OnClickAt.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1294735762}
+      objectReference: {fileID: 0}
     - target: {fileID: 986959960860166076, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: OnClickAt.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LowerSandAt
@@ -2325,7 +2310,7 @@ PrefabInstance:
     - target: {fileID: 3111707878463554172, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: OnClickAt.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1294735762}
+      objectReference: {fileID: 0}
     - target: {fileID: 3111707878463554172, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: OnClickAt.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: RaiseSandAt
@@ -2605,8 +2590,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 487e8a342140348718751783c7a3ffe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TerrainSculptor
-  brushBehavior: {fileID: 1804671752}
-  dataAlterBehavior: {fileID: 1804671751}
 --- !u!114 &1804671751
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ public class TerrainDataAlterBehavior : MonoBehaviour
     [SerializeField] private UnityEvent<float> OnSculptTerrain;
 
     // Heightmap matrix references
+    float sculptAmount;
     int startX, startZ;
     int width, height;
     float[,] startHeights, endHeights;
@@ -65,6 +66,9 @@ public class TerrainDataAlterBehavior : MonoBehaviour
                 endHeights[z, x] = Mathf.Clamp(endHeights[z, x] + deltaAmount, 0f, 1f);
             }
         }
+
+        // TODO: update sculptAmount with deltaAmounts
+        // if sculptAmout is outside ranges, then do nothing
     }
 
     public void LerpTerrainData(float t)
@@ -105,9 +109,10 @@ public class TerrainDataAlterBehavior : MonoBehaviour
         OnSculptTerrain?.Invoke(sculptAmount);
     }
 
-    public void SetTerrainData(TerrainData terrainData)
+    public void ResetTerrainData(TerrainData terrainData)
     {
         this.terrainData = terrainData;
+        this.sculptAmount = 0;
     }
 
     public float GetAlterDuration()

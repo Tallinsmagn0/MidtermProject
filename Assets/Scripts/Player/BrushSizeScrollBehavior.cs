@@ -13,7 +13,7 @@ public class BrushSizeScrollBehavior : MonoBehaviour
     {
         if (scrollInput != 0)
         {
-            tempBrushSize = ts.GetBrushSize();;
+            tempBrushSize = ts.GetBrushSize();
             tempBrushSize -= scrollInput;
             hasScrolled = true;
         }

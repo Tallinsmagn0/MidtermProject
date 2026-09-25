@@ -1,22 +1,23 @@
-using System;
 using UnityEngine;
 
 public class TerrainSculptor : MonoBehaviour
-{
-    // Terrain references
-    private Terrain currentTerrain;
-    [SerializeField] private TerrainSculptBrushBehavior brushBehavior;
-    [SerializeField] private TerrainDataAlterBehavior dataAlterBehavior;
+{   
+    private ITerrainSculptManager sculptManager;
 
     // Alter variables
     bool isAltering = false;
     float alterTime;
 
+    void Start()
+    {
+        sculptManager.Setup();
+    }
+
     void Update()
     {
         if (isAltering)
         {
-            if (alterTime < dataAlterBehavior.GetAlterDuration())
+            if (alterTime < sculptManager.GetAlterDuration())
             {
                 UpdateTerrainAlter();
             } 
@@ -39,36 +40,27 @@ public class TerrainSculptor : MonoBehaviour
 
     private void AlterTerrainAtPoint(Vector3 worldPos, bool isRaising)
     {
-
-        if (currentTerrain != null)
+        if (!isAltering)
         {
-            if (!isAltering)
-            {
-                StartTerrainAlter(worldPos, isRaising);
-            }
-        }
-        else
-        {
-            throw new NullReferenceException("Tried to alter null terrain");
+            StartTerrainAlter(worldPos, isRaising);
         }
     }
 
     private void StartTerrainAlter(Vector3 worldPos, bool isRaising)
     {
-        dataAlterBehavior.CalculateTerrainAlteration(worldPos, currentTerrain.transform.position, brushBehavior.GetBrushSize(), isRaising);
+        sculptManager.PrecomputeTerrainAlterationAt(worldPos, isRaising);
         ResetAlterTimer(true);
     }
 
     private void UpdateTerrainAlter()
     {
-        dataAlterBehavior.LerpTerrainData(alterTime);
-        ResetTerrainCollider();
+        sculptManager.PerformTerainAlteration(alterTime);
         alterTime += Time.deltaTime;
     }
 
     private void FinishTerrainAlter()
     {
-        dataAlterBehavior.FinalizeTerrainData();
+        sculptManager.FinishTerainAlteration();
         ResetAlterTimer(false);
     }
 
@@ -78,24 +70,9 @@ public class TerrainSculptor : MonoBehaviour
         alterTime = 0;
     }
 
-    private void ResetTerrainCollider()
-    {
-        TerrainCollider terrainCollider = currentTerrain.GetComponent<TerrainCollider>();
-
-        if (terrainCollider != null)
-        {
-            terrainCollider.terrainData = currentTerrain.terrainData;
-        }
-    }
-
     public void ResetCurrentTerrain()
     {
-        currentTerrain = LevelManager.Instance.GetCurrentTerrain();
-
-        if (currentTerrain != null)
-        {
-            dataAlterBehavior.SetTerrainData(currentTerrain.terrainData);
-        }
+        sculptManager.ResetTerrain();
         ResetAlterTimer(false);
     }
 
@@ -106,11 +83,11 @@ public class TerrainSculptor : MonoBehaviour
 
     public int GetBrushSize()
     {
-        return brushBehavior.GetBrushSize();
+        return sculptManager.GetBrushSize();
     }
 
-    public void SetBrushSize(int newSize)
+    public void SetBrushSize(int brushSize)
     {
-        brushBehavior.SetBrushSize(newSize);
+        sculptManager.SetBrushSize(brushSize);
     }
 }
