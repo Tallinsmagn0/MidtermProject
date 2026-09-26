@@ -21,7 +21,7 @@ public class TerrainDataAlterBehavior : MonoBehaviour
     {
         CalculateTerrainDataAlterVariables(worldPos, terrainPos, brushSize);
         float finalSculptAmount = CalculateSculptAmountOnMatrix(brushSize, isRaising);
-        bool canSculptTerrain = CanSculptTerrainByAmount(finalSculptAmount);
+        bool canSculptTerrain = CanSculptTerrainByAmount(finalSculptAmount, isRaising);
 
         if (!canSculptTerrain)
         {
@@ -81,9 +81,18 @@ public class TerrainDataAlterBehavior : MonoBehaviour
         return tempSculptAmount;
     }
 
-    private bool CanSculptTerrainByAmount(float tempSculptAmount)
+    private bool CanSculptTerrainByAmount(float tempSculptAmount, bool isRaising)
     {
-        return SandManager.Instance.CanSculptMoreTerrain(tempSculptAmount);
+        if (isRaising)
+        {
+            float maxSculpt = SandManager.Instance.GetMaxTerrainSculptAmount();
+
+            return tempSculptAmount < maxSculpt;
+        } 
+        else
+        {
+            return sculptAmount > 0;
+        }
     }
 
     private void ResetSculptVariables()

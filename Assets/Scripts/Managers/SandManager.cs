@@ -11,9 +11,9 @@ public class SandManager : Singleton<SandManager>
         return maxSandAmount * (1f - terrainToSandAmount * sculptAmount / (terrainResolution * terrainResolution));
     }
 
-    public bool CanSculptMoreTerrain(float sculptAmount)
+    public float GetMaxTerrainSculptAmount()
     {
-        float sandAmount = ConvertTerrainToSandAmount(sculptAmount);
-        return sandAmount > 0f && sandAmount < LevelManager.Instance.GetMaxSandAmount();
+        int terrainResolution = LevelManager.Instance.GetCurrentTerrainResolution();
+        return terrainResolution * terrainResolution / terrainToSandAmount;
     }
 }
