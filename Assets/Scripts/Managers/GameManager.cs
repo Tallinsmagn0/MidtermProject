@@ -3,12 +3,10 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     IGameState currState;
-    IPlayStyle playStyle;
 
     void Start()
     {
         currState = new PlayState();
-        playStyle = new SoloPlayStyle();
         currState.OnEnter(this);
     }
 
@@ -22,10 +20,5 @@ public class GameManager : Singleton<GameManager>
         currState?.OnExit(this);
         newState.OnEnter(this);
         currState = newState;
-    }
-
-    public IPlayStyle GetPlayStyle()
-    {
-        return playStyle;
     }
 }

@@ -15,7 +15,7 @@ public class TerrainSculptor : MonoBehaviour
 
     private void SetupSculptStrategy()
     {
-        sculptStrategy = GameManager.Instance.GetPlayStyle()?.CreateSculptStrategy();
+        sculptStrategy = PlayStyleManager.Instance?.PlayStyle?.CreateSculptStrategy();
     }
 
     void Update()
