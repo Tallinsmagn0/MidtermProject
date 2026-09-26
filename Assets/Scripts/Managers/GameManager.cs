@@ -6,7 +6,7 @@ public class GameManager : Singleton<GameManager>
 
     void Start()
     {
-        currState = new PlayState();
+        currState = new MenuState();
         currState.OnEnter(this);
     }
 

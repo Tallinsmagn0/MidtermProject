@@ -6,6 +6,9 @@ public class PlayState : IGameState
 
     IPlayStyle playStyle;
 
+    bool hasSetupManagers = false;
+    bool hasSceneLoaded = false;
+
     public PlayState()
     {
         playStyle = new SoloPlayStyle();
@@ -13,9 +16,7 @@ public class PlayState : IGameState
 
     public void OnEnter(GameManager gm)
     {
-        // LOAD SCENE
-
-        SetupManagers();
+        SceneLoader.Instance.LoadSceneByName("PlayScene");
     }
 
     public void OnExit(GameManager gm)
@@ -25,13 +26,24 @@ public class PlayState : IGameState
 
     public void Run(GameManager gm)
     {
-        
+        if (!hasSetupManagers)
+        {
+            if (!hasSceneLoaded)
+            {
+                hasSceneLoaded = SceneLoader.Instance.HasSceneLoaded("PlayScene");
+            }
+            else
+            {
+                SetupManagers();
+            }
+        }
     }
 
     private void SetupManagers()
     {
         SetupPlayStyleManager();
         SetupLevelManager();
+        hasSetupManagers = true;
     }
 
     private void SetupPlayStyleManager()
