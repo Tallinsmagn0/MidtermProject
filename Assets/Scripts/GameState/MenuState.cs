@@ -7,7 +7,7 @@ public class MenuState : IGameState
     {
         if (MenuManager.Instance != null)
         {
-            MenuManager.Instance.enabled = true;
+            MenuManager.Instance.gameObject.SetActive(true);
         } 
         else
         {
@@ -19,7 +19,7 @@ public class MenuState : IGameState
     {
         if (MenuManager.Instance != null)
         {
-            MenuManager.Instance.enabled = false;
+            MenuManager.Instance.gameObject.SetActive(false);
         }
         else
         {

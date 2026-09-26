@@ -16,7 +16,10 @@ public class PlayState : IGameState
 
     public void OnEnter(GameManager gm)
     {
-        SceneLoader.Instance.LoadSceneByName("PlayScene");
+        if (!SceneLoader.Instance.HasSceneLoaded("PlayScene"))
+        {
+            SceneLoader.Instance.LoadSceneByName("PlayScene");
+        }
     }
 
     public void OnExit(GameManager gm)
@@ -25,6 +28,11 @@ public class PlayState : IGameState
     }
 
     public void Run(GameManager gm)
+    {
+        SetupManagersOnSceneLoad();
+    }
+
+    private void SetupManagersOnSceneLoad()
     {
         if (!hasSetupManagers)
         {
@@ -50,7 +58,7 @@ public class PlayState : IGameState
     {
         if (PlayStyleManager.Instance != null)
         {
-            PlayStyleManager.Instance.enabled = true;
+            PlayStyleManager.Instance.gameObject.SetActive(true);
             PlayStyleManager.Instance.PlayStyle = playStyle;
         }
         else
@@ -63,7 +71,7 @@ public class PlayState : IGameState
     {
         if (LevelManager.Instance != null)
         {
-            LevelManager.Instance.enabled = true;
+            LevelManager.Instance.gameObject.SetActive(true);
             LevelManager.Instance.LoadFirstLevel();
         }
         else
