@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-public class TerrainLoader : MonoBehaviour
+public class TerrainLoader : MonoBehaviour, ILoader
 {
     [SerializeField] private Terrain terrain;
     [SerializeField] private TerrainData savedTerrainData;
@@ -10,7 +10,7 @@ public class TerrainLoader : MonoBehaviour
     private float heightmapResolutionScalingFactor = 0.513f;
 
     
-    public void LoadTerrain()
+    public void Load()
     {
         if (terrain != null)
         {
@@ -23,7 +23,7 @@ public class TerrainLoader : MonoBehaviour
         }
     }
 
-    public void UnloadTerrain()
+    public void Unload()
     {
         if (terrain != null)
         {

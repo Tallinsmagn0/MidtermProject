@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class LevelManager : Singleton<LevelManager>
 {
-    [SerializeField] private LevelData[] levels;
+    [SerializeField] private LevelController[] levels;
     [SerializeField] private UnityEvent OnLevelChange;
 
     private int currLevel;
