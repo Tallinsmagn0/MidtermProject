@@ -422,6 +422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98854a5beec004935820599f90fc36d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelTrigger
+  doorAnimator: {fileID: 5047018846417940419}
 --- !u!1 &7126804527667282083
 GameObject:
   m_ObjectHideFlags: 0
@@ -2079,5 +2080,10 @@ PrefabInstance:
 --- !u!4 &633440113721644031 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6420385581258122842, guid: 2f0d27a12ccd44864aaec2b36922f19e, type: 3}
+  m_PrefabInstance: {fileID: 5896237507589354917}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5047018846417940419 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1718466445261920870, guid: 2f0d27a12ccd44864aaec2b36922f19e, type: 3}
   m_PrefabInstance: {fileID: 5896237507589354917}
   m_PrefabAsset: {fileID: 0}
