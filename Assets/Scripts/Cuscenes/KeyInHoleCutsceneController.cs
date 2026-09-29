@@ -7,7 +7,6 @@ public class KeyInHoleCutsceneController : MonoBehaviour
 {
     // Timeline and Cinemachine references
     [SerializeField] private PlayableDirector director;
-    [SerializeField] private CinemachineCamera mainCamera;
 
     // Door animation
     [SerializeField] private Animator doorOpenAnimator;
