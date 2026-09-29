@@ -221,6 +221,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49a3173bb2c8e45019fc3eae30ac2a51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeyInHoleCutsceneManager
+  director: {fileID: 0}
+  brain: {fileID: 0}
+  trackName: KeyBallTrack
 --- !u!1 &5772517489964774771
 GameObject:
   m_ObjectHideFlags: 0
