@@ -6,7 +6,7 @@ public class PlayState : IGameState
 
     IPlayStyle playStyle;
 
-    bool hasSetupManagers = false;
+    bool hasSetupScene = false;
     bool hasSceneLoaded = false;
 
     public PlayState()
@@ -34,7 +34,7 @@ public class PlayState : IGameState
 
     private void SetupManagersOnSceneLoad()
     {
-        if (!hasSetupManagers)
+        if (!hasSetupScene)
         {
             if (!hasSceneLoaded)
             {
@@ -42,16 +42,16 @@ public class PlayState : IGameState
             }
             else
             {
-                SetupManagers();
+                SetupScene();
             }
         }
     }
 
-    private void SetupManagers()
+    private void SetupScene()
     {
         SetupPlayStyleManager();
         SetupLevelManager();
-        hasSetupManagers = true;
+        hasSetupScene = true;
     }
 
     private void SetupPlayStyleManager()

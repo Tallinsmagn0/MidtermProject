@@ -5,46 +5,98 @@ using Unity.Cinemachine;
 
 public class KeyInHoleCutsceneController : MonoBehaviour
 {
-
+    // Timeline and Cinemachine references
     [SerializeField] private PlayableDirector director;
     [SerializeField] private CinemachineBrain brain;
-    [SerializeField] private string trackName;
 
+    // Door animation
+    [SerializeField] private Animator doorOpenAnimator;
+    [SerializeField] private CinemachineCamera doorCamera;
+    [SerializeField] private string doorTrackName;
+
+    // KeyBall animation
+    [SerializeField] private string keyBallTrackName;
     private Animator keyBallAnimator;
+
+    // KeyHole animation
+    [SerializeField] private CinemachineCamera keyHoleCamera;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("KeyBall"))
         {
-            SetAnimators(other);
+            SetUpCutscene(other);
             PlayCutscene();
         }
     }
 
     private void PlayCutscene()
     {
-        brain.enabled = true;
-
-        SetUpDirector();
         director.Play();
     }
 
-    private void SetAnimators(Collider other)
+    private void SetUpCutscene(Collider other)
+    {
+        GetKeyBallAniamtor(other);
+        SetUpCameras();
+        SetUpDirector();
+    }
+
+    private void GetKeyBallAniamtor(Collider other)
     {
         keyBallAnimator = other.gameObject.GetComponent<Animator>();
     }
 
+    private void SetUpCameras()
+    {
+        brain.enabled = true;
+        keyHoleCamera.enabled = true;
+        doorCamera.enabled = true;
+    }
+
     private void SetUpDirector()
+    {
+        director.stopped += OnTimelineStopped;
+        SetAnimationTracks();
+    }
+
+    private void SetAnimationTracks()
     {
         TimelineAsset timelineAsset = director.playableAsset as TimelineAsset;
 
         foreach (TrackAsset track in timelineAsset.GetOutputTracks())
         {
-            if (track is AnimationTrack && track.name == trackName)
+            if (track is AnimationTrack && track.name == keyBallTrackName)
             {
                 director.SetGenericBinding(track, keyBallAnimator);
-                break;
+            }
+            else if (track is AnimationTrack && track.name == doorTrackName)
+            {
+                director.SetGenericBinding(track, doorOpenAnimator);
             }
         }
+    }
+
+    private void OnTimelineStopped(PlayableDirector _director)
+    {
+        if (director == _director)
+        {
+            DisableCameras();
+            UpdateAnimatorState();
+            director.stopped -= OnTimelineStopped;
+        }
+    }
+
+    private void DisableCameras()
+    {
+        keyHoleCamera.enabled = false;
+        doorCamera.enabled = false;
+        brain.enabled = false;
+    }
+
+    private void UpdateAnimatorState()
+    {
+        doorOpenAnimator.Play("Opened", 0, 0f);
+        doorOpenAnimator.SetBool("Open", true);
     }
 }
