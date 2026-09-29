@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DoorOpenTrigger : MonoBehaviour
+public class WalkToOpenDoorTrigger : MonoBehaviour
 {
 
     [SerializeField] private Animator doorAnimator;

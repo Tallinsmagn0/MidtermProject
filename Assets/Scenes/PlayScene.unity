@@ -9273,6 +9273,72 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!114 &1030935235 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 306946830400171154, guid: ea850b2c3bf9d4c6ea1961f95d145dcd, type: 3}
+  m_PrefabInstance: {fileID: 1590889876}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
+--- !u!1 &1150063325
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1150063327}
+  - component: {fileID: 1150063326}
+  m_Layer: 0
+  m_Name: CutsceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!320 &1150063326
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150063325}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 7c64be830aef94248b1b1d06b71c8c2f, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 2807273342242747451, guid: 7c64be830aef94248b1b1d06b71c8c2f, type: 2}
+    value: {fileID: 1878994760}
+  m_ExposedReferences:
+    m_References:
+    - bda501360330748fdb88154f13b4a505: {fileID: 1544223256}
+    - 1c3726d142773430ebb8b64b8210cd65: {fileID: 0}
+    - ef4315d569f14416a92ad30cf7bcf8ae: {fileID: 1030935235}
+    - f063a04c7e8ec46ac8844b94f029fa61: {fileID: 0}
+--- !u!4 &1150063327
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150063325}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 52.76365, y: 21.87424, z: 6.76299}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1163179554
 Mesh:
   m_ObjectHideFlags: 0
@@ -9929,7 +9995,7 @@ Transform:
   m_GameObject: {fileID: 1369714739}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 50.4, y: 15.7, z: 1.7}
+  m_LocalPosition: {x: 50.9, y: 17.1, z: 0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10450,6 +10516,81 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1 &1544223255
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1544223257}
+  - component: {fileID: 1544223256}
+  m_Layer: 0
+  m_Name: CinemachineCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1544223256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544223255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
+  Priority:
+    Enabled: 0
+    m_Value: 0
+  OutputChannel: 1
+  StandbyUpdate: 2
+  m_StreamingVersion: 20241001
+  m_LegacyPriority: 0
+  Target:
+    TrackingTarget: {fileID: 0}
+    LookAtTarget: {fileID: 0}
+    CustomLookAtTarget: 0
+  Lens:
+    FieldOfView: 60.000004
+    OrthographicSize: 10
+    NearClipPlane: 0.1
+    FarClipPlane: 5000
+    Dutch: 0
+    ModeOverride: 0
+    PhysicalProperties:
+      GateFit: 2
+      SensorSize: {x: 21.946, y: 16.002}
+      LensShift: {x: 0, y: 0}
+      FocusDistance: 10
+      Iso: 200
+      ShutterSpeed: 0.005
+      Aperture: 16
+      BladeCount: 5
+      Curvature: {x: 2, y: 11}
+      BarrelClipping: 0.25
+      Anamorphism: 0
+  BlendHint: 0
+--- !u!4 &1544223257
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544223255}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.0052952906, y: 0.70814675, z: -0.005311202, w: 0.70602554}
+  m_LocalPosition: {x: 161.95172, y: 25.231665, z: 0.048848316}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1590889876
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10460,7 +10601,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1521995892108543645, guid: ea850b2c3bf9d4c6ea1961f95d145dcd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 116.522064
+      value: 116.2
       objectReference: {fileID: 0}
     - target: {fileID: 1521995892108543645, guid: ea850b2c3bf9d4c6ea1961f95d145dcd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10468,7 +10609,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1521995892108543645, guid: ea850b2c3bf9d4c6ea1961f95d145dcd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -13.339173
+      value: -13.17
       objectReference: {fileID: 0}
     - target: {fileID: 1521995892108543645, guid: ea850b2c3bf9d4c6ea1961f95d145dcd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10698,68 +10839,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 986959960860166076, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: OnClickAt.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1804671750}
-    - target: {fileID: 986959960860166076, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: OnClickAt.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LowerTerrainAtPoint
-      objectReference: {fileID: 0}
-    - target: {fileID: 986959960860166076, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: OnClickAt.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: TerrainSculptor, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 2823977195493724574, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: OnBrushSizeChange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1992084754}
-    - target: {fileID: 2823977195493724574, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: OnBrushSizeChange.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetBrushSizeText
-      objectReference: {fileID: 0}
-    - target: {fileID: 3111707878463554172, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: OnClickAt.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+    - target: {fileID: 3115949219479004621, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: OnUpdateSandAmount.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1804671750}
-    - target: {fileID: 3111707878463554172, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: OnClickAt.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RaiseTerrainAtPoint
+      objectReference: {fileID: 1992084754}
+    - target: {fileID: 3115949219479004621, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: OnResetMaxSandAmount.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1992084754}
+    - target: {fileID: 3944399604636518840, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: field of view
+      value: 40
       objectReference: {fileID: 0}
-    - target: {fileID: 3111707878463554172, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: OnClickAt.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: TerrainSculptor, Assembly-CSharp
+    - target: {fileID: 3944399604636518840, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: far clip plane
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3944399604636518840, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: near clip plane
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3944399604636518840, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: orthographic size
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6239227789598618049, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8696427965730654194, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: sculptDuration
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8696427965730654194, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: OnSculptTerrain.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1804671754}
-    - target: {fileID: 8696427965730654194, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: OnSculptTerrain.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ConvertTerrainToSandAmount
-      objectReference: {fileID: 0}
-    - target: {fileID: 8696427965730654194, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: OnSculptTerrain.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: TerrainToSandConverter, Assembly-CSharp
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 267952029401061897, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 6598526267546357224, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1804671754}
-    - targetCorrespondingSourceObject: {fileID: 267952029401061897, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1804671753}
+      addedObject: {fileID: 1878994760}
   m_SourcePrefab: {fileID: 100100000, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
 --- !u!1 &1791309742
 GameObject:
@@ -10835,91 +10953,65 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &1804671747 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 267952029401061897, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-  m_PrefabInstance: {fileID: 1749976862}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1804671750 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3772721113015331469, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
   m_PrefabInstance: {fileID: 1749976862}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1804671747}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 487e8a342140348718751783c7a3ffe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TerrainSculptor
---- !u!114 &1804671753
+--- !u!114 &1804671753 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 3115949219479004621, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+  m_PrefabInstance: {fileID: 1749976862}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1804671747}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95bf16256bb434ac5b08c361cc2a00dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SandAmountBehavior
-  OnUpdateSandAmount:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1992084754}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: SetSliderValue
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnResetMaxSandAmount:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1992084754}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: SetSliderMaxValue
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1804671754
+--- !u!1 &1878994755 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6598526267546357224, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+  m_PrefabInstance: {fileID: 1749976862}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1878994760
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1804671747}
+  m_GameObject: {fileID: 1878994755}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37e832ba47b134d06aea5157d4d43b3c, type: 3}
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TerrainToSandConverter
-  OnGetSandAmount:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1804671753}
-        m_TargetAssemblyTypeName: SandAmountBehavior, Assembly-CSharp
-        m_MethodName: UpdateSandAmount
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBrain
+  ShowDebugText: 0
+  ShowCameraFrustum: 1
+  IgnoreTimeScale: 0
+  WorldUpOverride: {fileID: 0}
+  ChannelMask: -1
+  UpdateMethod: 2
+  BlendUpdateMethod: 1
+  LensModeOverride:
+    Enabled: 0
+    DefaultMode: 2
+  DefaultBlend:
+    Style: 1
+    Time: 2
+    CustomCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  CustomBlends: {fileID: 0}
 --- !u!4 &1957719901 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7103026204919382401, guid: 1652481e10bb5460a9fd4b409dc44af7, type: 3}
@@ -11126,6 +11218,7 @@ SceneRoots:
   - {fileID: 821694649}
   - {fileID: 1992084753}
   - {fileID: 1354284634}
+  - {fileID: 1150063327}
   - {fileID: 289224607}
   - {fileID: 1178425338}
   - {fileID: 1632818353}
@@ -11133,3 +11226,4 @@ SceneRoots:
   - {fileID: 1249033010}
   - {fileID: 924054970}
   - {fileID: 1369714740}
+  - {fileID: 1544223257}

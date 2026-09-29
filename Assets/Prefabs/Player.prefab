@@ -43,6 +43,8 @@ GameObject:
   - component: {fileID: 3772721113015331469}
   - component: {fileID: 2823977195493724574}
   - component: {fileID: 8696427965730654194}
+  - component: {fileID: 7108408778972520446}
+  - component: {fileID: 3115949219479004621}
   m_Layer: 0
   m_Name: PlayerSandBehavior
   m_TagString: Untagged
@@ -120,13 +122,82 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TerrainDataAlterBehavior
   sculptSize: 0.003
   sculptDeviation: 0.35
-  alterDuration: 1
+  sculptDuration: 1
   OnSculptTerrain:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7108408778972520446}
+        m_TargetAssemblyTypeName: TerrainToSandConverter, Assembly-CSharp
+        m_MethodName: ConvertTerrainToSandAmount
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7108408778972520446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267952029401061897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37e832ba47b134d06aea5157d4d43b3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TerrainToSandConverter
+  OnGetSandAmount:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3115949219479004621}
         m_TargetAssemblyTypeName: SandAmountBehavior, Assembly-CSharp
         m_MethodName: UpdateSandAmount
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3115949219479004621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267952029401061897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95bf16256bb434ac5b08c361cc2a00dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SandAmountBehavior
+  OnUpdateSandAmount:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: SetSliderValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnResetMaxSandAmount:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: SetSliderMaxValue
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -183,9 +254,9 @@ MonoBehaviour:
   OnClickAt:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SandController, Assembly-CSharp
-        m_MethodName: LowerSandAt
+      - m_Target: {fileID: 3772721113015331469}
+        m_TargetAssemblyTypeName: TerrainSculptor, Assembly-CSharp
+        m_MethodName: LowerTerrainAtPoint
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -745,9 +816,9 @@ MonoBehaviour:
   OnClickAt:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SandController, Assembly-CSharp
-        m_MethodName: RaiseSandAt
+      - m_Target: {fileID: 3772721113015331469}
+        m_TargetAssemblyTypeName: TerrainSculptor, Assembly-CSharp
+        m_MethodName: RaiseTerrainAtPoint
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 5886481516825438851}
   m_Layer: 0
   m_Name: KeyBall
-  m_TagString: Untagged
+  m_TagString: KeyBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
