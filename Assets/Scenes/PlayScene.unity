@@ -8583,7 +8583,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1257788134}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
   m_Name: 
@@ -9366,7 +9366,9 @@ PlayableDirector:
     value: {fileID: 756432816}
   m_ExposedReferences:
     m_References:
+    - 7dd75bee0bb5240a793304e34739dd33: {fileID: 1444802002}
     - bda501360330748fdb88154f13b4a505: {fileID: 1544223256}
+    - 0fd9afe6d08c44c31bd38ab8361db7a3: {fileID: 1444802002}
     - 1c3726d142773430ebb8b64b8210cd65: {fileID: 0}
     - 686abdbedb7da4192866617b0c912124: {fileID: 0}
     - ef4315d569f14416a92ad30cf7bcf8ae: {fileID: 1030935235}
@@ -9667,10 +9669,6 @@ PrefabInstance:
       propertyPath: OnBrushSizeChange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1992084754}
-    - target: {fileID: 2823977195493724574, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: OnBrushSizeChange.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetBrushSizeText
-      objectReference: {fileID: 0}
     - target: {fileID: 3115949219479004621, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: OnUpdateSandAmount.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -9679,29 +9677,9 @@ PrefabInstance:
       propertyPath: OnResetMaxSandAmount.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1992084754}
-    - target: {fileID: 3115949219479004621, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: OnUpdateSandAmount.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetSliderValue
-      objectReference: {fileID: 0}
-    - target: {fileID: 3115949219479004621, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: OnResetMaxSandAmount.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetSliderMaxValue
-      objectReference: {fileID: 0}
-    - target: {fileID: 3944399604636518840, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: field of view
-      value: 60.000004
-      objectReference: {fileID: 0}
-    - target: {fileID: 4721677451134237902, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6239227789598618049, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6598526267546357224, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: m_Name
-      value: CameraBrain
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10300,6 +10278,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1424885284}
   m_CullTransparentMesh: 1
+--- !u!114 &1444802002 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3406159617937917637, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+  m_PrefabInstance: {fileID: 1257788134}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
 --- !u!114 &1544223256 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5063701556908328925, guid: 1652481e10bb5460a9fd4b409dc44af7, type: 3}
@@ -10429,7 +10418,7 @@ Transform:
   m_GameObject: {fileID: 1617709707}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 115.19, y: 26.1, z: -12.23}
+  m_LocalPosition: {x: 114.42, y: 26.1, z: -14.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

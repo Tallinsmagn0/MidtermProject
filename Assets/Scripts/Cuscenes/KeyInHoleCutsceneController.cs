@@ -7,7 +7,7 @@ public class KeyInHoleCutsceneController : MonoBehaviour
 {
     // Timeline and Cinemachine references
     [SerializeField] private PlayableDirector director;
-    [SerializeField] private CinemachineBrain brain;
+    [SerializeField] private CinemachineCamera mainCamera;
 
     // Door animation
     [SerializeField] private Animator doorOpenAnimator;
@@ -49,7 +49,6 @@ public class KeyInHoleCutsceneController : MonoBehaviour
 
     private void SetUpCameras()
     {
-        brain.enabled = true;
         keyHoleCamera.enabled = true;
         doorCamera.enabled = true;
     }
@@ -91,7 +90,6 @@ public class KeyInHoleCutsceneController : MonoBehaviour
     {
         keyHoleCamera.enabled = false;
         doorCamera.enabled = false;
-        brain.enabled = false;
     }
 
     private void UpdateAnimatorState()
