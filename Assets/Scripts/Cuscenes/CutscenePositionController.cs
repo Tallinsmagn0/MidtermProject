@@ -3,15 +3,15 @@ using UnityEngine;
 
 public class PositionController : MonoBehaviour
 {
-    [SerializeField] private float duration;
     
     public void MoveToPoint()
     {
         Transform target = KeyInHoleCutsceneController.Instance.GetKeyBallMovePoint();
-        StartCoroutine(MoveToPosition(target));
+        float duration = KeyInHoleCutsceneController.Instance.GetKeyBallMoveDuration();
+        StartCoroutine(MoveToPosition(target, duration));
     }
 
-    IEnumerator MoveToPosition(Transform target)
+    IEnumerator MoveToPosition(Transform target, float duration)
     {
         float timeElapsed = 0f;
         Transform startTransform = transform;

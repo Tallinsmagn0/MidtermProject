@@ -19,6 +19,8 @@ public class KeyInHoleCutsceneController : Singleton<KeyInHoleCutsceneController
     [SerializeField] private string keyBallAnimationTrackName;
     [SerializeField] private string doorOpenAnimationTrackName;
 
+    [SerializeField] private float keyBallMoveDuration;
+
     // Object references references
     private Animator keyBallAnimator;
     private SignalReceiver keyBallMoveSignalReciever;
@@ -143,5 +145,10 @@ public class KeyInHoleCutsceneController : Singleton<KeyInHoleCutsceneController
     public Transform GetKeyBallMovePoint()
     {
         return keyBallMovePoint;
+    }
+
+    public float GetKeyBallMoveDuration()
+    {
+        return keyBallMoveDuration;
     }
 }
