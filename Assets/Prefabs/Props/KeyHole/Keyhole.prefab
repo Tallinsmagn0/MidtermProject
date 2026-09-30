@@ -126,6 +126,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1521995892108543645}
+  - component: {fileID: 1639586903674914255}
   m_Layer: 0
   m_Name: Keyhole
   m_TagString: Untagged
@@ -146,13 +147,34 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6651072583857795452}
-  - {fileID: 7443847797266653495}
+  - {fileID: 4737649882391814167}
   - {fileID: 4299767705512598620}
   - {fileID: 4027107541986835746}
   - {fileID: 8198190889214082494}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1639586903674914255
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2466023744696146472}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 73cc293aa852e47c3b6fd52bc73772cc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4696714003161243687
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,9 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a31b1f4e66d674c1da093c8f8b5e007a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeyInHoleCutsceneTrigger
-  doorCameraPivot: {fileID: 0}
   keyHoleCameraPivot: {fileID: 4027107541986835746}
-  doorOpenAnimator: {fileID: 0}
   keyBallMovePoint: {fileID: 8198190889214082494}
 --- !u!1 &5674097514528531933
 GameObject:
@@ -282,11 +302,11 @@ Transform:
   m_GameObject: {fileID: 6373805575582991578}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0.09, z: 0}
+  m_LocalPosition: {x: 0, y: 0.09000015, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1521995892108543645}
+  m_Father: {fileID: 4737649882391814167}
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
 --- !u!212 &5391827321570730613
 SpriteRenderer:
@@ -347,6 +367,39 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &7774395927052789571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4737649882391814167}
+  m_Layer: 0
+  m_Name: Models
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4737649882391814167
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7774395927052789571}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6651072583857795452}
+  - {fileID: 7443847797266653495}
+  m_Father: {fileID: 1521995892108543645}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8564094244220529889
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,7 +431,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1521995892108543645}
+  m_Father: {fileID: 4737649882391814167}
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
 --- !u!33 &6842279389024095105
 MeshFilter:
