@@ -11930,6 +11930,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 747058338}
     m_Modifications:
+    - target: {fileID: 681281614630731728, guid: ea850b2c3bf9d4c6ea1961f95d145dcd, type: 3}
+      propertyPath: doorCameraPivot
+      value: 
+      objectReference: {fileID: 1637107832}
+    - target: {fileID: 681281614630731728, guid: ea850b2c3bf9d4c6ea1961f95d145dcd, type: 3}
+      propertyPath: doorOpenAnimator
+      value: 
+      objectReference: {fileID: 262099802}
     - target: {fileID: 1521995892108543645, guid: ea850b2c3bf9d4c6ea1961f95d145dcd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 117.8
@@ -13035,6 +13043,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1150063327}
   - component: {fileID: 1150063326}
+  - component: {fileID: 1150063328}
   m_Layer: 0
   m_Name: KeyBallInHoleCutscene
   m_TagString: Untagged
@@ -13090,6 +13099,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1150063328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150063325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49a3173bb2c8e45019fc3eae30ac2a51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeyInHoleCutsceneController
+  director: {fileID: 1150063326}
+  keyHoleCamera: {fileID: 433899004}
+  doorCamera: {fileID: 345299803}
+  virtualCameraContainer: {fileID: 1666786497}
+  keyBallTrackName: KeyBallTrack
+  doorTrackName: DoorTrack
 --- !u!1 &1178425336
 GameObject:
   m_ObjectHideFlags: 0
@@ -14177,18 +14204,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1618251206}
     m_Modifications:
-    - target: {fileID: 306946830400171154, guid: ea850b2c3bf9d4c6ea1961f95d145dcd, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 306946830400171154, guid: ea850b2c3bf9d4c6ea1961f95d145dcd, type: 3}
-      propertyPath: Priority.Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 306946830400171154, guid: ea850b2c3bf9d4c6ea1961f95d145dcd, type: 3}
-      propertyPath: Priority.m_Value
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 681281614630731728, guid: ea850b2c3bf9d4c6ea1961f95d145dcd, type: 3}
+      propertyPath: doorCameraPivot
+      value: 
+      objectReference: {fileID: 556274483}
+    - target: {fileID: 681281614630731728, guid: ea850b2c3bf9d4c6ea1961f95d145dcd, type: 3}
+      propertyPath: doorOpenAnimator
+      value: 
+      objectReference: {fileID: 756432816}
     - target: {fileID: 1521995892108543645, guid: ea850b2c3bf9d4c6ea1961f95d145dcd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 116.2
@@ -14233,56 +14256,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keyhole
       objectReference: {fileID: 0}
-    - target: {fileID: 6540695592357509184, guid: ea850b2c3bf9d4c6ea1961f95d145dcd, type: 3}
-      propertyPath: brain
-      value: 
-      objectReference: {fileID: 604165894}
-    - target: {fileID: 6540695592357509184, guid: ea850b2c3bf9d4c6ea1961f95d145dcd, type: 3}
-      propertyPath: director
-      value: 
-      objectReference: {fileID: 1150063326}
-    - target: {fileID: 6540695592357509184, guid: ea850b2c3bf9d4c6ea1961f95d145dcd, type: 3}
-      propertyPath: doorCamera
-      value: 
-      objectReference: {fileID: 345299803}
-    - target: {fileID: 6540695592357509184, guid: ea850b2c3bf9d4c6ea1961f95d145dcd, type: 3}
-      propertyPath: doorTrackName
-      value: DoorTrack
-      objectReference: {fileID: 0}
-    - target: {fileID: 6540695592357509184, guid: ea850b2c3bf9d4c6ea1961f95d145dcd, type: 3}
-      propertyPath: keyHoleCamera
-      value: 
-      objectReference: {fileID: 433899004}
-    - target: {fileID: 6540695592357509184, guid: ea850b2c3bf9d4c6ea1961f95d145dcd, type: 3}
-      propertyPath: doorCameraPivot
-      value: 
-      objectReference: {fileID: 556274483}
-    - target: {fileID: 6540695592357509184, guid: ea850b2c3bf9d4c6ea1961f95d145dcd, type: 3}
-      propertyPath: doorOpenAnimator
-      value: 
-      objectReference: {fileID: 756432816}
-    - target: {fileID: 6540695592357509184, guid: ea850b2c3bf9d4c6ea1961f95d145dcd, type: 3}
-      propertyPath: keyBallTrackName
-      value: KeyBallTrack
-      objectReference: {fileID: 0}
-    - target: {fileID: 6540695592357509184, guid: ea850b2c3bf9d4c6ea1961f95d145dcd, type: 3}
-      propertyPath: keyHoleCameraPivot
-      value: 
-      objectReference: {fileID: 1591017495}
-    - target: {fileID: 6540695592357509184, guid: ea850b2c3bf9d4c6ea1961f95d145dcd, type: 3}
-      propertyPath: virtualCameraContainer
-      value: 
-      objectReference: {fileID: 1666786497}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea850b2c3bf9d4c6ea1961f95d145dcd, type: 3}
---- !u!4 &1591017495 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4027107541986835746, guid: ea850b2c3bf9d4c6ea1961f95d145dcd, type: 3}
-  m_PrefabInstance: {fileID: 1590889876}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1617709707
 GameObject:
   m_ObjectHideFlags: 0

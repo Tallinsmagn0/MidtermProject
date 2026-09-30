@@ -162,7 +162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6298281176448487418}
   - component: {fileID: 614273343089088822}
-  - component: {fileID: 6540695592357509184}
+  - component: {fileID: 681281614630731728}
   m_Layer: 0
   m_Name: KeyCollider
   m_TagString: Untagged
@@ -208,7 +208,7 @@ CapsuleCollider:
   m_Height: 4
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6540695592357509184
+--- !u!114 &681281614630731728
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -217,17 +217,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4696714003161243687}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49a3173bb2c8e45019fc3eae30ac2a51, type: 3}
+  m_Script: {fileID: 11500000, guid: a31b1f4e66d674c1da093c8f8b5e007a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::KeyInHoleCutsceneManager
-  director: {fileID: 0}
-  doorCamera: {fileID: 0}
-  keyHoleCamera: {fileID: 0}
-  virtualCameraContainer: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::KeyInHoleCutsceneTrigger
   doorCameraPivot: {fileID: 0}
-  keyHoleCameraPivot: {fileID: 0}
-  doorTrackName: 
-  keyBallTrackName: 
+  keyHoleCameraPivot: {fileID: 4027107541986835746}
   doorOpenAnimator: {fileID: 0}
 --- !u!1 &6373805575582991578
 GameObject:

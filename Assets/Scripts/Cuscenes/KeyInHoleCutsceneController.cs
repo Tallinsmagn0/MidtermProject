@@ -2,56 +2,32 @@ using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
 using Unity.Cinemachine;
+using System;
 
-public class KeyInHoleCutsceneController : MonoBehaviour
+public class KeyInHoleCutsceneController : Singleton<KeyInHoleCutsceneController>
 {
-    // Timeline and Cinemachine references
+    // Timeline references
     [SerializeField] private PlayableDirector director;
-    [SerializeField] private CinemachineCamera doorCamera;
+
+    // Camera references
     [SerializeField] private CinemachineCamera keyHoleCamera;
-
-    // Camera pivots
+    [SerializeField] private CinemachineCamera doorCamera;
     [SerializeField] private Transform virtualCameraContainer;
-    [SerializeField] private Transform doorCameraPivot;
-    [SerializeField] private Transform keyHoleCameraPivot;
 
-    // Track names
-    [SerializeField] private string doorTrackName;
+    // Animation Track names
     [SerializeField] private string keyBallTrackName;
+    [SerializeField] private string doorTrackName;
 
-    // Animators
-    [SerializeField] private Animator doorOpenAnimator;
+// Animation Track references
     private Animator keyBallAnimator;
+    private Animator doorOpenAnimator;
 
-    // KeyHole animation
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("KeyBall"))
-        {
-            SetUpCutscene(other);
-            PlayCutscene();
-        }
-    }
-
-    private void PlayCutscene()
+    public void PlayCutscene()
     {
         director.Play();
     }
 
-    private void SetUpCutscene(Collider other)
-    {
-        GetKeyBallAniamtor(other);
-        SetUpCameras();
-        SetUpDirector();
-    }
-
-    private void GetKeyBallAniamtor(Collider other)
-    {
-        keyBallAnimator = other.gameObject.GetComponent<Animator>();
-    }
-
-    private void SetUpCameras()
+    public void SetUpCameras(Transform keyHoleCameraPivot, Transform doorCameraPivot)
     {
         keyHoleCamera.enabled = true;
         doorCamera.enabled = true;
@@ -65,10 +41,13 @@ public class KeyInHoleCutsceneController : MonoBehaviour
         doorCamera.gameObject.transform.localRotation = Quaternion.identity;
     }
 
-    private void SetUpDirector()
+    public void SetUpDirector(Animator _keyBallAnimator, Animator _doorOpenAnimator)
     {
-        director.stopped += OnTimelineStopped;
+        keyBallAnimator = _keyBallAnimator;
+        doorOpenAnimator = _doorOpenAnimator;
+        
         SetAnimationTracks();
+        director.stopped += OnTimelineStopped;
     }
 
     private void SetAnimationTracks()
@@ -79,11 +58,25 @@ public class KeyInHoleCutsceneController : MonoBehaviour
         {
             if (track is AnimationTrack && track.name == keyBallTrackName)
             {
-                director.SetGenericBinding(track, keyBallAnimator);
+                if (keyBallAnimator != null)
+                {
+                    director.SetGenericBinding(track, keyBallAnimator);
+                }
+                else
+                {
+                    throw new NullReferenceException("Key ball aniamtor reference was null");
+                }
             }
             else if (track is AnimationTrack && track.name == doorTrackName)
             {
-                director.SetGenericBinding(track, doorOpenAnimator);
+                if (doorOpenAnimator != null)
+                {
+                    director.SetGenericBinding(track, doorOpenAnimator);
+                }
+                else
+                {
+                    throw new NullReferenceException("Door open aniamtor reference was null");
+                }
             }
         }
     }
@@ -94,6 +87,7 @@ public class KeyInHoleCutsceneController : MonoBehaviour
         {
             DisableCameras();
             UpdateAnimatorState();
+            UnsetAnimatorReferences();
             director.stopped -= OnTimelineStopped;
         }
     }
@@ -111,5 +105,11 @@ public class KeyInHoleCutsceneController : MonoBehaviour
     {
         doorOpenAnimator.Play("Opened", 0, 0f);
         doorOpenAnimator.SetBool("Open", true);
+    }
+
+    private void UnsetAnimatorReferences()
+    {
+        doorOpenAnimator = null;
+        keyBallAnimator = null;
     }
 }
