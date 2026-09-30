@@ -17,6 +17,7 @@ public class KeyInHoleCutsceneController : Singleton<KeyInHoleCutsceneController
     // Animation Track names
     [SerializeField] private string keyBallMoveSignalTrackName;
     [SerializeField] private string keyBallAnimationTrackName;
+    [SerializeField] private string keyHoleAnimationTrackName;
     [SerializeField] private string doorOpenAnimationTrackName;
 
     [SerializeField] private float keyBallMoveDuration;
@@ -25,6 +26,7 @@ public class KeyInHoleCutsceneController : Singleton<KeyInHoleCutsceneController
     private Animator keyBallAnimator;
     private SignalReceiver keyBallMoveSignalReciever;
     private Transform keyBallMovePoint;
+    private Animator keyHoleAnimator;
     private Animator doorOpenAnimator;
 
     public void PlayCutscene()
@@ -32,12 +34,14 @@ public class KeyInHoleCutsceneController : Singleton<KeyInHoleCutsceneController
         director.Play();
     }
 
-    public void SetUpCameras(Transform keyHoleCameraPivot, Transform doorCameraPivot)
-    {
+    public void SetUpCameras(Transform keyHoleCameraPivot)
+    {   
         keyHoleCamera.enabled = true;
         doorCamera.enabled = true;
 
         keyHoleCamera.gameObject.transform.SetParent(keyHoleCameraPivot);
+
+        Transform doorCameraPivot = LevelManager.Instance.GetCUrrentDoorCameraPivot();
         doorCamera.gameObject.transform.SetParent(doorCameraPivot);
 
         keyHoleCamera.gameObject.transform.localPosition = Vector3.zero;
@@ -46,19 +50,20 @@ public class KeyInHoleCutsceneController : Singleton<KeyInHoleCutsceneController
         doorCamera.gameObject.transform.localRotation = Quaternion.identity;
     }
 
-    public void SetUpDirector(GameObject _keyBallObject, Transform _keyBallMovePoint, Animator _doorOpenAnimator)
+    public void SetUpDirector(GameObject _keyBallObject, Transform _keyBallMovePoint, Animator _keyHoleAnimator)
     {
-        SetObjectReferences(_keyBallObject, _keyBallMovePoint, _doorOpenAnimator);
+        SetObjectReferences(_keyBallObject, _keyBallMovePoint, _keyHoleAnimator);
         SetTracks();
         director.stopped += OnTimelineStopped;
     }
 
-    private void SetObjectReferences(GameObject _keyBallObject, Transform _keyBallMovePoint, Animator _doorOpenAnimator)
+    private void SetObjectReferences(GameObject _keyBallObject, Transform _keyBallMovePoint, Animator _keyHoleAnimator)
     {
         keyBallAnimator = _keyBallObject.GetComponent<Animator>();
         keyBallMoveSignalReciever = _keyBallObject.GetComponent<SignalReceiver>();
         keyBallMovePoint = _keyBallMovePoint;
-        doorOpenAnimator = _doorOpenAnimator;
+        keyHoleAnimator = _keyHoleAnimator;
+        doorOpenAnimator = LevelManager.Instance.GetCurrentDoorAnimator();
 
         Rigidbody keyBallRb = _keyBallObject.GetComponent<Rigidbody>();
         keyBallRb.isKinematic = true;
@@ -79,6 +84,17 @@ public class KeyInHoleCutsceneController : Singleton<KeyInHoleCutsceneController
                 else
                 {
                     throw new NullReferenceException("Key ball aniamtor reference was null");
+                }
+            }
+            else if (track is AnimationTrack && track.name == keyHoleAnimationTrackName)
+            {
+                if (keyHoleAnimator != null)
+                {
+                    director.SetGenericBinding(track, keyHoleAnimator);
+                }
+                else
+                {
+                    throw new NullReferenceException("Key hole aniamtor reference was null");
                 }
             }
             else if (track is AnimationTrack && track.name == doorOpenAnimationTrackName)
@@ -139,6 +155,7 @@ public class KeyInHoleCutsceneController : Singleton<KeyInHoleCutsceneController
         keyBallAnimator = null;
         keyBallMoveSignalReciever = null;
         keyBallMovePoint = null;
+        keyHoleAnimator = null;
         doorOpenAnimator = null;
     }
 

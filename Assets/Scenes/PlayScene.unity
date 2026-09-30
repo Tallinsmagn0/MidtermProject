@@ -13007,6 +13007,7 @@ MonoBehaviour:
   virtualCameraContainer: {fileID: 1666786497}
   keyBallMoveSignalTrackName: KeyBallMoveSignalTrack
   keyBallAnimationTrackName: KeyBallAnimationTrack
+  keyHoleAnimationTrackName: KeyHoleAnimationTrack
   doorOpenAnimationTrackName: DoorOpenAnimationTrack
   keyBallMoveDuration: 3
 --- !u!1 &1178425336

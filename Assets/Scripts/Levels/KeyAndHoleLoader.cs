@@ -24,7 +24,7 @@ public class KeyAndHoleLoader : MonoBehaviour, ILoader
         }
         if (keyHoleObject != null)
         {
-            keyBallObject.SetActive(false);
+            keyHoleObject.SetActive(false);
         }
     }
 

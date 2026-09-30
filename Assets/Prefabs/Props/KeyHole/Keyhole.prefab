@@ -243,6 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a31b1f4e66d674c1da093c8f8b5e007a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeyInHoleCutsceneTrigger
+  keyHoleAnimator: {fileID: 1639586903674914255}
   keyHoleCameraPivot: {fileID: 4027107541986835746}
   keyBallMovePoint: {fileID: 8198190889214082494}
 --- !u!1 &5674097514528531933
