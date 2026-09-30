@@ -7,18 +7,23 @@ public class KeyInHoleCutsceneController : MonoBehaviour
 {
     // Timeline and Cinemachine references
     [SerializeField] private PlayableDirector director;
-
-    // Door animation
-    [SerializeField] private Animator doorOpenAnimator;
     [SerializeField] private CinemachineCamera doorCamera;
-    [SerializeField] private string doorTrackName;
+    [SerializeField] private CinemachineCamera keyHoleCamera;
 
-    // KeyBall animation
+    // Camera pivots
+    [SerializeField] private Transform virtualCameraContainer;
+    [SerializeField] private Transform doorCameraPivot;
+    [SerializeField] private Transform keyHoleCameraPivot;
+
+    // Track names
+    [SerializeField] private string doorTrackName;
     [SerializeField] private string keyBallTrackName;
+
+    // Animators
+    [SerializeField] private Animator doorOpenAnimator;
     private Animator keyBallAnimator;
 
     // KeyHole animation
-    [SerializeField] private CinemachineCamera keyHoleCamera;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -50,6 +55,14 @@ public class KeyInHoleCutsceneController : MonoBehaviour
     {
         keyHoleCamera.enabled = true;
         doorCamera.enabled = true;
+
+        keyHoleCamera.gameObject.transform.SetParent(keyHoleCameraPivot);
+        doorCamera.gameObject.transform.SetParent(doorCameraPivot);
+
+        keyHoleCamera.gameObject.transform.localPosition = Vector3.zero;
+        keyHoleCamera.gameObject.transform.localRotation = Quaternion.identity;
+        doorCamera.gameObject.transform.localPosition = Vector3.zero;
+        doorCamera.gameObject.transform.localRotation = Quaternion.identity;
     }
 
     private void SetUpDirector()
@@ -89,6 +102,9 @@ public class KeyInHoleCutsceneController : MonoBehaviour
     {
         keyHoleCamera.enabled = false;
         doorCamera.enabled = false;
+
+        keyHoleCamera.gameObject.transform.SetParent(virtualCameraContainer);
+        keyHoleCamera.gameObject.transform.SetParent(virtualCameraContainer);
     }
 
     private void UpdateAnimatorState()
