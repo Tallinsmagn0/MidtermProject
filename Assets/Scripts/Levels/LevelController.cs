@@ -5,6 +5,8 @@ using UnityEngine;
 public class LevelController : MonoBehaviour
 {
     [SerializeField] [Range(0f, 1f)] private float maxSandAmount;
+    [SerializeField] private GameObject doorObject;
+    [SerializeField] private string doorCameraTag;
     [SerializeField] private ILoader[] loaders;
 
     private TerrainLoader terrainLoader;
@@ -51,5 +53,24 @@ public class LevelController : MonoBehaviour
     public float GetMaxSandAmount()
     {
         return maxSandAmount;
+    }
+
+    public Transform GetDoorCameraPivot()
+    {
+        Transform[] allChildren = doorObject.GetComponentsInChildren<Transform>(true);
+    
+        foreach (Transform child in allChildren)
+        {
+            if (child != transform && child.CompareTag(doorCameraTag))
+            {
+                return child.gameObject.transform;
+            }
+        }
+        return null;
+    }
+
+    public Animator GetDoorAniamtor()
+    {
+        return doorObject.GetComponent<Animator>();
     }
 }

@@ -56,4 +56,14 @@ public class LevelManager : Singleton<LevelManager>
     {
         return levels[currLevel].GetMaxSandAmount();
     }
+
+    public Transform GetCUrrentDoorCameraPivot()
+    {
+        return levels[currLevel]?.GetDoorCameraPivot();
+    }
+
+    public Animator GetCurrentDoorAnimator()
+    {
+        return levels[currLevel]?.GetDoorAniamtor();
+    }
 }

@@ -1,11 +1,9 @@
+using System;
 using UnityEngine;
 
 public class KeyInHoleCutsceneTrigger : MonoBehaviour
 {
-    [SerializeField] private Transform doorCameraPivot;
     [SerializeField] private Transform keyHoleCameraPivot;
-
-    [SerializeField] private Animator doorOpenAnimator;
     [SerializeField] private Transform keyBallMovePoint;
     private GameObject keyBallObject;
 
@@ -21,8 +19,18 @@ public class KeyInHoleCutsceneTrigger : MonoBehaviour
 
     private void SetUpCutscene()
     {
-        KeyInHoleCutsceneController.Instance.SetUpCameras(keyHoleCameraPivot, doorCameraPivot);
+        Transform doorCameraPivot = LevelManager.Instance.GetCUrrentDoorCameraPivot();
+        Animator doorOpenAnimator = LevelManager.Instance.GetCurrentDoorAnimator();
+
+        if (doorCameraPivot != null && doorOpenAnimator != null)
+        {
+            KeyInHoleCutsceneController.Instance.SetUpCameras(keyHoleCameraPivot, doorCameraPivot);
         KeyInHoleCutsceneController.Instance.SetUpDirector(keyBallObject, keyBallMovePoint, doorOpenAnimator);
+        }
+        else
+        {
+            throw new NullReferenceException("Couldn't set up cutscene because door references were null");
+        }
     }
 
     private void SetKeyBallObject(Collider other)
