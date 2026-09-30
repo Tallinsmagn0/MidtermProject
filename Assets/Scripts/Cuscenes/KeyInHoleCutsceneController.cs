@@ -15,11 +15,14 @@ public class KeyInHoleCutsceneController : Singleton<KeyInHoleCutsceneController
     [SerializeField] private Transform virtualCameraContainer;
 
     // Animation Track names
-    [SerializeField] private string keyBallTrackName;
-    [SerializeField] private string doorTrackName;
+    [SerializeField] private string keyBallMoveSignalTrackName;
+    [SerializeField] private string keyBallAnimationTrackName;
+    [SerializeField] private string doorOpenAnimationTrackName;
 
-// Animation Track references
+    // Object references references
     private Animator keyBallAnimator;
+    private SignalReceiver keyBallMoveSignalReciever;
+    private Transform keyBallMovePoint;
     private Animator doorOpenAnimator;
 
     public void PlayCutscene()
@@ -41,22 +44,31 @@ public class KeyInHoleCutsceneController : Singleton<KeyInHoleCutsceneController
         doorCamera.gameObject.transform.localRotation = Quaternion.identity;
     }
 
-    public void SetUpDirector(Animator _keyBallAnimator, Animator _doorOpenAnimator)
+    public void SetUpDirector(GameObject _keyBallObject, Transform _keyBallMovePoint, Animator _doorOpenAnimator)
     {
-        keyBallAnimator = _keyBallAnimator;
-        doorOpenAnimator = _doorOpenAnimator;
-        
-        SetAnimationTracks();
+        SetObjectReferences(_keyBallObject, _keyBallMovePoint, _doorOpenAnimator);
+        SetTracks();
         director.stopped += OnTimelineStopped;
     }
 
-    private void SetAnimationTracks()
+    private void SetObjectReferences(GameObject _keyBallObject, Transform _keyBallMovePoint, Animator _doorOpenAnimator)
+    {
+        keyBallAnimator = _keyBallObject.GetComponent<Animator>();
+        keyBallMoveSignalReciever = _keyBallObject.GetComponent<SignalReceiver>();
+        keyBallMovePoint = _keyBallMovePoint;
+        doorOpenAnimator = _doorOpenAnimator;
+
+        Rigidbody keyBallRb = _keyBallObject.GetComponent<Rigidbody>();
+        keyBallRb.isKinematic = true;
+    }
+
+    private void SetTracks()
     {
         TimelineAsset timelineAsset = director.playableAsset as TimelineAsset;
 
         foreach (TrackAsset track in timelineAsset.GetOutputTracks())
         {
-            if (track is AnimationTrack && track.name == keyBallTrackName)
+            if (track is AnimationTrack && track.name == keyBallAnimationTrackName)
             {
                 if (keyBallAnimator != null)
                 {
@@ -67,7 +79,7 @@ public class KeyInHoleCutsceneController : Singleton<KeyInHoleCutsceneController
                     throw new NullReferenceException("Key ball aniamtor reference was null");
                 }
             }
-            else if (track is AnimationTrack && track.name == doorTrackName)
+            else if (track is AnimationTrack && track.name == doorOpenAnimationTrackName)
             {
                 if (doorOpenAnimator != null)
                 {
@@ -78,6 +90,10 @@ public class KeyInHoleCutsceneController : Singleton<KeyInHoleCutsceneController
                     throw new NullReferenceException("Door open aniamtor reference was null");
                 }
             }
+            else if (track is SignalTrack && track.name == keyBallMoveSignalTrackName)
+            {
+                director.SetGenericBinding(track, keyBallMoveSignalReciever);
+            }
         }
     }
 
@@ -87,29 +103,45 @@ public class KeyInHoleCutsceneController : Singleton<KeyInHoleCutsceneController
         {
             DisableCameras();
             UpdateAnimatorState();
-            UnsetAnimatorReferences();
+            UnsetObjectReferences();
             director.stopped -= OnTimelineStopped;
         }
     }
 
     private void DisableCameras()
     {
-        keyHoleCamera.enabled = false;
-        doorCamera.enabled = false;
+        DisableCamera(keyHoleCamera);
+        DisableCamera(doorCamera);
+    }
 
-        keyHoleCamera.gameObject.transform.SetParent(virtualCameraContainer);
-        keyHoleCamera.gameObject.transform.SetParent(virtualCameraContainer);
+    private void DisableCamera(CinemachineCamera camera)
+    {
+        if (camera != null)
+        {
+            camera.enabled = false;
+            camera.gameObject.transform.SetParent(virtualCameraContainer);
+        }
     }
 
     private void UpdateAnimatorState()
     {
-        doorOpenAnimator.Play("Opened", 0, 0f);
-        doorOpenAnimator.SetBool("Open", true);
+        if (doorOpenAnimator != null)
+        {
+            doorOpenAnimator.Play("Opened", 0, 0f);
+            doorOpenAnimator.SetBool("Open", true);
+        }
     }
 
-    private void UnsetAnimatorReferences()
+    private void UnsetObjectReferences()
     {
-        doorOpenAnimator = null;
         keyBallAnimator = null;
+        keyBallMoveSignalReciever = null;
+        keyBallMovePoint = null;
+        doorOpenAnimator = null;
+    }
+
+    public Transform GetKeyBallMovePoint()
+    {
+        return keyBallMovePoint;
     }
 }

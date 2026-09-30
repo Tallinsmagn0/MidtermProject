@@ -6,28 +6,27 @@ public class KeyInHoleCutsceneTrigger : MonoBehaviour
     [SerializeField] private Transform keyHoleCameraPivot;
 
     [SerializeField] private Animator doorOpenAnimator;
-    private Animator keyBallAnimator;
+    [SerializeField] private Transform keyBallMovePoint;
+    private GameObject keyBallObject;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("KeyBall"))
         {
-            SetKeyBallAniamtor(other);
-
-            SetUpCutscene(other);
+            SetKeyBallObject(other);
+            SetUpCutscene();
             KeyInHoleCutsceneController.Instance.PlayCutscene();
         }
     }
 
-    private void SetUpCutscene(Collider other)
+    private void SetUpCutscene()
     {
-        SetKeyBallAniamtor(other);
         KeyInHoleCutsceneController.Instance.SetUpCameras(keyHoleCameraPivot, doorCameraPivot);
-        KeyInHoleCutsceneController.Instance.SetUpDirector(keyBallAnimator, doorOpenAnimator);
+        KeyInHoleCutsceneController.Instance.SetUpDirector(keyBallObject, keyBallMovePoint, doorOpenAnimator);
     }
 
-    private void SetKeyBallAniamtor(Collider other)
+    private void SetKeyBallObject(Collider other)
     {
-        keyBallAnimator = other.gameObject.GetComponent<Animator>();
+        keyBallObject = other.gameObject;
     }
 }

@@ -11,7 +11,7 @@ public class LevelManager : Singleton<LevelManager>
 
     public void LoadFirstLevel()
     {
-        currLevel = 0;
+        currLevel = 1;
         levels[currLevel]?.Load();
         OnLevelChange?.Invoke();
     }
