@@ -312,6 +312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaab33f5667a345a49cc4ec364083e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PositionClamp
+  modelTransform: {fileID: 591068028420239148}
 --- !u!95 &6159598105720223626
 Animator:
   serializedVersion: 7
@@ -376,7 +377,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 173438eccf9d645e393c566d588cfeb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PositionController
-  duration: 0.7
 --- !u!1001 &5615410660545276939
 PrefabInstance:
   m_ObjectHideFlags: 0

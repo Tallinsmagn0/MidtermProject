@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class PositionController : MonoBehaviour
+public class CutscenePositionController : MonoBehaviour
 {
     
     public void MoveToPoint()

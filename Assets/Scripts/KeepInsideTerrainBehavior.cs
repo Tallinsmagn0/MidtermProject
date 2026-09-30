@@ -1,8 +1,17 @@
 using System;
 using UnityEngine;
 
-public class PositionClamp : MonoBehaviour
+public class KeepInsideTerrainBehavior : MonoBehaviour
 {
+    [SerializeField] private Transform modelTransform;
+
+    private float radius;
+
+    void Start()
+    {
+        radius = modelTransform.localScale.x / 2;
+    }
+
     void LateUpdate()
     {
         TryPositionClamp();
@@ -34,8 +43,8 @@ public class PositionClamp : MonoBehaviour
     private void ClampPosition(Bounds bounds)
     {
         Vector3 clampedPosition = transform.position;
-        clampedPosition.x = Mathf.Clamp(clampedPosition.x, bounds.min.x, bounds.max.x);
-        clampedPosition.z = Mathf.Clamp(clampedPosition.z, bounds.min.z, bounds.max.z);
+        clampedPosition.x = Mathf.Clamp(clampedPosition.x, bounds.min.x + radius, bounds.max.x - radius);
+        clampedPosition.z = Mathf.Clamp(clampedPosition.z, bounds.min.z + radius, bounds.max.z - radius);
 
         transform.position = clampedPosition;
     }
