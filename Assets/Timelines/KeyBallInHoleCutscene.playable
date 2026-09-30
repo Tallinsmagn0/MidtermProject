@@ -268,7 +268,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 9.216666666666667
+    m_Start: 6.666666666666667
     m_ClipIn: 0
     m_Asset: {fileID: -4559085567382908480}
     m_Duration: 1.5166666666666666
@@ -316,13 +316,13 @@ MonoBehaviour:
     m_PostExtrapolationMode: 1
     m_PreExtrapolationMode: 1
     m_PostExtrapolationTime: 0
-    m_PreExtrapolationTime: 9.216666666666667
+    m_PreExtrapolationTime: 6.666666666666667
     m_DisplayName: Opening
   - m_Version: 1
-    m_Start: 10.733333333333334
+    m_Start: 8.183333333333334
     m_ClipIn: 0
     m_Asset: {fileID: -7563432164164766086}
-    m_Duration: 2.9499999999999993
+    m_Duration: 2.0666666666666664
     m_TimeScale: 1
     m_ParentTrack: {fileID: -1826243740145338}
     m_EaseInDuration: 0
@@ -452,15 +452,15 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 11.45
+    m_Start: 8.95
     m_ClipIn: 0
     m_Asset: {fileID: -3320634891935634120}
-    m_Duration: 2.2333333333333343
+    m_Duration: 1.3000000000000007
     m_TimeScale: 1
     m_ParentTrack: {fileID: 2807273342242747451}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
-    m_BlendInDuration: 1.1833333333333336
+    m_BlendInDuration: 0.9000000000000004
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
@@ -575,13 +575,13 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: -7556330588351687271}
-    m_Duration: 8.016666666666667
+    m_Duration: 5.933333333333334
     m_TimeScale: 1
     m_ParentTrack: {fileID: 2807273342242747451}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: 1.2
-    m_BlendOutDuration: 2.1833333333333345
+    m_BlendOutDuration: 1.1000000000000005
     m_MixInCurve:
       serializedVersion: 2
       m_Curve:
@@ -641,16 +641,16 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: KeyHoleCamera
   - m_Version: 1
-    m_Start: 5.833333333333333
+    m_Start: 4.833333333333333
     m_ClipIn: 0
     m_Asset: {fileID: 2235299358386166510}
-    m_Duration: 6.8
+    m_Duration: 5.016666666666667
     m_TimeScale: 1
     m_ParentTrack: {fileID: 2807273342242747451}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
-    m_BlendInDuration: 2.1833333333333345
-    m_BlendOutDuration: 1.1833333333333336
+    m_BlendInDuration: 1.1000000000000005
+    m_BlendOutDuration: 0.9000000000000004
     m_MixInCurve:
       serializedVersion: 2
       m_Curve: []
