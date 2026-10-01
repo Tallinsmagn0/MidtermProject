@@ -8,16 +8,12 @@ public class KeepAboveTerrainBehavior : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(terrainTag))
         {
-            Debug.Log("Before: " + transform.position);
-
             Terrain terrain = collision.gameObject.GetComponent<Terrain>();
             float terrainHeight = terrain.GetPosition().y + terrain.SampleHeight(transform.position);
             float finalHeight = Mathf.Max(terrainHeight, transform.position.y);
 
             Vector3 targetPosition = new Vector3(transform.position.x, finalHeight, transform.position.z);
             transform.position = targetPosition;
-
-            Debug.Log("After: " + transform.position);
         }
     }
 }

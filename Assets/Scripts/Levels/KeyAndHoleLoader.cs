@@ -12,8 +12,8 @@ public class KeyAndHoleLoader : MonoBehaviour, ILoader
 
     public void Load()
     {
-        keyBallObject = Instantiate(keyBallPrefab, ballStart.position, Quaternion.identity);
-        keyHoleObject = Instantiate(keyHolePrefab, holeStart.position, Quaternion.identity);
+        keyBallObject = Instantiate(keyBallPrefab, ballStart.position, Quaternion.identity, transform);
+        keyHoleObject = Instantiate(keyHolePrefab, holeStart.position, Quaternion.identity, transform);
     }
 
     public void Unload()

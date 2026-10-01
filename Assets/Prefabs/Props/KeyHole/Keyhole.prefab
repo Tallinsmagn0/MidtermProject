@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3364890371331112134}
   m_Layer: 0
   m_Name: SandCollider
-  m_TagString: Untagged
+  m_TagString: TerrainExclusion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,8 +51,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 7, y: 3.6113453, z: 7}
-  m_Center: {x: 0, y: -1.6943274, z: 0}
+  m_Size: {x: 7.6263657, y: 3.6113453, z: 7.510319}
+  m_Center: {x: 0.00064468384, y: -1.6943274, z: 0.0030405521}
 --- !u!1 &1555040058043348980
 GameObject:
   m_ObjectHideFlags: 0

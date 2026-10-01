@@ -8,6 +8,7 @@ TagManager:
   - Terrain
   - KeyBall
   - DoorCamera
+  - TerrainExclusion
   layers:
   - Default
   - TransparentFX

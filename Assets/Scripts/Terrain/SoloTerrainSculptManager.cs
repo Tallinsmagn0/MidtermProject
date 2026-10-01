@@ -53,7 +53,7 @@ public class SoloTerrainSculptStrategy : ITerrainSculptStrategy
 
         if (terrain != null)
         {
-            dataAlterBehavior.ResetTerrainData(terrain.terrainData);
+            dataAlterBehavior.ResetTerrainData(terrain);
         }
     }
 

@@ -8,6 +8,8 @@ public class TerrainLoader : MonoBehaviour, ILoader
 
     [SerializeField] [Range(0f, 1f)] 
     private float heightmapResolutionScalingFactor = 0.513f;
+    [SerializeField] Transform topLeftCorner;
+    [SerializeField] Transform bottomRightCorner;
 
     
     public void Load()
@@ -15,7 +17,7 @@ public class TerrainLoader : MonoBehaviour, ILoader
         if (terrain != null)
         {
             ResetTerrainData();
-            ScaleTerrain();
+            ScaleAndPositionTerrain();
         }
         else
         {
@@ -41,9 +43,19 @@ public class TerrainLoader : MonoBehaviour, ILoader
         if (savedTerrainData != null)
         {
             TerrainData terrainData = Instantiate(savedTerrainData);
-
             terrain.terrainData = terrainData;
-            TerrainCollider terrainCollider = terrain.gameObject.GetComponent<TerrainCollider>();
+
+            ResetTerrainColliderData();
+        }
+        else
+        {
+            throw new NullReferenceException("Saved terrain for current level was null");
+        }
+    }
+
+    private void ResetTerrainColliderData()
+    {
+        TerrainCollider terrainCollider = terrain.gameObject.GetComponent<TerrainCollider>();
             
             if (terrainCollider != null)
             {
@@ -53,15 +65,20 @@ public class TerrainLoader : MonoBehaviour, ILoader
             {
                 throw new NullReferenceException("Current terrain collider was null");
             }
-        
-        }
-        else
-        {
-            throw new NullReferenceException("Saved terrain for current level was null");
-        }
     }
 
-    private void ScaleTerrain()
+    private void ScaleAndPositionTerrain()
+    {
+        terrain.transform.position = bottomRightCorner.position;
+        Vector3 terrainSize = topLeftCorner.position - terrain.transform.position;
+
+        TerrainData terrainData = terrain.terrainData;
+        terrainData.size = new Vector3(terrainSize.x, terrain.transform.position.y, terrainSize.z);
+
+        ResizeTerrainToFitResolution();
+    }
+
+    private void ResizeTerrainToFitResolution()
     {
         TerrainData data = terrain.terrainData;
         Vector3 dataSize = data.size;

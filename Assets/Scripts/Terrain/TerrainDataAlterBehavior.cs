@@ -1,5 +1,8 @@
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections.Generic;
+
+using System.Text;
 
 public class TerrainDataAlterBehavior : MonoBehaviour
 {
@@ -11,8 +14,11 @@ public class TerrainDataAlterBehavior : MonoBehaviour
     [SerializeField] private float sculptDuration;
     [SerializeField] private UnityEvent<float> OnSculptTerrain;
 
-    // Heightmap matrix references
+    // Persistent heightmap matrix references
     float sculptAmount;
+    bool[,] heightmapExclusions;
+
+    // Per-sculpt heightmap matrix references
     int startX, startZ = -1;
     int width, height = 0;
     float[,] startHeights, endHeights;
@@ -69,13 +75,16 @@ public class TerrainDataAlterBehavior : MonoBehaviour
         {
             for (int z = 0; z < height; z++)
             {
-                float distX = x + 0.5f - center.x;
-                float distZ = z + 0.5f - center.y;
-                float deltaAmount = amountSign * sculptSize * Mathf.Exp(-( (distX * distX + distZ * distZ) / (2.0f * sigma * sigma)));
-                float endHeight = startHeights[z, x] + deltaAmount;
+                if (!heightmapExclusions[startZ + z, startX + x])
+                {
+                    float distX = x + 0.5f - center.x;
+                    float distZ = z + 0.5f - center.y;
+                    float deltaAmount = amountSign * sculptSize * Mathf.Exp(-( (distX * distX + distZ * distZ) / (2.0f * sigma * sigma)));
+                    float endHeight = startHeights[z, x] + deltaAmount;
 
-                tempSculptAmount += deltaAmount;
-                endHeights[z, x] = Mathf.Clamp(endHeight, 0f, 1f);
+                    tempSculptAmount += deltaAmount;
+                    endHeights[z, x] = Mathf.Clamp(endHeight, 0f, 1f);
+                }
             }
         }
         return tempSculptAmount;
@@ -103,6 +112,38 @@ public class TerrainDataAlterBehavior : MonoBehaviour
         width = 0;
         startHeights = null;
         endHeights = null;
+    }
+
+    private void ResetHeightmapExclusions(Terrain terrain)
+    {
+        List<Collider> exclusionColliders = LevelManager.Instance.GetTerrainExclusionColliders();
+        heightmapExclusions = new bool[terrainData.heightmapResolution, terrainData.heightmapResolution];
+
+        for (int x = 0; x < terrainData.heightmapResolution; x++)
+        {
+            for (int z = 0; z < terrainData.heightmapResolution; z++)
+            {
+                Vector3 worldPos = HeightmapCoordToWorldPos(terrain.GetPosition(), x, z);
+
+                foreach (Collider collider in exclusionColliders)
+                {
+                    if (collider.ClosestPoint(worldPos) == worldPos)
+                    {
+                        heightmapExclusions[z, x] = true;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    private Vector3 HeightmapCoordToWorldPos(Vector3 terrainPos, int mapX, int mapZ)
+    {
+        float normX = ((float) mapX) / (terrainData.heightmapResolution - 1);
+        float normZ = ((float) mapZ) / (terrainData.heightmapResolution - 1);
+
+        Vector3 localPos = new Vector3(normX * terrainData.size.x, terrainData.GetHeight(mapX, mapZ), normZ * terrainData.size.z);
+        return localPos + terrainPos;
     }
 
     public void LerpTerrainData(float t)
@@ -147,11 +188,12 @@ public class TerrainDataAlterBehavior : MonoBehaviour
         terrainData.SetHeights(startX, startZ, heights);
     }
 
-    public void ResetTerrainData(TerrainData terrainData)
+    public void ResetTerrainData(Terrain terrain)
     {
-        this.terrainData = terrainData;
+        terrainData = terrain.terrainData;
         sculptAmount = 0;
         ResetSculptVariables();
+        ResetHeightmapExclusions(terrain);
     }
 
     public float GetAlterDuration()

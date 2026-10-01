@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class LevelController : MonoBehaviour
     [SerializeField] private GameObject doorObject;
     [SerializeField] private string doorCameraTag;
     [SerializeField] private ILoader[] loaders;
+    [SerializeField] private TerrainExclusionController terrainExclusionController;
 
     private TerrainLoader terrainLoader;
 
@@ -36,6 +38,7 @@ public class LevelController : MonoBehaviour
         {
             loader.Unload();
         }
+        terrainExclusionController.DisableExclusionColliders();
     }
 
     public Terrain GetLevelTerrain()
@@ -72,5 +75,10 @@ public class LevelController : MonoBehaviour
     public Animator GetDoorAniamtor()
     {
         return doorObject.GetComponent<Animator>();
+    }
+
+    public List<Collider> GetTerrainExclusionColliders()
+    {
+        return terrainExclusionController.GetExclusionColliders();
     }
 }
