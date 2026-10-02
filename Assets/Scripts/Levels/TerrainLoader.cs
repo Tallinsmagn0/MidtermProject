@@ -59,7 +59,7 @@ public class TerrainLoader : MonoBehaviour, ILoader
             
             if (terrainCollider != null)
             {
-                terrainCollider.terrainData = savedTerrainData;
+                terrainCollider.terrainData = terrain.terrainData;
             } 
             else
             {
@@ -73,7 +73,7 @@ public class TerrainLoader : MonoBehaviour, ILoader
         Vector3 terrainSize = topLeftCorner.position - terrain.transform.position;
 
         TerrainData terrainData = terrain.terrainData;
-        terrainData.size = new Vector3(terrainSize.x, terrain.transform.position.y, terrainSize.z);
+        terrainData.size = new Vector3(terrainSize.x, terrainData.size.y, terrainSize.z);
 
         ResizeTerrainToFitResolution();
     }
