@@ -6,6 +6,8 @@ public class TerrainLoader : MonoBehaviour, ILoader
     [SerializeField] private Terrain terrain;
     [SerializeField] private TerrainData savedTerrainData;
 
+    [SerializeField] private InitialTerrainHeightController heightController;
+
     [SerializeField] [Range(0f, 1f)] 
     private float heightmapResolutionScalingFactor = 0.513f;
     [SerializeField] Transform bottomRightCorner;
@@ -19,6 +21,7 @@ public class TerrainLoader : MonoBehaviour, ILoader
             ResetTerrainData();
             ScaleAndPositionTerrain();
             ResetExclusionColliders();
+            SetInitialHeights();
         }
         else
         {
@@ -86,6 +89,11 @@ public class TerrainLoader : MonoBehaviour, ILoader
         
         data.heightmapResolution = (int) (Mathf.Sqrt(dataSize.x * dataSize.z) * heightmapResolutionScalingFactor);
         data.size = new Vector3(dataSize.x, dataSize.y, dataSize.z);
+    }
+
+    private void SetInitialHeights()
+    {
+        heightController.SetInitialHeights();
     }
 
     private void ResetExclusionColliders()

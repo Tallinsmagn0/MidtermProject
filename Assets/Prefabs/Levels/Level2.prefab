@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 39912991327350623}
   - component: {fileID: 2896240899163442146}
   - component: {fileID: 6061353489136044713}
+  - component: {fileID: 700718943031851798}
   m_Layer: 0
   m_Name: Level2
   m_TagString: Untagged
@@ -100,9 +101,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TerrainController
   terrain: {fileID: 6301143138785786343}
   savedTerrainData: {fileID: 15600000, guid: 9a9fbaff8280c4615a46cf7e19b135ed, type: 2}
+  heightController: {fileID: 700718943031851798}
   heightmapResolutionScalingFactor: 0.513
-  topLeftCorner: {fileID: 8471839035757961592}
   bottomRightCorner: {fileID: 4480567285878243175}
+  topLeftCorner: {fileID: 8471839035757961592}
 --- !u!114 &2896240899163442146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,6 +134,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TerrainExclusionController
   exclusionsTag: TerrainExclusion
+--- !u!114 &700718943031851798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718326043449946216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88cbe7fd2a95d4d1b86465732f82ab67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InitialTerrainHeightController
+  terrain: {fileID: 6301143138785786343}
+  alterationColliders:
+  - {fileID: 3428017121559889239}
+  - {fileID: 7680170110752202889}
+  - {fileID: 595279742404279940}
+  - {fileID: 3865586459175834712}
+  initialHeight: 0.0015
 --- !u!1 &5751429199352153482
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,14 +257,34 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f3bf6025eb0144c3b2f123126ccb8b5, type: 3}
+--- !u!65 &595279742404279940 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 571391153677345722, guid: 3f3bf6025eb0144c3b2f123126ccb8b5, type: 3}
+  m_PrefabInstance: {fileID: 1130164910387567934}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2422108319200962441 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3328767404820855479, guid: 3f3bf6025eb0144c3b2f123126ccb8b5, type: 3}
   m_PrefabInstance: {fileID: 1130164910387567934}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &3428017121559889239 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 2323265421035952233, guid: 3f3bf6025eb0144c3b2f123126ccb8b5, type: 3}
+  m_PrefabInstance: {fileID: 1130164910387567934}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &3865586459175834712 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 4182283404026268006, guid: 3f3bf6025eb0144c3b2f123126ccb8b5, type: 3}
+  m_PrefabInstance: {fileID: 1130164910387567934}
+  m_PrefabAsset: {fileID: 0}
 --- !u!218 &6301143138785786343 stripped
 Terrain:
   m_CorrespondingSourceObject: {fileID: 6403290408351458521, guid: 3f3bf6025eb0144c3b2f123126ccb8b5, type: 3}
+  m_PrefabInstance: {fileID: 1130164910387567934}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &7680170110752202889 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 7294235978203807159, guid: 3f3bf6025eb0144c3b2f123126ccb8b5, type: 3}
   m_PrefabInstance: {fileID: 1130164910387567934}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3751507068523997735

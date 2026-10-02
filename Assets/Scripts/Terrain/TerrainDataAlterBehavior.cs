@@ -2,8 +2,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
 
-using System.Text;
-
 public class TerrainDataAlterBehavior : MonoBehaviour
 {
     TerrainData terrainData;
@@ -117,33 +115,7 @@ public class TerrainDataAlterBehavior : MonoBehaviour
     private void ResetHeightmapExclusions(Terrain terrain)
     {
         List<Collider> exclusionColliders = LevelManager.Instance.GetTerrainExclusionColliders();
-        heightmapExclusions = new bool[terrainData.heightmapResolution, terrainData.heightmapResolution];
-
-        for (int x = 0; x < terrainData.heightmapResolution; x++)
-        {
-            for (int z = 0; z < terrainData.heightmapResolution; z++)
-            {
-                Vector3 worldPos = HeightmapCoordToWorldPos(terrain.GetPosition(), x, z);
-
-                foreach (Collider collider in exclusionColliders)
-                {
-                    if (collider.ClosestPoint(worldPos) == worldPos)
-                    {
-                        heightmapExclusions[z, x] = true;
-                        break;
-                    }
-                }
-            }
-        }
-    }
-
-    private Vector3 HeightmapCoordToWorldPos(Vector3 terrainPos, int mapX, int mapZ)
-    {
-        float normX = ((float) mapX) / (terrainData.heightmapResolution - 1);
-        float normZ = ((float) mapZ) / (terrainData.heightmapResolution - 1);
-
-        Vector3 localPos = new Vector3(normX * terrainData.size.x, terrainData.GetHeight(mapX, mapZ), normZ * terrainData.size.z);
-        return localPos + terrainPos;
+        heightmapExclusions = TerrainDataFunctions.GetTerrainOverlapsWithColliders(terrain, exclusionColliders);
     }
 
     public void LerpTerrainData(float t)
