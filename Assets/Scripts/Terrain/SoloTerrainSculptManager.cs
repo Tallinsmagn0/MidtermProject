@@ -29,7 +29,7 @@ public class SoloTerrainSculptStrategy : ITerrainSculptStrategy
     public void PerformTerainAlteration(float time)
     {
         dataAlterBehavior.LerpTerrainData(time);
-        ResetTerrainCollider();
+        // ResetTerrainCollider();
     }
 
     private void ResetTerrainCollider()

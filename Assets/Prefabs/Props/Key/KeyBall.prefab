@@ -287,7 +287,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9004618871960307339}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 8b520f17299e4421aa46af37ffde4d93, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -391,7 +391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeepAboveTerrainBehavior
   terrainTag: Terrain
-  heightAboveTerrain: 0
+  addedHeight: 0
 --- !u!1001 &5615410660545276939
 PrefabInstance:
   m_ObjectHideFlags: 0

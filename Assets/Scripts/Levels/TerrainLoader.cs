@@ -8,8 +8,8 @@ public class TerrainLoader : MonoBehaviour, ILoader
 
     [SerializeField] [Range(0f, 1f)] 
     private float heightmapResolutionScalingFactor = 0.513f;
-    [SerializeField] Transform topLeftCorner;
     [SerializeField] Transform bottomRightCorner;
+    [SerializeField] Transform topLeftCorner;
 
     
     public void Load()
@@ -18,6 +18,7 @@ public class TerrainLoader : MonoBehaviour, ILoader
         {
             ResetTerrainData();
             ScaleAndPositionTerrain();
+            ResetExclusionColliders();
         }
         else
         {
@@ -85,6 +86,20 @@ public class TerrainLoader : MonoBehaviour, ILoader
         
         data.heightmapResolution = (int) (Mathf.Sqrt(dataSize.x * dataSize.z) * heightmapResolutionScalingFactor);
         data.size = new Vector3(dataSize.x, dataSize.y, dataSize.z);
+    }
+
+    private void ResetExclusionColliders()
+    {
+        ExclusionColliderController exclusionColliderController = terrain.GetComponentInChildren<ExclusionColliderController>();
+
+        if (exclusionColliderController != null)
+        {
+            exclusionColliderController.SetBorderColliders();
+        }
+        else
+        {
+            throw new NullReferenceException("ExclusionColliderController not found on current terrain");
+        }
     }
 
     private void DisableTerrainCollider()
