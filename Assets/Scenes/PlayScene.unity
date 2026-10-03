@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: bd750bd001e442b48bda23095b8e3563, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -582,7 +582,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c22777d6e868e4f2fb421913386b154e, type: 2}
+  - {fileID: 2100000, guid: 2e396b6df87a3c94e8e20e922295ec69, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -842,7 +842,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 775797251}
-  m_VersionIndex: 4499
+  m_VersionIndex: 4511
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -894,7 +894,7 @@ PrefabInstance:
       objectReference: {fileID: 1262447061}
     - target: {fileID: 4932188268065321772, guid: 1652481e10bb5460a9fd4b409dc44af7, type: 3}
       propertyPath: m_VersionIndex
-      value: 7810
+      value: 7822
       objectReference: {fileID: 0}
     - target: {fileID: 4932188268065321772, guid: 1652481e10bb5460a9fd4b409dc44af7, type: 3}
       propertyPath: m_SelectedEdges.Array.size
@@ -4054,7 +4054,7 @@ PrefabInstance:
       objectReference: {fileID: 861189852}
     - target: {fileID: 7543693631459090812, guid: 1652481e10bb5460a9fd4b409dc44af7, type: 3}
       propertyPath: m_VersionIndex
-      value: 2609
+      value: 2621
       objectReference: {fileID: 0}
     - target: {fileID: 7543693631459090812, guid: 1652481e10bb5460a9fd4b409dc44af7, type: 3}
       propertyPath: m_SelectedEdges.Array.size
@@ -4442,7 +4442,7 @@ PrefabInstance:
       objectReference: {fileID: 1373923464}
     - target: {fileID: 4932188268065321772, guid: 1652481e10bb5460a9fd4b409dc44af7, type: 3}
       propertyPath: m_VersionIndex
-      value: 14748
+      value: 14760
       objectReference: {fileID: 0}
     - target: {fileID: 4932188268065321772, guid: 1652481e10bb5460a9fd4b409dc44af7, type: 3}
       propertyPath: m_Faces.Array.size
@@ -13883,7 +13883,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.8319963, b: 0.7122642, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -14073,7 +14073,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c22777d6e868e4f2fb421913386b154e, type: 2}
+  - {fileID: 2100000, guid: 2e396b6df87a3c94e8e20e922295ec69, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14333,7 +14333,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 1683212926}
-  m_VersionIndex: 4555
+  m_VersionIndex: 4567
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -15347,7 +15347,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c22777d6e868e4f2fb421913386b154e, type: 2}
+  - {fileID: 2100000, guid: 2e396b6df87a3c94e8e20e922295ec69, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15607,7 +15607,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 1812107833}
-  m_VersionIndex: 4679
+  m_VersionIndex: 4691
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -16746,7 +16746,7 @@ PrefabInstance:
       objectReference: {fileID: 143732499}
     - target: {fileID: 6674495927321070427, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
       propertyPath: m_VersionIndex
-      value: 2492
+      value: 2498
       objectReference: {fileID: 0}
     - target: {fileID: 6933086138795414229, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
       propertyPath: m_Mesh
@@ -16778,7 +16778,7 @@ PrefabInstance:
       objectReference: {fileID: 1919620165}
     - target: {fileID: 8098211914453915915, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
       propertyPath: m_VersionIndex
-      value: 6454
+      value: 6460
       objectReference: {fileID: 0}
     - target: {fileID: 8408915167414461207, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
       propertyPath: m_LocalPosition.y
@@ -16800,6 +16800,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 143732499}
+    - target: {fileID: 8955946363015718554, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2e396b6df87a3c94e8e20e922295ec69, type: 2}
     - target: {fileID: 8994898470024090332, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
       propertyPath: m_Name
       value: Left
