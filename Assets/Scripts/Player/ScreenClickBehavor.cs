@@ -22,6 +22,6 @@ public class ScreenClickBehavior : MonoBehaviour
 
     public void SetClicked(bool value)
     { 
-        this.clicked = value;
+        clicked = value;
     }
 }

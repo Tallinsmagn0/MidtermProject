@@ -870,7 +870,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactor
   layerMask: Selectable
-  cameraTransform: {fileID: 1364274087}
   interactionDistance: 5
 --- !u!1001 &262099800
 PrefabInstance:
@@ -14509,54 +14508,6 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
---- !u!1 &1246760723
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1246760724}
-  - component: {fileID: 1246760725}
-  m_Layer: 0
-  m_Name: Interact
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1246760724
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1246760723}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1402200433}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1246760725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1246760723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d7c390fc9d8d4a98966caf1dd765de6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ScreenClickBehavior
-  OnClickAt:
-    m_PersistentCalls:
-      m_Calls: []
-  layerMask: 
 --- !u!1 &1247105596 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2205133466826788685, guid: 1652481e10bb5460a9fd4b409dc44af7, type: 3}
@@ -14725,24 +14676,48 @@ PrefabInstance:
       value: Interact
       objectReference: {fileID: 0}
     - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: inputButtons.Array.data[1].buttonAction.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: inputButtons.Array.data[3].buttonAction.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: inputButtons.Array.data[1].buttonAction.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 234200763}
     - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: inputButtons.Array.data[3].buttonAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 234200763}
     - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: inputButtons.Array.data[1].buttonAction.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: inputButtons.Array.data[3].buttonAction.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: inputButtons.Array.data[1].buttonAction.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetInteractInput
       objectReference: {fileID: 0}
     - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: inputButtons.Array.data[3].buttonAction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetInteractInput
       objectReference: {fileID: 0}
     - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: inputButtons.Array.data[1].buttonAction.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Interactor, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: inputButtons.Array.data[3].buttonAction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Interactor, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: inputButtons.Array.data[1].buttonAction.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: inputButtons.Array.data[3].buttonAction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -14770,10 +14745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 4558994279770743131, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1246760724}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6239227789598618049, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       insertIndex: -1
@@ -15006,11 +14978,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1364274087 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8845719631873472232, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-  m_PrefabInstance: {fileID: 1257788134}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1369714739
 GameObject:
   m_ObjectHideFlags: 0
@@ -15409,11 +15376,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1390225298}
   m_CullTransparentMesh: 1
---- !u!4 &1402200433 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4558994279770743131, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-  m_PrefabInstance: {fileID: 1257788134}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1404936202
 GameObject:
   m_ObjectHideFlags: 0
