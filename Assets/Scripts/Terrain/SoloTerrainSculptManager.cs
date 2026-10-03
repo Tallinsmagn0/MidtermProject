@@ -18,7 +18,11 @@ public class SoloTerrainSculptStrategy : ITerrainSculptStrategy
     {
         if (terrain != null)
         {
-            return dataAlterBehavior.CalculateTerrainDataAlter(worldPos, terrain.transform.position, brushBehavior.GetBrushSize(), isRaising);
+            if (IsPointInsideTerrain(worldPos))
+            {
+                return dataAlterBehavior.CalculateTerrainDataAlter(worldPos, terrain.transform.position, brushBehavior.GetBrushSize(), isRaising);
+            }
+            return false;
         }
         else
         {
@@ -26,10 +30,26 @@ public class SoloTerrainSculptStrategy : ITerrainSculptStrategy
         }
     }
 
+    private bool IsPointInsideTerrain(Vector3 worldPos)
+    {
+        if (terrain.terrainData == null) return false;
+
+        Vector3 terrainPos = terrain.transform.position;
+        Vector3 terrainSize = terrain.terrainData.size;
+
+        if (worldPos.x < terrainPos.x || worldPos.x > terrainPos.x + terrainSize.x ||
+            worldPos.z < terrainPos.z || worldPos.z > terrainPos.z + terrainSize.z)
+        {
+            return false;
+        }
+        float surfaceHeight = terrain.SampleHeight(worldPos) + terrainPos.y;
+        return worldPos.y <= surfaceHeight;
+    }
+
     public void PerformTerainAlteration(float time)
     {
         dataAlterBehavior.LerpTerrainData(time);
-        // ResetTerrainCollider();
+        ResetTerrainCollider();
     }
 
     private void ResetTerrainCollider()

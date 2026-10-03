@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class ScreenClickBehavior : MonoBehaviour
 {
     [SerializeField] private UnityEvent<Vector3> OnClickAt;
-    [SerializeField] private string colliderTag;
+    [SerializeField] private string layerMask;
     private bool clicked;
 
     void Update()
@@ -13,12 +13,9 @@ public class ScreenClickBehavior : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             
-            if (Physics.Raycast(ray, out RaycastHit hit))
+            if (Physics.Raycast(ray, out RaycastHit hit, LayerMask.GetMask(layerMask)))
             {
-                if (hit.collider.CompareTag(colliderTag))
-                {
-                    OnClickAt?.Invoke(hit.point);
-                }
+                OnClickAt?.Invoke(hit.point);
             }
         }
     }
