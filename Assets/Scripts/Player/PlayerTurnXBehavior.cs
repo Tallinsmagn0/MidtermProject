@@ -6,6 +6,11 @@ public class PlayerTurnXBehavior : MonoBehaviour
     private float rotation = 0;
     private float turnInput;
 
+    private void Start()
+    {
+        rotation = transform.rotation.y * Mathf.Rad2Deg;
+    }
+
     private void Update()
     { 
         Turn(); 
@@ -13,8 +18,7 @@ public class PlayerTurnXBehavior : MonoBehaviour
 
     private void Turn()
     {
-        rotation += turnInput * turnSpeed * Time.deltaTime;
-        transform.rotation = Quaternion.AngleAxis(rotation, Vector3.up);
+        transform.Rotate(Vector3.up * turnInput * turnSpeed);
     }
 
     public void SetTurnInput(float value)
