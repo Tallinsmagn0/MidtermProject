@@ -25,7 +25,7 @@ public class Interactor : MonoBehaviour
         }
     }
 
-    private bool HitObject()
+    protected bool HitObject()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         return Physics.Raycast(ray, out info, interactionDistance, LayerMask.GetMask(layerMask));

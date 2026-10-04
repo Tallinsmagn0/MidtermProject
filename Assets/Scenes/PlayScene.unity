@@ -870,7 +870,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactor
   layerMask: Selectable
-  interactionDistance: 5
+  interactionDistance: 10
+--- !u!114 &234200764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234200753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93ec3969f0d76497695de5cf60887809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HighlightBehaviour
+  layerMask: Selectable
+  interactionDistance: 20
 --- !u!1001 &262099800
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13802,6 +13816,7 @@ GameObject:
   - component: {fileID: 1059848895}
   - component: {fileID: 1059848894}
   - component: {fileID: 1059848893}
+  - component: {fileID: 1059848898}
   m_Layer: 7
   m_Name: Hourglass
   m_TagString: Untagged
@@ -13929,6 +13944,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1059848898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059848892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c79a500d6be6f42abb8f801c22d73abe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HighlightableObject
+  OnHighlightStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHighlightEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1105981461 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4720339185433135967, guid: 1652481e10bb5460a9fd4b409dc44af7, type: 3}
@@ -14750,6 +14783,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6239227789598618049, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       insertIndex: -1
       addedObject: {fileID: 234200763}
+    - targetCorrespondingSourceObject: {fileID: 6239227789598618049, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 234200764}
   m_SourcePrefab: {fileID: 100100000, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
 --- !u!43 &1262447061
 Mesh:
