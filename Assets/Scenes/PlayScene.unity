@@ -12428,11 +12428,6 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
---- !u!1 &480569620 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8211441780360590019, guid: 44d89548576884494ab5884d1f9eb0f6, type: 3}
-  m_PrefabInstance: {fileID: 1083035843608450664}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &509639085
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16780,80 +16775,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 840481169553904196, guid: 44d89548576884494ab5884d1f9eb0f6, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1083035843608450665}
+    - target: {fileID: 840481169553904196, guid: 44d89548576884494ab5884d1f9eb0f6, type: 3}
       propertyPath: OnResetHourglass.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 904281029}
     - target: {fileID: 1255284176509103011, guid: 44d89548576884494ab5884d1f9eb0f6, type: 3}
       propertyPath: m_Name
       value: Hourglass
-      objectReference: {fileID: 0}
-    - target: {fileID: 5536230016719783403, guid: 44d89548576884494ab5884d1f9eb0f6, type: 3}
-      propertyPath: OnHighlightEnd.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5536230016719783403, guid: 44d89548576884494ab5884d1f9eb0f6, type: 3}
-      propertyPath: OnHighlightStart.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5536230016719783403, guid: 44d89548576884494ab5884d1f9eb0f6, type: 3}
-      propertyPath: OnHighlightEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5536230016719783403, guid: 44d89548576884494ab5884d1f9eb0f6, type: 3}
-      propertyPath: OnHighlightEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 480569620}
-    - target: {fileID: 5536230016719783403, guid: 44d89548576884494ab5884d1f9eb0f6, type: 3}
-      propertyPath: OnHighlightStart.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5536230016719783403, guid: 44d89548576884494ab5884d1f9eb0f6, type: 3}
-      propertyPath: OnHighlightStart.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 480569620}
-    - target: {fileID: 5536230016719783403, guid: 44d89548576884494ab5884d1f9eb0f6, type: 3}
-      propertyPath: OnHighlightEnd.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5536230016719783403, guid: 44d89548576884494ab5884d1f9eb0f6, type: 3}
-      propertyPath: OnHighlightEnd.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
-      objectReference: {fileID: 0}
-    - target: {fileID: 5536230016719783403, guid: 44d89548576884494ab5884d1f9eb0f6, type: 3}
-      propertyPath: OnHighlightStart.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5536230016719783403, guid: 44d89548576884494ab5884d1f9eb0f6, type: 3}
-      propertyPath: OnHighlightStart.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
-      objectReference: {fileID: 0}
-    - target: {fileID: 5536230016719783403, guid: 44d89548576884494ab5884d1f9eb0f6, type: 3}
-      propertyPath: OnHighlightEnd.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 5536230016719783403, guid: 44d89548576884494ab5884d1f9eb0f6, type: 3}
-      propertyPath: OnHighlightStart.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 5536230016719783403, guid: 44d89548576884494ab5884d1f9eb0f6, type: 3}
-      propertyPath: OnHighlightStart.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5536230016719783403, guid: 44d89548576884494ab5884d1f9eb0f6, type: 3}
-      propertyPath: OnHighlightEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 5536230016719783403, guid: 44d89548576884494ab5884d1f9eb0f6, type: 3}
-      propertyPath: OnHighlightStart.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 8211441780360590019, guid: 44d89548576884494ab5884d1f9eb0f6, type: 3}
-      propertyPath: m_Name
-      value: Highlight
-      objectReference: {fileID: 0}
-    - target: {fileID: 8211441780360590019, guid: 44d89548576884494ab5884d1f9eb0f6, type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8823001056934833863, guid: 44d89548576884494ab5884d1f9eb0f6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16900,6 +16831,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44d89548576884494ab5884d1f9eb0f6, type: 3}
+--- !u!95 &1083035843608450665 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2501483269553122333, guid: 44d89548576884494ab5884d1f9eb0f6, type: 3}
+  m_PrefabInstance: {fileID: 1083035843608450664}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2785303902301470740
 PrefabInstance:
   m_ObjectHideFlags: 0

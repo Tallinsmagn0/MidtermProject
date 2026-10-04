@@ -6,6 +6,8 @@ public class HourglassInteractable : MonoBehaviour, IInteractable
 
     [SerializeField] private UnityEvent OnResetHourglass;
 
+    [SerializeField] private Animator animator;
+
     public void Interact(Interactor interactor)
     {
         ResetHourglass();
@@ -13,6 +15,7 @@ public class HourglassInteractable : MonoBehaviour, IInteractable
 
     private void ResetHourglass()
     {
+        animator.SetTrigger("Reset");
         OnResetHourglass?.Invoke();
     }
 }
