@@ -18,4 +18,14 @@ public class HourglassInteractable : MonoBehaviour, IInteractable
         animator.SetTrigger("Reset");
         OnResetHourglass?.Invoke();
     }
+
+    public void AddResetEventListener(UnityAction eventListener)
+    {
+        OnResetHourglass.AddListener(eventListener);
+    }
+
+    public void RemoveResetEventListener(UnityAction eventListener)
+    {
+        OnResetHourglass.RemoveListener(eventListener);
+    }
 }

@@ -68,6 +68,7 @@ Transform:
   - {fileID: 6233830150006352806}
   - {fileID: 4437532285447518905}
   - {fileID: 8408915167414461207}
+  - {fileID: 2443632204821388585}
   - {fileID: 2422108319200962441}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -119,8 +120,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::KeyAndHoleLoader
   keyBallPrefab: {fileID: 9004618871960307339, guid: 86e7d32f3b615430fac99016953a1392, type: 3}
   keyHolePrefab: {fileID: 2466023744696146472, guid: ea850b2c3bf9d4c6ea1961f95d145dcd, type: 3}
+  hourglassPrefab: {fileID: 1255284176509103011, guid: 44d89548576884494ab5884d1f9eb0f6, type: 3}
   ballStart: {fileID: 4437532285447518905}
   holeStart: {fileID: 8408915167414461207}
+  hourglassStart: {fileID: 0}
 --- !u!114 &6061353489136044713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +156,37 @@ MonoBehaviour:
   - {fileID: 595279742404279940}
   - {fileID: 3865586459175834712}
   initialHeight: 0.0015
+--- !u!1 &4330906675579345924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2443632204821388585}
+  m_Layer: 0
+  m_Name: HourglassSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2443632204821388585
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4330906675579345924}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 116.2, y: 21.501, z: -13.17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1233155723365965391}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5751429199352153482
 GameObject:
   m_ObjectHideFlags: 0
