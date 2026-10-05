@@ -422,7 +422,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98854a5beec004935820599f90fc36d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelTrigger
-  doorAnimator: {fileID: 5047018846417940419}
+  entranceDoorAnimator: {fileID: 5047018846417940419}
+  exitDoorAnimator: {fileID: 5821112249815518172}
 --- !u!1 &6117303730707537143
 GameObject:
   m_ObjectHideFlags: 0
@@ -2082,6 +2083,7 @@ Transform:
   - {fileID: 8773772550308041468}
   - {fileID: 2955048645372397680}
   - {fileID: 633440113721644031}
+  - {fileID: 2164063407311960032}
   - {fileID: 7160408623414016127}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2116,6 +2118,73 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7160408623414016127}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &5121022270561456570
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7103026204919382401}
+    m_Modifications:
+    - target: {fileID: 5713258072671779560, guid: a6ab362f24536406792f7016aca201ea, type: 3}
+      propertyPath: m_Name
+      value: ExitDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 6420385581258122842, guid: a6ab362f24536406792f7016aca201ea, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 107.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 6420385581258122842, guid: a6ab362f24536406792f7016aca201ea, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.062250137
+      objectReference: {fileID: 0}
+    - target: {fileID: 6420385581258122842, guid: a6ab362f24536406792f7016aca201ea, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.26171
+      objectReference: {fileID: 0}
+    - target: {fileID: 6420385581258122842, guid: a6ab362f24536406792f7016aca201ea, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6420385581258122842, guid: a6ab362f24536406792f7016aca201ea, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6420385581258122842, guid: a6ab362f24536406792f7016aca201ea, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6420385581258122842, guid: a6ab362f24536406792f7016aca201ea, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6420385581258122842, guid: a6ab362f24536406792f7016aca201ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6420385581258122842, guid: a6ab362f24536406792f7016aca201ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6420385581258122842, guid: a6ab362f24536406792f7016aca201ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a6ab362f24536406792f7016aca201ea, type: 3}
+--- !u!4 &2164063407311960032 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6420385581258122842, guid: a6ab362f24536406792f7016aca201ea, type: 3}
+  m_PrefabInstance: {fileID: 5121022270561456570}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5821112249815518172 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1718466445261920870, guid: a6ab362f24536406792f7016aca201ea, type: 3}
+  m_PrefabInstance: {fileID: 5121022270561456570}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5896237507589354917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2126,7 +2195,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5713258072671779560, guid: 2f0d27a12ccd44864aaec2b36922f19e, type: 3}
       propertyPath: m_Name
-      value: Door
+      value: EntranceDoor
       objectReference: {fileID: 0}
     - target: {fileID: 6420385581258122842, guid: 2f0d27a12ccd44864aaec2b36922f19e, type: 3}
       propertyPath: m_LocalPosition.x
