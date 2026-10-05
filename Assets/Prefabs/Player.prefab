@@ -266,7 +266,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  colliderTag: Terrain
+  layerMask: Ground
 --- !u!1 &4413279904353398395
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,6 +425,8 @@ GameObject:
   - component: {fileID: 3669886675937550098}
   - component: {fileID: 6388822225031028285}
   - component: {fileID: 4014784276318537498}
+  - component: {fileID: 3897694166069700418}
+  - component: {fileID: 5078934974402743654}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -605,6 +607,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 3897694166069700418}
+          m_TargetAssemblyTypeName: Interactor, Assembly-CSharp
+          m_MethodName: SetInteractInput
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - buttonName: Fire2
     buttonAction:
       m_PersistentCalls:
@@ -664,7 +678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99895e181005948109b761e0f1cfa2e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerTurnXBehavior
-  turnSpeed: 300
+  turnSpeed: 2
 --- !u!114 &3669886675937550098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -708,6 +722,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TerrainSculptBrushBehavior
   ts: {fileID: 3772721113015331469}
+--- !u!114 &3897694166069700418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6239227789598618049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1951a9f4fdab846cfbc2e016fb70e17a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Interactor
+  layerMask: Selectable
+  interactionDistance: 10
+--- !u!114 &5078934974402743654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6239227789598618049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93ec3969f0d76497695de5cf60887809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HighlightBehaviour
+  layerMask: Selectable
+  interactionDistance: 10
 --- !u!1 &6598526267546357224
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,7 +979,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  colliderTag: Terrain
+  layerMask: Ground
 --- !u!1 &8903131693690811863
 GameObject:
   m_ObjectHideFlags: 0

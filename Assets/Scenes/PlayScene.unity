@@ -842,7 +842,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 775797251}
-  m_VersionIndex: 4529
+  m_VersionIndex: 4538
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -852,39 +852,6 @@ BoxCollider:
   m_CorrespondingSourceObject: {fileID: 2323265421035952233, guid: 3f3bf6025eb0144c3b2f123126ccb8b5, type: 3}
   m_PrefabInstance: {fileID: 536372874}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &234200753 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6239227789598618049, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-  m_PrefabInstance: {fileID: 1257788134}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &234200763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 234200753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1951a9f4fdab846cfbc2e016fb70e17a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Interactor
-  layerMask: Selectable
-  interactionDistance: 10
---- !u!114 &234200764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 234200753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93ec3969f0d76497695de5cf60887809, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HighlightBehaviour
-  layerMask: Selectable
-  interactionDistance: 20
 --- !u!1001 &262099800
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -927,7 +894,7 @@ PrefabInstance:
       objectReference: {fileID: 1262447061}
     - target: {fileID: 4932188268065321772, guid: 1652481e10bb5460a9fd4b409dc44af7, type: 3}
       propertyPath: m_VersionIndex
-      value: 7840
+      value: 7849
       objectReference: {fileID: 0}
     - target: {fileID: 4932188268065321772, guid: 1652481e10bb5460a9fd4b409dc44af7, type: 3}
       propertyPath: m_SelectedEdges.Array.size
@@ -4087,7 +4054,7 @@ PrefabInstance:
       objectReference: {fileID: 861189852}
     - target: {fileID: 7543693631459090812, guid: 1652481e10bb5460a9fd4b409dc44af7, type: 3}
       propertyPath: m_VersionIndex
-      value: 2639
+      value: 2648
       objectReference: {fileID: 0}
     - target: {fileID: 7543693631459090812, guid: 1652481e10bb5460a9fd4b409dc44af7, type: 3}
       propertyPath: m_SelectedEdges.Array.size
@@ -4475,7 +4442,7 @@ PrefabInstance:
       objectReference: {fileID: 1373923464}
     - target: {fileID: 4932188268065321772, guid: 1652481e10bb5460a9fd4b409dc44af7, type: 3}
       propertyPath: m_VersionIndex
-      value: 14778
+      value: 14787
       objectReference: {fileID: 0}
     - target: {fileID: 4932188268065321772, guid: 1652481e10bb5460a9fd4b409dc44af7, type: 3}
       propertyPath: m_Faces.Array.size
@@ -14387,7 +14354,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 1683212926}
-  m_VersionIndex: 4585
+  m_VersionIndex: 4594
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -14547,74 +14514,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 986959960860166076, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: layerMask
-      value: Ground
-      objectReference: {fileID: 0}
-    - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: inputButtons.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: inputButtons.Array.data[3].buttonName
-      value: Interact
-      objectReference: {fileID: 0}
-    - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: inputButtons.Array.data[1].buttonAction.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: inputButtons.Array.data[3].buttonAction.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: inputButtons.Array.data[1].buttonAction.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 234200763}
-    - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: inputButtons.Array.data[3].buttonAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 234200763}
-    - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: inputButtons.Array.data[1].buttonAction.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: inputButtons.Array.data[3].buttonAction.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: inputButtons.Array.data[1].buttonAction.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetInteractInput
-      objectReference: {fileID: 0}
-    - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: inputButtons.Array.data[3].buttonAction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetInteractInput
-      objectReference: {fileID: 0}
-    - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: inputButtons.Array.data[1].buttonAction.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: Interactor, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: inputButtons.Array.data[3].buttonAction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Interactor, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: inputButtons.Array.data[1].buttonAction.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: inputButtons.Array.data[3].buttonAction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 2823977195493724574, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: OnBrushSizeChange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1992084754}
-    - target: {fileID: 3111707878463554172, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: layerMask
-      value: Ground
-      objectReference: {fileID: 0}
     - target: {fileID: 3115949219479004621, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: OnUpdateSandAmount.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -14627,20 +14530,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 9080122441964439349, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      propertyPath: turnSpeed
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6239227789598618049, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 234200763}
-    - targetCorrespondingSourceObject: {fileID: 6239227789598618049, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 234200764}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
 --- !u!43 &1262447061
 Mesh:
@@ -15740,7 +15633,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 1812107833}
-  m_VersionIndex: 4709
+  m_VersionIndex: 4718
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -16891,7 +16784,7 @@ PrefabInstance:
       objectReference: {fileID: 143732499}
     - target: {fileID: 6674495927321070427, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
       propertyPath: m_VersionIndex
-      value: 2516
+      value: 2522
       objectReference: {fileID: 0}
     - target: {fileID: 6933086138795414229, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
       propertyPath: m_Mesh
@@ -16923,7 +16816,7 @@ PrefabInstance:
       objectReference: {fileID: 1919620165}
     - target: {fileID: 8098211914453915915, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
       propertyPath: m_VersionIndex
-      value: 6478
+      value: 6484
       objectReference: {fileID: 0}
     - target: {fileID: 8408915167414461207, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
       propertyPath: m_LocalPosition.y
