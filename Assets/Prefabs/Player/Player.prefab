@@ -267,6 +267,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   layerMask: Ground
+  playerAnimator: {fileID: 2144648593831931717}
 --- !u!1 &4413279904353398395
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,7 +664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerJumpBehaviour
   footPivot: {fileID: 7015692491997423312}
-  groundedDistance: 0.5
+  groundedDistance: 0.3
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -1015,6 +1016,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   layerMask: Ground
+  playerAnimator: {fileID: 2144648593831931717}
 --- !u!1 &8903131693690811863
 GameObject:
   m_ObjectHideFlags: 0

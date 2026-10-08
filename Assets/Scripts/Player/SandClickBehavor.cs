@@ -1,10 +1,13 @@
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections;
 
-public class ScreenClickBehavior : MonoBehaviour
+public class SandClickBehavior : MonoBehaviour
 {
     [SerializeField] private UnityEvent<Vector3> OnClickAt;
     [SerializeField] private string layerMask;
+    [SerializeField] private Animator playerAnimator;
+    [SerializeField] private float clickDelay = 0.4f;
     private bool clicked;
 
     void Update()
@@ -15,9 +18,17 @@ public class ScreenClickBehavior : MonoBehaviour
             
             if (Physics.Raycast(ray, out RaycastHit hit, LayerMask.GetMask(layerMask)))
             {
-                OnClickAt?.Invoke(hit.point);
+                StartCoroutine(SandClickRoutine(hit.point));
+                playerAnimator.SetTrigger("CastSand");
             }
         }
+    }
+
+    private IEnumerator SandClickRoutine(Vector3 clickPoint)
+    {
+        yield return new WaitForSeconds(clickDelay);
+        
+        OnClickAt?.Invoke(clickPoint);
     }
 
     public void SetClicked(bool value)
