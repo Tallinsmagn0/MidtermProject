@@ -7,8 +7,10 @@ public class PlayerJumpBehaviour : MonoBehaviour
     [SerializeField] protected float groundedDistance;
     [SerializeField] protected LayerMask groundLayer;
     [SerializeField] protected float force;
+    [SerializeField] protected Animator playerAnimator;
     new private Rigidbody rigidbody;
     private bool jumpInput;
+    private bool isGrounded;
 
     private void Start()
     { 
@@ -17,26 +19,33 @@ public class PlayerJumpBehaviour : MonoBehaviour
 
     private void Update()
     {
+        SetIsGrounded();
+
         if (ShouldJump())
         { 
-            Jump(); 
+            Jump();
         }
+    }
+
+    public void SetJumpInput(bool value)
+    { 
+        jumpInput = value; 
+    }
+
+    private void SetIsGrounded()
+    {
+        isGrounded = Physics.Raycast(footPivot.position, Vector3.down, groundedDistance, groundLayer);
+        playerAnimator.SetBool("IsGrounded", isGrounded);
     }
 
     private bool ShouldJump()
     { 
-        if (jumpInput)
-        {
-            return Physics.Raycast(footPivot.position, Vector3.down, groundedDistance, groundLayer);
-        }
-        return false;
+        return jumpInput && isGrounded;
     }
 
     protected void Jump()
     {
-        rigidbody.AddForce(Vector3.up * force, ForceMode.Impulse); 
+        rigidbody.AddForce(Vector3.up * force, ForceMode.Impulse);
+        playerAnimator.SetTrigger("Jump");
     }
-
-    public void SetJumpInput(bool value)
-    { jumpInput = value; }
 }

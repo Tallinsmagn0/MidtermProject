@@ -649,6 +649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   movementSpeed: 25
+  playerAniamtor: {fileID: 2144648593831931717}
 --- !u!114 &8496937676093273343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -667,6 +668,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   force: 5
+  playerAnimator: {fileID: 2144648593831931717}
 --- !u!114 &9080122441964439349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -812,7 +814,7 @@ Transform:
   m_GameObject: {fileID: 6598526267546357224}
   serializedVersion: 2
   m_LocalRotation: {x: -7.72049e-10, y: 0.68119144, z: -0.18967947, w: 0.7071068}
-  m_LocalPosition: {x: 38.859997, y: 18.620474, z: -10.333616}
+  m_LocalPosition: {x: -32.95, y: 15.823781, z: 6.202641}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1076,6 +1078,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7293920067635109225}
     m_Modifications:
+    - target: {fileID: 2684001861974165633, guid: fc1c27fcd7c6dff4c821d5ff4ec2565d, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 981dafc0b0a24485dad421080f2ea47d, type: 2}
     - target: {fileID: 8124532002578555987, guid: fc1c27fcd7c6dff4c821d5ff4ec2565d, type: 3}
       propertyPath: m_Name
       value: MAGE_VARIATION
@@ -1125,6 +1131,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc1c27fcd7c6dff4c821d5ff4ec2565d, type: 3}
+--- !u!95 &2144648593831931717 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2684001861974165633, guid: fc1c27fcd7c6dff4c821d5ff4ec2565d, type: 3}
+  m_PrefabInstance: {fileID: 4106209674872858564}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4861597944142174509 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8902475595733843689, guid: fc1c27fcd7c6dff4c821d5ff4ec2565d, type: 3}

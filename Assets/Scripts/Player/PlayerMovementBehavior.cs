@@ -4,6 +4,7 @@ using UnityEngine.Events;
 public class PlayerMovementBehavior : MonoBehaviour
 {
     [SerializeField] private float movementSpeed;
+    [SerializeField] private Animator playerAniamtor;
 
     new private Rigidbody rigidbody;
     private float horizontalInput;
@@ -25,6 +26,7 @@ public class PlayerMovementBehavior : MonoBehaviour
         Vector3 movementVector = Vector3.ClampMagnitude(new Vector3(horizontalInput, 0, verticalInput), 1);
         movementVector = transform.rotation * movementVector * movementSpeed;
         rigidbody.AddForce(movementVector * Time.deltaTime, ForceMode.VelocityChange);
+        playerAniamtor.SetFloat("Movement", movementVector.magnitude);
     }
 
     public void SetHorizontalInput(float value)
