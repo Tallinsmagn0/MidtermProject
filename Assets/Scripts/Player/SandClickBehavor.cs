@@ -5,7 +5,8 @@ using System.Collections;
 public class SandClickBehavior : MonoBehaviour
 {
     [SerializeField] private UnityEvent<Vector3> OnClickAt;
-    [SerializeField] private string layerMask;
+    [SerializeField] private string[] raycastLayers;
+    [SerializeField] private string sandLayer;
     [SerializeField] private Animator playerAnimator;
     [SerializeField] private float clickDelay = 0.4f;
     private bool clicked;
@@ -16,10 +17,13 @@ public class SandClickBehavior : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             
-            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, LayerMask.GetMask(layerMask)))
+            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, LayerMask.GetMask(raycastLayers)))
             {
-                StartCoroutine(SandClickRoutine(hit.point));
-                playerAnimator.SetTrigger("CastSand");
+                if (hit.transform.gameObject.layer == LayerMask.NameToLayer(sandLayer))
+                {
+                    StartCoroutine(SandClickRoutine(hit.point));
+                    playerAnimator.SetTrigger("CastSand");
+                }
             }
         }
     }

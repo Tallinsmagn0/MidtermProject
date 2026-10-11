@@ -9,10 +9,7 @@ public class PlayState : IGameState
     bool hasSetupScene = false;
     bool hasSceneLoaded = false;
 
-    public PlayState()
-    {
-        playStyle = new SoloPlayStyle();
-    }
+    public PlayState() { }
 
     public void OnEnter(GameManager gm)
     {
@@ -22,10 +19,7 @@ public class PlayState : IGameState
         }
     }
 
-    public void OnExit(GameManager gm)
-    {
-       // UNLOAD LEVELS AND RESET TERRAINS
-    }
+    public void OnExit(GameManager gm) { }
 
     public void Run(GameManager gm)
     {
@@ -59,7 +53,7 @@ public class PlayState : IGameState
         if (PlayStyleManager.Instance != null)
         {
             PlayStyleManager.Instance.gameObject.SetActive(true);
-            PlayStyleManager.Instance.PlayStyle = playStyle;
+            playStyle = PlayStyleManager.Instance.PlayStyle;
         }
         else
         {

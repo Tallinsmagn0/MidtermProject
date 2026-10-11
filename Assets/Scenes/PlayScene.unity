@@ -14518,10 +14518,82 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 986959960860166076, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: sandLayer
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 986959960860166076, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: layers.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 986959960860166076, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: 'layers.Array.data[0]'
+      value: Default
+      objectReference: {fileID: 0}
+    - target: {fileID: 986959960860166076, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: 'layers.Array.data[1]'
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 986959960860166076, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: 'layers.Array.data[2]'
+      value: Selectable
+      objectReference: {fileID: 0}
+    - target: {fileID: 986959960860166076, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: raycastLayers.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 986959960860166076, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: 'raycastLayers.Array.data[0]'
+      value: Default
+      objectReference: {fileID: 0}
+    - target: {fileID: 986959960860166076, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: 'raycastLayers.Array.data[1]'
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 986959960860166076, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: 'raycastLayers.Array.data[2]'
+      value: Selectable
+      objectReference: {fileID: 0}
     - target: {fileID: 2823977195493724574, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: OnBrushSizeChange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1992084754}
+    - target: {fileID: 3111707878463554172, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: sandLayer
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111707878463554172, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: layers.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111707878463554172, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: 'layers.Array.data[0]'
+      value: Default
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111707878463554172, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: 'layers.Array.data[1]'
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111707878463554172, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: 'layers.Array.data[2]'
+      value: Selectable
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111707878463554172, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: raycastLayers.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111707878463554172, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: 'raycastLayers.Array.data[0]'
+      value: Default
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111707878463554172, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: 'raycastLayers.Array.data[1]'
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111707878463554172, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: 'raycastLayers.Array.data[2]'
+      value: Selectable
+      objectReference: {fileID: 0}
     - target: {fileID: 3115949219479004621, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: OnUpdateSandAmount.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -14533,6 +14605,10 @@ PrefabInstance:
     - target: {fileID: 6239227789598618049, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496937676093273343, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      propertyPath: groundedDistance
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16446,6 +16522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e5564e04bad5489ba2aa1e3ed503bd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayStyleManager
+  playerTag: Player
 --- !u!4 &1989100942
 Transform:
   m_ObjectHideFlags: 0
