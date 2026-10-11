@@ -16,7 +16,7 @@ public class SandClickBehavior : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             
-            if (Physics.Raycast(ray, out RaycastHit hit, LayerMask.GetMask(layerMask)))
+            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, LayerMask.GetMask(layerMask)))
             {
                 StartCoroutine(SandClickRoutine(hit.point));
                 playerAnimator.SetTrigger("CastSand");
