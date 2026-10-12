@@ -7,7 +7,7 @@ public class MenuState : IGameState
     {
         if (MenuManager.Instance != null)
         {
-            MenuManager.Instance.gameObject.SetActive(true);
+            MenuManager.Instance.enabled = true;
         } 
         else
         {
@@ -31,8 +31,8 @@ public class MenuState : IGameState
     {
         if (MenuManager.Instance.HasPressedPlay())
         {
-            PlayState playState = new PlayState();
-            gm.Transition(playState);
+            IGameState introState = new IntroState();
+            gm.Transition(introState);
         }
     }
 }

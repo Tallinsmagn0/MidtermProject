@@ -18,12 +18,7 @@ public class PlayStyleManager : Singleton<PlayStyleManager>
         }
     }
 
-    void Start()
-    {
-        SetPlayStyleFromScene();
-    }
-
-    private void SetPlayStyleFromScene()
+    public void SetPlayStyleFromScene()
     {
         if (GameObject.FindGameObjectsWithTag(playerTag).Length == 1)
         {
