@@ -21,12 +21,18 @@ public class SandClickBehavior : MonoBehaviour
             {
                 if (hit.transform.gameObject.layer == LayerMask.NameToLayer(sandLayer))
                 {
-                    StartCoroutine(SandClickRoutine(hit.point));
+                    ClickSandAt(hit.point);
                     playerAnimator.SetTrigger("CastSand");
                 }
             }
         }
     }
+
+    public void ClickSandAt(Vector3 point)
+    {
+        StartCoroutine(SandClickRoutine(point));
+    }
+
 
     private IEnumerator SandClickRoutine(Vector3 clickPoint)
     {

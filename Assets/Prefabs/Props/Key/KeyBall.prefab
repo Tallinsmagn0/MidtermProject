@@ -228,8 +228,8 @@ GameObject:
   - component: {fileID: 2977708401973241780}
   - component: {fileID: 6159598105720223626}
   - component: {fileID: 4679159725274353896}
-  - component: {fileID: 6536967170470090451}
   - component: {fileID: 3614840882659339151}
+  - component: {fileID: 54751801062815608}
   m_Layer: 0
   m_Name: KeyBall
   m_TagString: KeyBall
@@ -354,8 +354,8 @@ MonoBehaviour:
     m_Events:
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 6536967170470090451}
-          m_TargetAssemblyTypeName: PositionController, Assembly-CSharp
+        - m_Target: {fileID: 54751801062815608}
+          m_TargetAssemblyTypeName: KeyBallCutscenePositionController, Assembly-CSharp
           m_MethodName: MoveToPoint
           m_Mode: 1
           m_Arguments:
@@ -366,18 +366,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &6536967170470090451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9004618871960307339}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 173438eccf9d645e393c566d588cfeb7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PositionController
 --- !u!114 &3614840882659339151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,6 +380,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::KeepAboveTerrainBehavior
   terrainTag: Terrain
   addedHeight: 0
+--- !u!114 &54751801062815608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9004618871960307339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99cef40835d5149b08e4d19467b21cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeyBallCutscenePositionController
 --- !u!1001 &5615410660545276939
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -23,26 +23,25 @@ public class IntroState : IGameState
 
     public void Run(GameManager gm)
     {
-        SetupManagersOnSceneLoad();
-
         if (hasSetupScene)
         {
             RunIntroCutscene(gm);
+        }
+        else
+        {
+            SetupManagersOnSceneLoad();
         }
     }
 
     private void SetupManagersOnSceneLoad()
     {
-        if (!hasSetupScene)
+        if (!hasSceneLoaded)
         {
-            if (!hasSceneLoaded)
-            {
-                hasSceneLoaded = SceneLoader.Instance.HasSceneLoaded("PlayScene");
-            }
-            else
-            {
-                SetUpScene();
-            }
+            hasSceneLoaded = SceneLoader.Instance.HasSceneLoaded("PlayScene");
+        }
+        else
+        {
+            SetUpScene();
         }
     }
 

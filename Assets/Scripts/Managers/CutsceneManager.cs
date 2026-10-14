@@ -4,43 +4,27 @@ using UnityEngine.Playables;
 
 public class CutsceneManager : Singleton<CutsceneManager>
 {
-    [SerializeField] private PlayableDirector introDirector;
-    [SerializeField] private PlayableDirector keyInHoleDirector;
-
-    private bool hasStartedIntro;
-    private bool hasFinishedIntro;
+    [SerializeField] private IntroCutsceneController introController;
+    [SerializeField] private KeyInHoleCutsceneController keyInHoleDirector;
 
     public void SetUpIntroCutscene()
     {
-        introDirector.gameObject.SetActive(true);
+        introController.gameObject.SetActive(true);
     }
 
     public void DisableIntroCutscene()
     {
-        introDirector.gameObject.SetActive(false);
+        introController.gameObject.SetActive(false);
     }
 
     public void RunIntroCutscene()
     {
-        if (!hasStartedIntro && !hasFinishedIntro)
-        {
-            StartCoroutine(PlayIntroRoutine());
-        }
-    }
-
-    private IEnumerator PlayIntroRoutine()
-    {
-        introDirector.Play();
-        hasStartedIntro = true;
-
-        yield return new WaitForSeconds((float)introDirector.duration);
-
-        hasFinishedIntro = true;
+        introController.RunCutscene();
     }
 
     public bool HasFinishedIntro()
     {
-        return hasFinishedIntro;
+        return introController.HasFinished();
     }
 
     public void SetUpPlayCutscenes()

@@ -1,16 +1,48 @@
+
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Playables;
+using UnityEngine.Events;
 
 public class IntroCutsceneController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private PlayableDirector introDirector;
+    [SerializeField] private Transform sandAlterPoint;
+    [SerializeField] private UnityEvent<Vector3> OnRaiseSand;
+    [SerializeField] private UnityEvent<Vector3> OnLowerSand;
+    private bool hasStarted;
+    private bool hasFinished;
+
+    public void RunCutscene()
     {
-        
+        if (!hasStarted && !hasFinished)
+        {
+            StartCoroutine(PlayRoutine());
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void RaiseSand()
     {
-        
+        OnRaiseSand?.Invoke(sandAlterPoint.position);
+    }
+
+    public void LowerSand()
+    {
+        OnLowerSand?.Invoke(sandAlterPoint.position);
+    }
+
+    private IEnumerator PlayRoutine()
+    {
+        introDirector.Play();
+        hasStarted = true;
+
+        yield return new WaitForSeconds((float)introDirector.duration);
+
+        hasFinished = true;
+    }
+
+    public bool HasFinished()
+    {
+        return hasFinished;
     }
 }
