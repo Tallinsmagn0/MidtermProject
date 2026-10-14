@@ -25,10 +25,9 @@ public class IntroState : IGameState
     {
         SetupManagersOnSceneLoad();
 
-        if (hasSetupScene && hasSceneLoaded)
+        if (hasSetupScene)
         {
-            IGameState playState = new PlayState();
-            gm.Transition(playState);
+            RunIntroCutscene(gm);
         }
     }
 
@@ -122,6 +121,17 @@ public class IntroState : IGameState
         else
         {
             throw new NullReferenceException("No UI manager detected");
+        }
+    }
+
+    private void RunIntroCutscene(GameManager gm)
+    {
+        CutsceneManager.Instance.RunIntroCutscene();
+
+        if (CutsceneManager.Instance.HasFinishedIntro())
+        {
+            IGameState playState = new PlayState();
+            gm.Transition(playState);
         }
     }
 }
