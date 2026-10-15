@@ -18,7 +18,7 @@ public class IntroState : IGameState
 
     public void OnExit(GameManager gm)
     {
-        CutsceneManager.Instance.DisableIntroCutscene();
+        CutsceneManager.Instance.DeactivateIntroCutscene();
     }
 
     public void Run(GameManager gm)
@@ -26,6 +26,8 @@ public class IntroState : IGameState
         if (hasSetupScene)
         {
             RunIntroCutscene(gm);
+            /* IGameState playState = new PlayState();
+            gm.Transition(playState); */
         }
         else
         {
@@ -91,7 +93,7 @@ public class IntroState : IGameState
         if (CutsceneManager.Instance != null)
         {
             CutsceneManager.Instance.enabled = true;
-            CutsceneManager.Instance.SetUpIntroCutscene();
+            CutsceneManager.Instance.ActivateIntroCutscene();
         }
         else
         {

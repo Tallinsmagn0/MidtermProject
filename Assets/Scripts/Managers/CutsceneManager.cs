@@ -7,19 +7,29 @@ public class CutsceneManager : Singleton<CutsceneManager>
     [SerializeField] private IntroCutsceneController introController;
     [SerializeField] private KeyInHoleCutsceneController keyInHoleDirector;
 
-    public void SetUpIntroCutscene()
+    public void ActivateIntroCutscene()
     {
         introController.gameObject.SetActive(true);
     }
 
-    public void DisableIntroCutscene()
+    public void DeactivateIntroCutscene()
     {
         introController.gameObject.SetActive(false);
     }
 
+    public void ActivatePlayCutscenes()
+    {
+        keyInHoleDirector.gameObject.SetActive(true);
+    }
+
+    public void DeactivatePlayCutscenes()
+    {
+        keyInHoleDirector.gameObject.SetActive(false);
+    }
+
     public void RunIntroCutscene()
     {
-        introController.RunCutscene();
+        introController.PlayCutscene();
     }
 
     public bool HasFinishedIntro()
@@ -27,13 +37,33 @@ public class CutsceneManager : Singleton<CutsceneManager>
         return introController.HasFinished();
     }
 
-    public void SetUpPlayCutscenes()
+    public void SetUpKeyInHoleCutscene(KeyInHoleCutsceneTrigger trigger)
     {
-        keyInHoleDirector.gameObject.SetActive(true);
+        keyInHoleDirector.SetUpFromTrigger(trigger);
     }
 
-    public void DisablePlayCutscenes()
+    public void RunKeyInHoleCutscene()
     {
-        keyInHoleDirector.gameObject.SetActive(false);
+        keyInHoleDirector.PlayCutscene();
+    }
+
+    public bool HasFinishedCurrentKeyInHoleCutscene()
+    {
+        return keyInHoleDirector.HasFinished();
+    }
+
+    public void ResetKeyInHoleVariables()
+    {
+        keyInHoleDirector.ResetCutsceneVariables();
+    }
+
+    public Transform GetKeyInHoleBallMovePoint()
+    {
+        return keyInHoleDirector.GetKeyBallMovePoint();
+    }
+
+    public float GetKeyInHoleBallMoveDuration()
+    {
+        return keyInHoleDirector.GetKeyBallMoveDuration();
     }
 }

@@ -12,6 +12,7 @@ public class LevelController : MonoBehaviour
     [SerializeField] private TerrainExclusionController terrainExclusionController;
 
     private TerrainLoader terrainLoader;
+    private KeyAndHoleLoader keyAndHoleLoader;
 
 
     void Awake()
@@ -21,6 +22,7 @@ public class LevelController : MonoBehaviour
         if (loaders.Length > 0)
         {
             terrainLoader = loaders.OfType<TerrainLoader>().FirstOrDefault();
+            keyAndHoleLoader = loaders.OfType<KeyAndHoleLoader>().FirstOrDefault();
         }
     }
 
@@ -80,5 +82,13 @@ public class LevelController : MonoBehaviour
     public List<Collider> GetTerrainExclusionColliders()
     {
         return terrainExclusionController.GetExclusionColliders();
+    }
+
+    public void DeactivateKeyInHoleObjects()
+    {
+        if (keyAndHoleLoader != null)
+        {
+            keyAndHoleLoader.DeactivateObjects();
+        }
     }
 }

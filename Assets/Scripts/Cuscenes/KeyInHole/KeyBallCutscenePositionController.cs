@@ -6,8 +6,8 @@ public class KeyBallCutscenePositionController : MonoBehaviour
     
     public void MoveToPoint()
     {
-        Transform target = KeyInHoleCutsceneController.Instance.GetKeyBallMovePoint();
-        float duration = KeyInHoleCutsceneController.Instance.GetKeyBallMoveDuration();
+        Transform target = CutsceneManager.Instance.GetKeyInHoleBallMovePoint();
+        float duration = CutsceneManager.Instance.GetKeyInHoleBallMoveDuration();
         StartCoroutine(MoveToPosition(target, duration));
     }
 

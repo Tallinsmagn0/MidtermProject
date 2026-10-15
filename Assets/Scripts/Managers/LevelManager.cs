@@ -58,7 +58,7 @@ public class LevelManager : Singleton<LevelManager>
         return levels[currLevel].GetMaxSandAmount();
     }
 
-    public Transform GetCUrrentDoorCameraPivot()
+    public Transform GetCurrentDoorCameraPivot()
     {
         return levels[currLevel]?.GetDoorCameraPivot();
     }
@@ -71,5 +71,10 @@ public class LevelManager : Singleton<LevelManager>
     public List<Collider> GetTerrainExclusionColliders()
     {
         return levels[currLevel]?.GetTerrainExclusionColliders();
+    }
+
+    public void DeactivateCurrentKeyAndHole()
+    {
+        levels[currLevel]?.DeactivateKeyInHoleObjects();
     }
 }

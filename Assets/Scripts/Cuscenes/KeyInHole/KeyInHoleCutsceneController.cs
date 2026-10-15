@@ -4,11 +4,8 @@ using UnityEngine.Timeline;
 using Unity.Cinemachine;
 using System;
 
-public class KeyInHoleCutsceneController : Singleton<KeyInHoleCutsceneController>
+public class KeyInHoleCutsceneController : CutsceneController
 {
-    // Timeline references
-    [SerializeField] private PlayableDirector director;
-
     // Camera references
     [SerializeField] private CinemachineCamera keyHoleCamera;
     [SerializeField] private CinemachineCamera doorCamera;
@@ -29,9 +26,10 @@ public class KeyInHoleCutsceneController : Singleton<KeyInHoleCutsceneController
     private Animator keyHoleAnimator;
     private Animator doorOpenAnimator;
 
-    public void PlayCutscene()
+    public void SetUpFromTrigger(KeyInHoleCutsceneTrigger trigger)
     {
-        director.Play();
+        SetUpCameras(trigger.GetCameraPivot());
+        SetUpDirector(trigger.GetKeyBallObject(), trigger.GetBallMovePoint(), trigger.GetAnimator());
     }
 
     public void SetUpCameras(Transform keyHoleCameraPivot)
@@ -41,7 +39,7 @@ public class KeyInHoleCutsceneController : Singleton<KeyInHoleCutsceneController
 
         keyHoleCamera.gameObject.transform.SetParent(keyHoleCameraPivot);
 
-        Transform doorCameraPivot = LevelManager.Instance.GetCUrrentDoorCameraPivot();
+        Transform doorCameraPivot = LevelManager.Instance.GetCurrentDoorCameraPivot();
         doorCamera.gameObject.transform.SetParent(doorCameraPivot);
 
         keyHoleCamera.gameObject.transform.localPosition = Vector3.zero;

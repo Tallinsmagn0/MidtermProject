@@ -8,7 +8,7 @@ public class PlayState : IGameState
     public void OnEnter(GameManager gm)
     {
         SetupPlayStyle();
-        CutsceneManager.Instance.SetUpPlayCutscenes();
+        CutsceneManager.Instance.ActivatePlayCutscenes();
         UIManager.Instance.SetPlayerStatsVisibility(true);
     }
 
@@ -16,7 +16,11 @@ public class PlayState : IGameState
 
     public void Run(GameManager gm)
     {
-        
+        if (CutsceneManager.Instance.HasFinishedCurrentKeyInHoleCutscene())
+        {
+            CutsceneManager.Instance.ResetKeyInHoleVariables();
+            LevelManager.Instance.DeactivateCurrentKeyAndHole();
+        }
     }
 
     private void SetupPlayStyle()

@@ -13,19 +13,33 @@ public class KeyInHoleCutsceneTrigger : MonoBehaviour
         if (other.CompareTag("KeyBall"))
         {
             SetKeyBallObject(other);
-            SetUpCutscene();
-            KeyInHoleCutsceneController.Instance.PlayCutscene();
+            CutsceneManager.Instance.SetUpKeyInHoleCutscene(this);
+            CutsceneManager.Instance.RunKeyInHoleCutscene();
         }
-    }
-
-    private void SetUpCutscene()
-    {
-        KeyInHoleCutsceneController.Instance.SetUpCameras(keyHoleCameraPivot);
-        KeyInHoleCutsceneController.Instance.SetUpDirector(keyBallObject, keyBallMovePoint, keyHoleAnimator);
     }
 
     private void SetKeyBallObject(Collider other)
     {
         keyBallObject = other.gameObject;
+    }
+
+    public GameObject GetKeyBallObject()
+    {
+        return keyBallObject;
+    }
+
+    public Animator GetAnimator()
+    {
+        return keyHoleAnimator;
+    }
+
+    public Transform GetCameraPivot()
+    {
+        return keyHoleCameraPivot;
+    }
+
+    public Transform GetBallMovePoint()
+    {
+        return keyBallMovePoint;
     }
 }

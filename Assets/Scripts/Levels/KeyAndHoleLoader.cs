@@ -53,6 +53,11 @@ public class KeyAndHoleLoader : MonoBehaviour, ILoader
 
     public void Unload()
     {
+        DeactivateObjects();
+    }
+
+    public void DeactivateObjects()
+    {
         if (keyBallObject != null)
         {
             keyBallObject.SetActive(false);
