@@ -73,8 +73,13 @@ public class LevelManager : Singleton<LevelManager>
         return levels[currLevel]?.GetTerrainExclusionColliders();
     }
 
+    public void ClearedCurrentKeyAndHole()
+    {
+        levels[currLevel]?.ClearedKeyAndHole();
+    }
+
     public void DeactivateCurrentKeyAndHole()
     {
-        levels[currLevel]?.DeactivateKeyInHoleObjects();
+        levels[currLevel]?.DeactivateKeyAndHole();
     }
 }

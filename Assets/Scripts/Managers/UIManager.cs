@@ -7,8 +7,9 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private GameObject playerStatsObject;
     [SerializeField] private TMP_Text brushSizeText;
     [SerializeField] private Slider sandSlider;
-    [SerializeField] private FadeText raiseText;
-    [SerializeField] private FadeText lowerText;
+    [SerializeField] private FadeText introRaiseText;
+    [SerializeField] private FadeText introLowerText;
+    [SerializeField] private TMP_Text timerText;
 
     public void SetBrushSizeText(int brushSize)
     {
@@ -39,24 +40,36 @@ public class UIManager : Singleton<UIManager>
 
     public void FadeInIntroRaiseText()
     {
-        if (raiseText != null)
+        if (introRaiseText != null)
         {
-            raiseText.StartFadeIn();
+            introRaiseText.StartFadeIn();
         }
     }
 
     public void FadeInIntroLowerText()
     {
-        if (lowerText != null)
+        if (introLowerText != null)
         {
-            lowerText.StartFadeIn();
+            introLowerText.StartFadeIn();
         }
     }
 
     public void FadeOutIntroTexts()
     {
-        raiseText.StartFadeOut();
-        lowerText.StartFadeOut();
+        introRaiseText.StartFadeOut();
+        introLowerText.StartFadeOut();
     }
-    
+
+    public void SetIsTimerTextActive(bool isActive)
+    {
+        timerText.gameObject.SetActive(isActive);
+    }
+
+    public void SetTimerValue(float currTime)
+    {
+        int minutes = Mathf.FloorToInt(currTime / 60f);
+        int seconds = Mathf.FloorToInt(currTime % 60f);
+
+        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
 }

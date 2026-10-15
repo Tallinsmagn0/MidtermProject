@@ -84,11 +84,19 @@ public class LevelController : MonoBehaviour
         return terrainExclusionController.GetExclusionColliders();
     }
 
-    public void DeactivateKeyInHoleObjects()
+    public void ClearedKeyAndHole()
     {
         if (keyAndHoleLoader != null)
         {
-            keyAndHoleLoader.DeactivateObjects();
+            keyAndHoleLoader.StopKeyAndHoleTimer();
+        }
+    }
+
+    public void DeactivateKeyAndHole()
+    {
+        if (keyAndHoleLoader != null)
+        {
+            keyAndHoleLoader.DeactivateSelf();
         }
     }
 }

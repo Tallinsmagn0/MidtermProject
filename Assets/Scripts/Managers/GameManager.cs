@@ -21,4 +21,10 @@ public class GameManager : Singleton<GameManager>
         newState.OnEnter(this);
         currState = newState;
     }
+
+    public void GameOver()
+    {
+        IGameState gameOverState = new GameOverState();
+        Transition(gameOverState);
+    }
 }

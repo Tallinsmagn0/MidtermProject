@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 2896240899163442146}
   - component: {fileID: 6061353489136044713}
   - component: {fileID: 700718943031851798}
+  - component: {fileID: 6157826358760885750}
   m_Layer: 0
   m_Name: Level2
   m_TagString: Untagged
@@ -123,7 +124,8 @@ MonoBehaviour:
   hourglassPrefab: {fileID: 1255284176509103011, guid: 44d89548576884494ab5884d1f9eb0f6, type: 3}
   ballStart: {fileID: 4437532285447518905}
   holeStart: {fileID: 8408915167414461207}
-  hourglassStart: {fileID: 0}
+  hourglassStart: {fileID: 2443632204821388585}
+  timer: {fileID: 6157826358760885750}
 --- !u!114 &6061353489136044713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,6 +158,25 @@ MonoBehaviour:
   - {fileID: 595279742404279940}
   - {fileID: 3865586459175834712}
   initialHeight: 0.0015
+--- !u!114 &6157826358760885750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718326043449946216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b29a6e4d52536431698b972bfd895e03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeyAndHoleTimer
+  maxTime: 0
+  OnAdvanceTimer:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTimerEnabled:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4330906675579345924
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,7 +352,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4932188268065321772, guid: 1652481e10bb5460a9fd4b409dc44af7, type: 3}
       propertyPath: m_VersionIndex
-      value: 6286
+      value: 6289
       objectReference: {fileID: 0}
     - target: {fileID: 4932188268065321772, guid: 1652481e10bb5460a9fd4b409dc44af7, type: 3}
       propertyPath: m_SelectedEdges.Array.size
@@ -399,7 +420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7543693631459090812, guid: 1652481e10bb5460a9fd4b409dc44af7, type: 3}
       propertyPath: m_VersionIndex
-      value: 2324
+      value: 2327
       objectReference: {fileID: 0}
     - target: {fileID: 7634916071741383027, guid: 1652481e10bb5460a9fd4b409dc44af7, type: 3}
       propertyPath: m_Name

@@ -9,6 +9,7 @@ public class KeyAndHoleLoader : MonoBehaviour, ILoader
     [SerializeField] private Transform ballStart;
     [SerializeField] private Transform holeStart;
     [SerializeField] private Transform hourglassStart;
+    [SerializeField] private KeyAndHoleTimer timer;
 
     private GameObject keyBallObject;
     private GameObject keyHoleObject;
@@ -57,7 +58,13 @@ public class KeyAndHoleLoader : MonoBehaviour, ILoader
         DeactivateObjects();
     }
 
-    public void DeactivateObjects()
+    public void DeactivateSelf()
+    {
+        DeactivateObjects();
+        timer.DisableTimer();
+    }
+
+    private void DeactivateObjects()
     {
         if (keyBallObject != null)
         {
@@ -80,6 +87,7 @@ public class KeyAndHoleLoader : MonoBehaviour, ILoader
         {
             ResetBallPosition();
             SetBallKinematic(false);
+            timer.StartTimer();
         }
         else
         {
@@ -104,5 +112,10 @@ public class KeyAndHoleLoader : MonoBehaviour, ILoader
         {
             throw new NullReferenceException("Key ball does not have a rigidbody.");
         }
+    }
+
+    public void StopKeyAndHoleTimer()
+    {
+        timer.DisableTimer();
     }
 }
