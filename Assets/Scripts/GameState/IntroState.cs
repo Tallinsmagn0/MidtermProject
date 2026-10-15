@@ -25,9 +25,9 @@ public class IntroState : IGameState
     {
         if (hasSetupScene)
         {
-            RunIntroCutscene(gm);
-            /* IGameState playState = new PlayState();
-            gm.Transition(playState); */
+            // RunIntroCutscene(gm);
+            IGameState playState = new PlayState();
+            gm.Transition(playState);
         }
         else
         {

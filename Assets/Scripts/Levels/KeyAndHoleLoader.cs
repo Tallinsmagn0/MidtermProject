@@ -21,6 +21,7 @@ public class KeyAndHoleLoader : MonoBehaviour, ILoader
         hourglassObject = Instantiate(hourglassPrefab, hourglassStart.position, Quaternion.identity, transform);
 
         SetHourglassResetEvent();
+        SetBallKinematic(true);
     }
 
     private void SetHourglassResetEvent()
@@ -29,7 +30,7 @@ public class KeyAndHoleLoader : MonoBehaviour, ILoader
 
         if (interactable != null)
         {
-            interactable.AddResetEventListener(ResetBallPosition);
+            interactable.AddResetEventListener(ResetKeyAndHoleGame);
         }
         else
         {
@@ -43,7 +44,7 @@ public class KeyAndHoleLoader : MonoBehaviour, ILoader
 
         if (interactable != null)
         {
-            interactable.RemoveResetEventListener(ResetBallPosition);
+            interactable.RemoveResetEventListener(ResetKeyAndHoleGame);
         }
         else
         {
@@ -73,11 +74,35 @@ public class KeyAndHoleLoader : MonoBehaviour, ILoader
         }
     }
 
-    public void ResetBallPosition()
+    public void ResetKeyAndHoleGame()
     {
         if (keyBallObject != null)
         {
-            keyBallObject.transform.position = ballStart.position;
+            ResetBallPosition();
+            SetBallKinematic(false);
+        }
+        else
+        {
+            throw new NullReferenceException("No key ball object found.");
+        }
+    }
+
+    public void ResetBallPosition()
+    {
+        keyBallObject.transform.position = ballStart.position;
+    }
+
+    public void SetBallKinematic(bool isKinematic)
+    {
+        Rigidbody rb = keyBallObject.GetComponent<Rigidbody>();
+
+        if (rb != null)
+        {
+            rb.isKinematic = isKinematic;
+        }
+        else
+        {
+            throw new NullReferenceException("Key ball does not have a rigidbody.");
         }
     }
 }
