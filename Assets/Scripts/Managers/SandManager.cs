@@ -8,7 +8,8 @@ public class SandManager : Singleton<SandManager>
     {
         float maxSandAmount = LevelManager.Instance.GetMaxSandAmount();
         int terrainResolution = LevelManager.Instance.GetCurrentTerrainResolution();
-        return maxSandAmount * (1f - terrainToSandAmount * sculptAmount / (terrainResolution * terrainResolution));
+        float sandAmount = maxSandAmount * (1f - terrainToSandAmount * sculptAmount / (terrainResolution * terrainResolution));
+        return sandAmount;
     }
 
     public float GetMaxTerrainSculptAmount()

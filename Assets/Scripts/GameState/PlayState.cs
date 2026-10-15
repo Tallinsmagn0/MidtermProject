@@ -9,6 +9,7 @@ public class PlayState : IGameState
     {
         SetupPlayStyle();
         CutsceneManager.Instance.SetUpPlayCutscenes();
+        UIManager.Instance.SetPlayerStatsVisibility(true);
     }
 
     public void OnExit(GameManager gm) { }

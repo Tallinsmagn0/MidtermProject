@@ -116,6 +116,7 @@ public class IntroState : IGameState
         if (UIManager.Instance != null)
         {
             UIManager.Instance.enabled = true;
+            UIManager.Instance.SetPlayerStatsVisibility(false);
         }
         else
         {

@@ -37,17 +37,12 @@ public class SoloTerrainSculptStrategy : ITerrainSculptStrategy
         Vector3 terrainPos = terrain.transform.position;
         Vector3 terrainSize = terrain.terrainData.size;
 
-        Debug.Log(terrainPos);
-
         if (worldPos.x < terrainPos.x || worldPos.x > terrainPos.x + terrainSize.x ||
             worldPos.z < terrainPos.z || worldPos.z > terrainPos.z + terrainSize.z)
         {
             return false;
         }
         float surfaceHeight = terrain.SampleHeight(worldPos) + terrainPos.y;
-
-        Debug.Log(surfaceHeight);
-        
         return worldPos.y <= surfaceHeight;
     }
 

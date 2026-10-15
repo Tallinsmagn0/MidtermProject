@@ -4,6 +4,7 @@ using TMPro;
 
 public class UIManager : Singleton<UIManager>
 {
+    [SerializeField] private GameObject playerStatsObject;
     [SerializeField] private TMP_Text brushSizeText;
     [SerializeField] private Slider sandSlider;
 
@@ -14,13 +15,24 @@ public class UIManager : Singleton<UIManager>
 
     public void SetSliderMaxValue(float maxValue)
     {
-        sandSlider.maxValue = maxValue;
+        if (sandSlider != null)
+        {
+            sandSlider.maxValue = maxValue;
+        }
         SetSliderValue(sandSlider.maxValue);
     }
 
     public void SetSliderValue(float value)
     {
-        sandSlider.value = value;
+        if (sandSlider != null)
+        {
+            sandSlider.value = value;
+        }
+    }
+
+    public void SetPlayerStatsVisibility(bool isActive)
+    {
+        playerStatsObject.SetActive(isActive);
     }
     
 }
