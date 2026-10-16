@@ -15462,6 +15462,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6239227789598618049, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1257788137}
+    - targetCorrespondingSourceObject: {fileID: 6239227789598618049, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1257788149}
   m_SourcePrefab: {fileID: 100100000, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
 --- !u!1 &1257788135 stripped
 GameObject:
@@ -15490,6 +15493,91 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1257788140 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4014784276318537498, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+  m_PrefabInstance: {fileID: 1257788134}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257788135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19a4a6909e6c24296b213ad3eb2e8b79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TerrainSculptBrushBehavior
+--- !u!114 &1257788142 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3669886675937550098, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+  m_PrefabInstance: {fileID: 1257788134}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257788135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0fbae845a5a14a63a82ad8d7e128f5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerTurnYBehavior
+--- !u!114 &1257788143 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9080122441964439349, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+  m_PrefabInstance: {fileID: 1257788134}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257788135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99895e181005948109b761e0f1cfa2e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerTurnXBehavior
+--- !u!114 &1257788144 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8496937676093273343, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+  m_PrefabInstance: {fileID: 1257788134}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257788135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf2a3e28e923743d58d5d36be147e6b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerJumpBehaviour
+--- !u!114 &1257788145 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6472278203738009418, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+  m_PrefabInstance: {fileID: 1257788134}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257788135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 663e8b7c23f704ac0bd96afebaa0fcc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+--- !u!114 &1257788146 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1224424292499613983, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+  m_PrefabInstance: {fileID: 1257788134}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257788135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f900be8e4979c4100aa05a34b5a83ecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInput
+--- !u!114 &1257788149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257788135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4a169b1222b74066a1739cb11d3e02f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerControlsController
+  input: {fileID: 1257788146}
+  movementBehaviour: {fileID: 1257788145}
+  jumpBehaviour: {fileID: 1257788144}
+  turnXBehaviour: {fileID: 1257788143}
+  turnYBehaviour: {fileID: 1257788142}
+  brushController: {fileID: 1257788140}
+  animator: {fileID: 1501256770}
 --- !u!43 &1262447061
 Mesh:
   m_ObjectHideFlags: 0

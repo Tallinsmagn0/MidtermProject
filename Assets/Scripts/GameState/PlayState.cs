@@ -20,6 +20,7 @@ public class PlayState : IGameState
         {
             CutsceneManager.Instance.ResetKeyInHoleVariables();
             LevelManager.Instance.DeactivateCurrentKeyAndHole();
+            PlayStyleManager.Instance.EnablePlayerControls();
         }
     }
 
