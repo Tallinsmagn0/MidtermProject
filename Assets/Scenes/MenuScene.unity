@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 236064433}
   m_Layer: 5
   m_Name: StartButton
-  m_TagString: Untagged
+  m_TagString: StartButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -375,6 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd6ae70b0bee0436aaf349542d4f0a45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuManager
+  startButtonTag: StartButton
 --- !u!1 &993399843
 GameObject:
   m_ObjectHideFlags: 0

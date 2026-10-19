@@ -6,7 +6,7 @@ public class GameManager : Singleton<GameManager>
 
     void Start()
     {
-        currState = new IntroState();
+        currState = new MenuState();
         currState.OnEnter(this);
     }
 
@@ -26,6 +26,12 @@ public class GameManager : Singleton<GameManager>
     {
         IGameState gameOverState = new GameOverState();
         Transition(gameOverState);
+    }
+
+    public void ReturnToMenu()
+    {
+        IGameState menuState = new MenuState();
+        Transition(menuState);
     }
 
     public void PauseGame()

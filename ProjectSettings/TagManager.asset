@@ -9,6 +9,7 @@ TagManager:
   - KeyBall
   - DoorCamera
   - TerrainExclusion
+  - StartButton
   layers:
   - Default
   - TransparentFX

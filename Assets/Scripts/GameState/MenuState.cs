@@ -1,38 +1,51 @@
 using System;
 using UnityEngine;
 
-public class MenuState : IGameState
+public class MenuState : LoadableState
 {
-    public void OnEnter(GameManager gm)
+
+    public MenuState()
+    {
+        sceneName = "MenuScene";
+    }
+
+    public override void OnExit(GameManager gm)
+    {
+        if (MenuManager.Instance != null)
+        {
+            UnityEngine.Object.Destroy(MenuManager.Instance.gameObject);
+        }
+        else
+        {
+            throw new NullReferenceException("No menu manager detected");
+        }
+    }
+
+    protected override void RunScene(GameManager gm)
+    {
+       if (MenuManager.Instance.HasPressedPlay())
+        {
+            Debug.Log("Pressed");
+            IGameState introState = new IntroState();
+            gm.Transition(introState);
+        } 
+    }
+
+    protected override void SetUpScene()
+    {
+        SetUpManagers();
+    }
+
+    private void SetUpManagers()
     {
         if (MenuManager.Instance != null)
         {
             MenuManager.Instance.enabled = true;
+            MenuManager.Instance.ReconnectListeners();
         } 
         else
         {
             throw new NullReferenceException("No menu manager detected");
-        }
-    }
-
-    public void OnExit(GameManager gm)
-    {
-        if (MenuManager.Instance != null)
-        {
-            MenuManager.Instance.gameObject.SetActive(false);
-        }
-        else
-        {
-            throw new NullReferenceException("No menu manager detected");
-        }
-    }
-
-    public void Run(GameManager gm)
-    {
-        if (MenuManager.Instance.HasPressedPlay())
-        {
-            IGameState introState = new IntroState();
-            gm.Transition(introState);
         }
     }
 }

@@ -36,10 +36,6 @@ public class TerrainLoader : MonoBehaviour, ILoader
             ResetTerrainData();
             DisableTerrainCollider();
         }
-        else
-        {
-            throw new NullReferenceException("Tried to access null current terrain while unloading");
-        }
     }
 
     private void ResetTerrainData()

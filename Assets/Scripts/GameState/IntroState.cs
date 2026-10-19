@@ -1,59 +1,26 @@
 using System;
 using UnityEngine;
 
-public class IntroState : IGameState
+public class IntroState : LoadableState
 {
-    bool hasSetupScene = false;
-    bool hasSceneLoaded = false;
-
-    public  IntroState() { }
-
-    public void OnEnter(GameManager gm)
+    public IntroState()
     {
-        if (!SceneLoader.Instance.HasSceneLoaded("PlayScene"))
-        {
-            SceneLoader.Instance.LoadSceneByName("PlayScene");
-        }
+        sceneName = "PlayScene";
     }
 
-    public void OnExit(GameManager gm)
+    public override void OnExit(GameManager gm)
     {
         CutsceneManager.Instance.DeactivateIntroCutscene();
     }
 
-    public void Run(GameManager gm)
+    protected override void RunScene(GameManager gm)
     {
-        if (hasSetupScene)
-        {
-            // RunIntroCutscene(gm);
-            IGameState playState = new PlayState();
-            gm.Transition(playState);
-        }
-        else
-        {
-            SetupManagersOnSceneLoad();
-        }
+        // RunIntroCutscene(gm);
+        IGameState playState = new PlayState();
+        gm.Transition(playState);
     }
 
-    private void SetupManagersOnSceneLoad()
-    {
-        if (!hasSceneLoaded)
-        {
-            hasSceneLoaded = SceneLoader.Instance.HasSceneLoaded("PlayScene");
-        }
-        else
-        {
-            SetUpScene();
-        }
-    }
-
-    private void SetUpScene()
-    {
-        SetUpManagers();
-        hasSetupScene = true;
-    }
-
-    private void SetUpManagers()
+    protected override void SetUpScene()
     {
         SetUpPlayerManager();
         SetUpLevelManager();
