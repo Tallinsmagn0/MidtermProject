@@ -16,7 +16,7 @@ public class KeyInHoleCutsceneTrigger : MonoBehaviour
             CutsceneManager.Instance.SetUpKeyInHoleCutscene(this);
             CutsceneManager.Instance.RunKeyInHoleCutscene();
             LevelManager.Instance.ClearedCurrentKeyAndHole();
-            PlayStyleManager.Instance.DisablePlayerControls();
+            PlayerManager.Instance.DisablePlayerControls();
         }
     }
 

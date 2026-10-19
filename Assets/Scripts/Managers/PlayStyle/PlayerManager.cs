@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayStyleManager : Singleton<PlayStyleManager>
+public class PlayerManager : Singleton<PlayerManager>
 {
     [SerializeField] private string playerTag;
 

@@ -61,7 +61,7 @@ public class KeyAndHoleLoader : MonoBehaviour, ILoader
     public void DeactivateSelf()
     {
         DeactivateObjects();
-        timer.DisableTimer();
+        StopKeyAndHoleTimer();
     }
 
     private void DeactivateObjects()

@@ -22,13 +22,13 @@ public class KeyAndHoleTimer : MonoBehaviour
         {
             if (currentTime > 0f)
             {
-                currentTime -= Time.deltaTime;
                 OnAdvanceTimer?.Invoke(currentTime);
+                currentTime -= Time.deltaTime;
             }
             else
             {
-                Debug.Log("FINISHED");
                 GameManager.Instance.GameOver();
+                DisableTimer();
             }
         }
     }

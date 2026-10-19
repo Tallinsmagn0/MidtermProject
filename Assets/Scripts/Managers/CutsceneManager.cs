@@ -22,11 +22,6 @@ public class CutsceneManager : Singleton<CutsceneManager>
         keyInHoleDirector.gameObject.SetActive(true);
     }
 
-    public void DeactivatePlayCutscenes()
-    {
-        keyInHoleDirector.gameObject.SetActive(false);
-    }
-
     public void RunIntroCutscene()
     {
         introController.PlayCutscene();
@@ -65,5 +60,10 @@ public class CutsceneManager : Singleton<CutsceneManager>
     public float GetKeyInHoleBallMoveDuration()
     {
         return keyInHoleDirector.GetKeyBallMoveDuration();
+    }
+
+    public bool HasFinishedGameOverCutscene()
+    {
+        return true;
     }
 }

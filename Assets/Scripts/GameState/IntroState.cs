@@ -55,23 +55,23 @@ public class IntroState : IGameState
 
     private void SetUpManagers()
     {
-        SetUpPlayStyleManager();
+        SetUpPlayerManager();
         SetUpLevelManager();
         SetUpCutsceneManager();
         SetUpSandManager();
         SetUpUIManager();
     }
 
-    private void SetUpPlayStyleManager()
+    private void SetUpPlayerManager()
     {
-        if (PlayStyleManager.Instance != null)
+        if (PlayerManager.Instance != null)
         {
-            PlayStyleManager.Instance.enabled = true;
-            PlayStyleManager.Instance.PlayStyle = new SoloPlayStyle();
+            PlayerManager.Instance.enabled = true;
+            PlayerManager.Instance.PlayStyle = new SoloPlayStyle();
         }
         else
         {
-            throw new NullReferenceException("No play style manager detected");
+            throw new NullReferenceException("No player manager detected");
         }
     }
 

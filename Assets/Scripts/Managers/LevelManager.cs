@@ -17,6 +17,14 @@ public class LevelManager : Singleton<LevelManager>
         OnLevelChange?.Invoke();
     }
 
+    public void UnloadLevels()
+    {
+        foreach (LevelController level in levels)
+        {
+            level.Unload();
+        }
+    }
+
     public void IncrementLevel()
     {
         levels[currLevel]?.Unload();
@@ -81,5 +89,10 @@ public class LevelManager : Singleton<LevelManager>
     public void DeactivateCurrentKeyAndHole()
     {
         levels[currLevel]?.DeactivateKeyAndHole();
+    }
+
+    private void OnDisable() 
+    {
+        UnloadLevels();
     }
 }

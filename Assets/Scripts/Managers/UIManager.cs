@@ -10,6 +10,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private FadeText introRaiseText;
     [SerializeField] private FadeText introLowerText;
     [SerializeField] private TMP_Text timerText;
+    [SerializeField] private GameObject gameOverPopup;
 
     public void SetBrushSizeText(int brushSize)
     {
@@ -33,9 +34,20 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
+    public void SetPlayVisibility(bool isActive)
+    {
+        SetPlayerStatsVisibility(isActive);
+        SetTimerVisibility(isActive);
+    }
+
     public void SetPlayerStatsVisibility(bool isActive)
     {
         playerStatsObject.SetActive(isActive);
+    }
+
+    private void SetTimerVisibility(bool isActive)
+    {
+        timerText.gameObject.SetActive(isActive);
     }
 
     public void FadeInIntroRaiseText()
@@ -71,5 +83,10 @@ public class UIManager : Singleton<UIManager>
         int seconds = Mathf.FloorToInt(currTime % 60f);
 
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
+    public void SetGameOverPopupVisibility(bool isActive)
+    {
+        gameOverPopup.SetActive(isActive);
     }
 }

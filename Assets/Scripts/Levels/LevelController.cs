@@ -32,6 +32,7 @@ public class LevelController : MonoBehaviour
         {
             loader.Load();
         }
+        terrainExclusionController.SetExclusionCollider(true);
     }
 
     public void Unload()
@@ -40,7 +41,7 @@ public class LevelController : MonoBehaviour
         {
             loader.Unload();
         }
-        terrainExclusionController.DisableExclusionColliders();
+        terrainExclusionController.SetExclusionCollider(false);
     }
 
     public Terrain GetLevelTerrain()

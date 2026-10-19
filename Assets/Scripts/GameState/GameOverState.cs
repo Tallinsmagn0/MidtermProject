@@ -2,18 +2,25 @@ using UnityEngine;
 
 public class GameOverState : IGameState
 {
-    public void OnEnter(GameManager gm)
-    {
-        throw new System.NotImplementedException();
-    }
+
+    private bool isPopupVisible;
+
+    public void OnEnter(GameManager gm) { }
 
     public void OnExit(GameManager gm)
     {
-        throw new System.NotImplementedException();
+        gm.UnpauseGame();
+        LevelManager.Instance.UnloadLevels();
     }
 
     public void Run(GameManager gm)
     {
-        throw new System.NotImplementedException();
+        if (!isPopupVisible && CutsceneManager.Instance.HasFinishedGameOverCutscene())
+        {
+            isPopupVisible = true;
+            UIManager.Instance.SetGameOverPopupVisibility(true);
+            PlayerManager.Instance.DisablePlayerControls();
+            gm.PauseGame();
+        }
     }
 }

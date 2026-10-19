@@ -12,7 +12,10 @@ public class PlayState : IGameState
         UIManager.Instance.SetPlayerStatsVisibility(true);
     }
 
-    public void OnExit(GameManager gm) { }
+    public void OnExit(GameManager gm)
+    {
+        UIManager.Instance.SetPlayVisibility(false);
+    }
 
     public void Run(GameManager gm)
     {
@@ -20,15 +23,15 @@ public class PlayState : IGameState
         {
             CutsceneManager.Instance.ResetKeyInHoleVariables();
             LevelManager.Instance.DeactivateCurrentKeyAndHole();
-            PlayStyleManager.Instance.EnablePlayerControls();
+            PlayerManager.Instance.EnablePlayerControls();
         }
     }
 
     private void SetupPlayStyle()
     {
-        if (PlayStyleManager.Instance != null)
+        if (PlayerManager.Instance != null)
         {
-            PlayStyleManager.Instance.SetPlayStyleFromScene();
+            PlayerManager.Instance.SetPlayStyleFromScene();
         }
         else
         {

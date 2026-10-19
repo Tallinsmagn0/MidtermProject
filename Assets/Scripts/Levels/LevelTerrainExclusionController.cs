@@ -13,13 +13,13 @@ public class TerrainExclusionController : MonoBehaviour
         .ToList();
     }
 
-    public void DisableExclusionColliders()
+    public void SetExclusionCollider(bool enable)
     {
         List<Collider> exclusionColliders = GetExclusionColliders();
 
         foreach (Collider exclusionCollider in exclusionColliders)
         {
-            exclusionCollider.gameObject.SetActive(false);
+            exclusionCollider.gameObject.SetActive(enable);
         }
     }
 }
