@@ -7,7 +7,7 @@ public class PlayState : IGameState
 
     public void OnEnter(GameManager gm)
     {
-        SetupPlayStyle();
+        SetupPlayer();
         CutsceneManager.Instance.ActivatePlayCutscenes();
         UIManager.Instance.SetPlayerStatsVisibility(true);
     }
@@ -27,7 +27,7 @@ public class PlayState : IGameState
         }
     }
 
-    private void SetupPlayStyle()
+    private void SetupPlayer()
     {
         if (PlayerManager.Instance != null)
         {

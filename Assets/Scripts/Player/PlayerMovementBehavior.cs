@@ -17,7 +17,7 @@ public class PlayerMovementBehavior : MonoBehaviour
 
 
     protected virtual void Update()
-    { 
+    {
         Move(); 
     }
 

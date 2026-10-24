@@ -28,7 +28,7 @@ public class SoloPlayerControlStrategy : IPlayerControlStrategy
         }
     }
 
-    public void RetrievePlayerObject()
+    private void RetrievePlayerObject()
     {
         GameObject[] playerObjects = GameObject.FindGameObjectsWithTag(playerTag);
 

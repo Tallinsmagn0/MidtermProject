@@ -6,6 +6,8 @@ public class PlayerManager : Singleton<PlayerManager>
 
     private IPlayStyle _playStyle;
 
+    private IPlayerControlStrategy controlStrategy;
+
     public IPlayStyle PlayStyle
     {
         get
@@ -23,6 +25,7 @@ public class PlayerManager : Singleton<PlayerManager>
         if (GameObject.FindGameObjectsWithTag(playerTag).Length == 1)
         {
             PlayStyle = new SoloPlayStyle();
+            controlStrategy = PlayStyle.CreatePlayerControlStrategy(playerTag);
         }
         else
         {
@@ -42,7 +45,6 @@ public class PlayerManager : Singleton<PlayerManager>
 
     private void SetEnablePlayerControls(bool isEnabled)
     {
-        IPlayerControlStrategy strategy = PlayStyle.CreatePlayerControlStrategy(playerTag);
-        strategy.SetControlsEnabled(isEnabled);
+        controlStrategy.SetControlsEnabled(isEnabled);
     }
 }
