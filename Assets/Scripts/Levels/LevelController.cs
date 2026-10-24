@@ -39,9 +39,12 @@ public class LevelController : MonoBehaviour
     {
         foreach (ILoader loader in loaders)
         {
-            loader.Unload();
+            loader?.Unload();
         }
-        terrainExclusionController?.SetExclusionCollider(false);
+        if (terrainExclusionController != null)
+        {
+            terrainExclusionController.SetExclusionCollider(false);
+        }
     }
 
     public Terrain GetLevelTerrain()

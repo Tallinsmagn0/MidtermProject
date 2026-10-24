@@ -26,7 +26,7 @@ public class LevelManager : Singleton<LevelManager>
     {
         foreach (LevelController level in levels)
         {
-            level.Unload();
+            level?.Unload();
         }
     }
 
