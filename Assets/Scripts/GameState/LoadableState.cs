@@ -3,14 +3,32 @@ using UnityEngine;
 public abstract class LoadableState : IGameState
 {
     protected string sceneName;
+    protected bool loadOnEnter;
     bool hasSetupScene = false;
     bool hasSceneLoaded = false;
+
+    public LoadableState()
+    {
+        loadOnEnter = false;
+    }
+
+    public LoadableState(bool _loadOnEnter)
+    {
+        loadOnEnter = _loadOnEnter;
+    }
     
     public void OnEnter(GameManager gm)
     {
-        if (!SceneLoader.Instance.HasSceneLoaded(sceneName))
+        if (loadOnEnter)
         {
-            SceneLoader.Instance.LoadSceneByName(sceneName);
+           SceneLoader.Instance.LoadSceneByName(sceneName);  
+        }
+        else
+        {
+            if (!SceneLoader.Instance.HasSceneLoaded(sceneName))
+            {
+            SceneLoader.Instance.LoadSceneByName(sceneName); 
+            }
         }
     }
 

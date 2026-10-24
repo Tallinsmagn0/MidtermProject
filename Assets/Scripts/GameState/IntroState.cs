@@ -3,7 +3,12 @@ using UnityEngine;
 
 public class IntroState : LoadableState
 {
-    public IntroState()
+    public IntroState() : base()
+    {
+        sceneName = "PlayScene";
+    }
+
+    public IntroState (bool loadOnEnter) : base(loadOnEnter)
     {
         sceneName = "PlayScene";
     }

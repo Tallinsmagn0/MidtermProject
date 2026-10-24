@@ -5,28 +5,36 @@ public class SoloPlayerControlStrategy : IPlayerControlStrategy
 {
     private string playerTag;
 
+    private GameObject playerObject;
+
     public SoloPlayerControlStrategy(string _playerTag)
     {
         playerTag = _playerTag;
+
+        RetrievePlayerObject();
     }
 
     public void SetControlsEnabled(bool isEnabled)
+    {
+        PlayerControlsController controller = playerObject.GetComponent<PlayerControlsController>();
+
+        if (controller != null)
+        {
+            controller.SetControlsEnbaled(isEnabled);
+        }
+        else
+        {
+            throw new NullReferenceException("No PlayerControlsController component found on player object");
+        }
+    }
+
+    public void RetrievePlayerObject()
     {
         GameObject[] playerObjects = GameObject.FindGameObjectsWithTag(playerTag);
 
         if (playerObjects.Length == 1)
         {
-            GameObject playerObject = playerObjects[0];
-            PlayerControlsController controller = playerObject.GetComponent<PlayerControlsController>();
-
-            if (controller != null)
-            {
-                controller.SetControlsEnbaled(isEnabled);
-            }
-            else
-            {
-                throw new NullReferenceException("No PlayerControlsController component found on player object");
-            }
+            playerObject = playerObjects[0];
         } 
         else
         {

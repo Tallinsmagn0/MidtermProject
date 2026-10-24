@@ -41,7 +41,7 @@ public class LevelController : MonoBehaviour
         {
             loader.Unload();
         }
-        terrainExclusionController.SetExclusionCollider(false);
+        terrainExclusionController?.SetExclusionCollider(false);
     }
 
     public Terrain GetLevelTerrain()

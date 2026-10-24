@@ -4,7 +4,7 @@ using UnityEngine;
 public class MenuState : LoadableState
 {
 
-    public MenuState()
+    public MenuState() : base()
     {
         sceneName = "MenuScene";
     }
@@ -25,9 +25,7 @@ public class MenuState : LoadableState
     {
        if (MenuManager.Instance.HasPressedPlay())
         {
-            Debug.Log("Pressed");
-            IGameState introState = new IntroState();
-            gm.Transition(introState);
+            GameManager.Instance.RestartGame();
         } 
     }
 
