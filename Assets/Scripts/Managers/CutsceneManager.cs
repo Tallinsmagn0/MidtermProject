@@ -6,6 +6,7 @@ public class CutsceneManager : Singleton<CutsceneManager>
 {
     [SerializeField] private IntroCutsceneController introController;
     [SerializeField] private KeyInHoleCutsceneController keyInHoleDirector;
+    [SerializeField] private GameOverCutsceneController gameOverCutsceneController;
 
     public void ActivateIntroCutscene()
     {
@@ -62,8 +63,18 @@ public class CutsceneManager : Singleton<CutsceneManager>
         return keyInHoleDirector.GetKeyBallMoveDuration();
     }
 
+    public void ActivateGameOverCutscene()
+    {
+        gameOverCutsceneController.gameObject.SetActive(true);
+    }
+
+    public void RunGameOverCutscene()
+    {
+        gameOverCutsceneController.PlayCutscene();
+    }
+
     public bool HasFinishedGameOverCutscene()
     {
-        return true;
+        return gameOverCutsceneController.HasFinished();
     }
 }

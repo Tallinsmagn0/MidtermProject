@@ -34,6 +34,12 @@ public class GameManager : Singleton<GameManager>
         Transition(menuState);
     }
 
+    public void StartGameplay()
+    {
+        IGameState playState = new PlayState();
+        Transition(playState);
+    }
+
     public void RestartGame()
     {
         RestartGame(false);

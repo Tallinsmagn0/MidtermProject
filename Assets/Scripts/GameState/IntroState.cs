@@ -20,7 +20,8 @@ public class IntroState : LoadableState
 
     protected override void RunScene(GameManager gm)
     {
-        RunIntroCutscene(gm);
+        // RunIntroCutscene(gm);
+        gm.Transition(new PlayState());
     }
 
     protected override void SetUpScene()
@@ -102,8 +103,7 @@ public class IntroState : LoadableState
 
         if (CutsceneManager.Instance.HasFinishedIntro())
         {
-            IGameState playState = new PlayState();
-            gm.Transition(playState);
+            gm.StartGameplay();
         }
     }
 }

@@ -5,7 +5,11 @@ public class GameOverState : IGameState
 
     private bool isPopupVisible;
 
-    public void OnEnter(GameManager gm) { }
+    public void OnEnter(GameManager gm)
+    {
+        CutsceneManager.Instance.ActivateGameOverCutscene();
+        CutsceneManager.Instance.RunGameOverCutscene();
+    }
 
     public void OnExit(GameManager gm)
     {
