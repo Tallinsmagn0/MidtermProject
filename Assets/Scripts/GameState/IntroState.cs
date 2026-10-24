@@ -8,7 +8,7 @@ public class IntroState : LoadableState
         sceneName = "PlayScene";
     }
 
-    public IntroState (bool loadOnEnter) : base(loadOnEnter)
+    public IntroState (bool _isRestart) : base(_isRestart)
     {
         sceneName = "PlayScene";
     }
@@ -64,7 +64,7 @@ public class IntroState : LoadableState
         if (CutsceneManager.Instance != null)
         {
             CutsceneManager.Instance.enabled = true;
-            CutsceneManager.Instance.ActivateIntroCutscene();
+            CutsceneManager.Instance.ActivateIntroCutscene(isRestart);
         }
         else
         {

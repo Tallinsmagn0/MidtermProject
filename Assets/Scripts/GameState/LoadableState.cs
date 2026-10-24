@@ -3,23 +3,23 @@ using UnityEngine;
 public abstract class LoadableState : IGameState
 {
     protected string sceneName;
-    protected bool loadOnEnter;
+    protected bool isRestart;
     bool hasSetupScene = false;
     bool hasSceneLoaded = false;
 
     public LoadableState()
     {
-        loadOnEnter = false;
+        isRestart = false;
     }
 
-    public LoadableState(bool _loadOnEnter)
+    public LoadableState(bool _isRestart)
     {
-        loadOnEnter = _loadOnEnter;
+        isRestart = _isRestart;
     }
     
     public void OnEnter(GameManager gm)
     {
-        if (loadOnEnter)
+        if (isRestart)
         {
            SceneLoader.Instance.LoadSceneByName(sceneName);  
         }

@@ -10,6 +10,6 @@ public class GameOverButtonBehaviour : MonoBehaviour
 
     public void RestartGame()
     {
-        GameManager.Instance.RestartGame(true);
+        GameManager.Instance.RestartGame();
     }
 }

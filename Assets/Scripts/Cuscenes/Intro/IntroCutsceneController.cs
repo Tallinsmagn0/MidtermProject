@@ -16,4 +16,9 @@ public class IntroCutsceneController : CutsceneController
     {
         OnLowerSand?.Invoke(sandAlterPoint.position);
     }
+
+    public void UnsetPlayOnAwake()
+    {
+        director.playOnAwake = false;
+    }
 }

@@ -25,7 +25,7 @@ public class MenuState : LoadableState
     {
        if (MenuManager.Instance.HasPressedPlay())
         {
-            gm.RestartGame();
+            gm.StartGame();
         } 
     }
 

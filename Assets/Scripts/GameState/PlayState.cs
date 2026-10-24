@@ -20,8 +20,6 @@ public class PlayState : IGameState
 
     public void Run(GameManager gm)
     {
-        gm.GameOver();
-
         if (CutsceneManager.Instance.HasFinishedCurrentKeyInHoleCutscene())
         {
             CutsceneManager.Instance.ResetKeyInHoleVariables();

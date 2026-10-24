@@ -40,14 +40,19 @@ public class GameManager : Singleton<GameManager>
         Transition(playState);
     }
 
-    public void RestartGame()
+    public void StartGame()
     {
-        RestartGame(false);
+        StartGame(false);
     }
 
-    public void RestartGame(bool loadOnEnter)
+    public void RestartGame()
     {
-        IGameState introState = new IntroState(loadOnEnter);
+        StartGame(true);
+    }
+
+    public void StartGame(bool isRestart)
+    {
+        IGameState introState = new IntroState(isRestart);
         Transition(introState);
     }
 

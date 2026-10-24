@@ -8,8 +8,12 @@ public class CutsceneManager : Singleton<CutsceneManager>
     [SerializeField] private KeyInHoleCutsceneController keyInHoleDirector;
     [SerializeField] private GameOverCutsceneController gameOverCutsceneController;
 
-    public void ActivateIntroCutscene()
+    public void ActivateIntroCutscene(bool isRestart)
     {
+        if (isRestart)
+        {
+            introController.UnsetPlayOnAwake();
+        }
         introController.gameObject.SetActive(true);
     }
 
