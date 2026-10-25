@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GameOverButtonBehaviour : MonoBehaviour
+public class EndButtonBehaviour : MonoBehaviour
 {
     public void QuitGame()
     {

@@ -39,6 +39,11 @@ public class LevelManager : Singleton<LevelManager>
         {
             levels[currLevel]?.Load();
             OnLevelChange?.Invoke();
+
+            if (currLevel == levels.Length - 1)
+            {
+                GameManager.Instance.WinGame();
+            }
         }
     }
 

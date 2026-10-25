@@ -1,40 +1,20 @@
 using UnityEngine;
 
-public class GameOverState : IGameState
+public class GameOverState : EndState
 {
-
-    private bool isPopupVisible;
-
-    public void OnEnter(GameManager gm)
+    public override void OnEnter(GameManager gm)
     {
         CutsceneManager.Instance.ActivateGameOverCutscene();
         CutsceneManager.Instance.RunGameOverCutscene();
     }
 
-    public void OnExit(GameManager gm)
+    protected override bool HasFinishedEndingCutscene()
     {
-        gm.UnpauseGame();
-        LevelManager.Instance.UnloadLevels();
-        DestroyManagers();
+        return CutsceneManager.Instance.HasFinishedGameOverCutscene();
     }
 
-    public void Run(GameManager gm)
+    protected override void ShowPopup()
     {
-        if (!isPopupVisible && CutsceneManager.Instance.HasFinishedGameOverCutscene())
-        {
-            isPopupVisible = true;
-            UIManager.Instance.SetGameOverPopupVisibility(true);
-            PlayerManager.Instance.DisablePlayerControls();
-            gm.PauseGame();
-        }
-    }
-
-    private void DestroyManagers()
-    {
-        Object.Destroy(LevelManager.Instance.gameObject);
-        Object.Destroy(PlayerManager.Instance.gameObject);
-        Object.Destroy(SandManager.Instance.gameObject);
-        Object.Destroy(UIManager.Instance.gameObject);
-        Object.Destroy(CutsceneManager.Instance.gameObject);
+        UIManager.Instance.SetGameOverPopupVisibility(true);
     }
 }

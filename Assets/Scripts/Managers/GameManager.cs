@@ -28,6 +28,12 @@ public class GameManager : Singleton<GameManager>
         Transition(gameOverState);
     }
 
+    public void WinGame()
+    {
+        IGameState winState = new WinState();
+        Transition(winState);
+    }
+
     public void ReturnToMenu()
     {
         IGameState menuState = new MenuState();

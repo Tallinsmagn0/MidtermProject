@@ -11,6 +11,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private FadeText introLowerText;
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private GameObject gameOverPopup;
+    [SerializeField] private GameObject winPopup;
 
     public void SetBrushSizeText(int brushSize)
     {
@@ -88,5 +89,10 @@ public class UIManager : Singleton<UIManager>
     public void SetGameOverPopupVisibility(bool isActive)
     {
         gameOverPopup.SetActive(isActive);
+    }
+
+    public void SetWinPopupVisibility(bool isActive)
+    {
+        winPopup.SetActive(isActive);
     }
 }

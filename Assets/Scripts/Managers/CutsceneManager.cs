@@ -81,4 +81,9 @@ public class CutsceneManager : Singleton<CutsceneManager>
     {
         return gameOverCutsceneController.HasFinished();
     }
+
+    public bool HasFinishedWinCutscene()
+    {
+        return true;
+    }
 }
