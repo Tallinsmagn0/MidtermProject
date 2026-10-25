@@ -12,7 +12,7 @@ public class LevelManager : Singleton<LevelManager>
 
     public void LoadFirstLevel()
     {
-        currLevel = 0;
+        currLevel = 2;
         levels[currLevel]?.Load();
         OnLevelChange?.Invoke();
     }
@@ -34,8 +34,12 @@ public class LevelManager : Singleton<LevelManager>
     {
         levels[currLevel]?.Unload();
         currLevel++;
-        levels[currLevel]?.Load();
-        OnLevelChange?.Invoke();
+
+        if (currLevel < levels.Length)
+        {
+            levels[currLevel]?.Load();
+            OnLevelChange?.Invoke();
+        }
     }
 
     public Terrain GetCurrentTerrain()

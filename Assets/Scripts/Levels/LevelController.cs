@@ -66,16 +66,23 @@ public class LevelController : MonoBehaviour
 
     public Transform GetDoorCameraPivot()
     {
-        Transform[] allChildren = doorObject.GetComponentsInChildren<Transform>(true);
-    
-        foreach (Transform child in allChildren)
+        if (doorObject != null)
         {
-            if (child != transform && child.CompareTag(doorCameraTag))
+            Transform[] allChildren = doorObject.GetComponentsInChildren<Transform>(true);
+    
+            foreach (Transform child in allChildren)
             {
-                return child.gameObject.transform;
+                if (child != transform && child.CompareTag(doorCameraTag))
+                {
+                    return child.gameObject.transform;
+                }
             }
+            return null;
         }
-        return null;
+        else
+        {
+            throw new NullReferenceException("No door object reference found.");
+        }
     }
 
     public Animator GetDoorAniamtor()
