@@ -41,4 +41,10 @@ public class SoloPlayerControlStrategy : IPlayerControlStrategy
             throw new UnityException("More than one player object in scene");
         }
     }
+
+    public void SetPivot(Transform pivot)
+    {
+        playerObject.transform.SetParent(pivot, true);
+        playerObject.transform.position = pivot.position;
+    }
 }

@@ -47,4 +47,9 @@ public class PlayerManager : Singleton<PlayerManager>
     {
         controlStrategy.SetControlsEnabled(isEnabled);
     }
+
+    public void SetPlayerPivot(Transform pivot)
+    {
+        controlStrategy.SetPivot(pivot);
+    }
 }

@@ -7,6 +7,7 @@ public class CutsceneManager : Singleton<CutsceneManager>
     [SerializeField] private IntroCutsceneController introController;
     [SerializeField] private KeyInHoleCutsceneController keyInHoleDirector;
     [SerializeField] private GameOverCutsceneController gameOverCutsceneController;
+    [SerializeField] private WinCutsceneController winCutsceneController;
 
     public void ActivateIntroCutscene(bool isRestart)
     {
@@ -82,8 +83,19 @@ public class CutsceneManager : Singleton<CutsceneManager>
         return gameOverCutsceneController.HasFinished();
     }
 
+    public void SetUpWinCutscene()
+    {
+        winCutsceneController.gameObject.SetActive(true);
+        winCutsceneController.SetUpCutscene();
+    }
+
+    public void RunWinCutscene()
+    {
+        winCutsceneController.PlayCutscene();
+    }
+
     public bool HasFinishedWinCutscene()
     {
-        return true;
+        return winCutsceneController.HasFinished();
     }
 }

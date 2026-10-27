@@ -5,7 +5,8 @@ public class WinState : EndState
     
     public override void OnEnter(GameManager gm)
     {
-        
+        CutsceneManager.Instance.SetUpWinCutscene();
+        CutsceneManager.Instance.RunWinCutscene();
     }
 
     protected override bool HasFinishedEndingCutscene()
