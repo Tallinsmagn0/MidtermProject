@@ -35,25 +35,35 @@ public class TerrainSculptor : MonoBehaviour
 
     public void RaiseTerrainAtPoint(Vector3 worldPos)
     {
-        AlterTerrainAtPoint(worldPos, true);
+        RaiseTerrainAtPoint(worldPos, 1f);
     }
 
     public void LowerTerrainAtPoint(Vector3 worldPos)
     {
-        AlterTerrainAtPoint(worldPos, false);
+        LowerTerrainAtPoint(worldPos, 1f);
     }
 
-    private void AlterTerrainAtPoint(Vector3 worldPos, bool isRaising)
+    public void RaiseTerrainAtPoint(Vector3 worldPos, float SculptSizeMod)
+    {
+        AlterTerrainAtPoint(worldPos, true, SculptSizeMod);
+    }
+
+    public void LowerTerrainAtPoint(Vector3 worldPos, float sculptSizeMod)
+    {
+        AlterTerrainAtPoint(worldPos, false, sculptSizeMod);
+    }
+
+    private void AlterTerrainAtPoint(Vector3 worldPos, bool isRaising, float sculptSizeMod)
     {
         if (!isAltering)
         {
-            StartTerrainAlter(worldPos, isRaising);
+            StartTerrainAlter(worldPos, isRaising, sculptSizeMod);
         }
     }
 
-    private void StartTerrainAlter(Vector3 worldPos, bool isRaising)
+    private void StartTerrainAlter(Vector3 worldPos, bool isRaising, float sculptSizeMod)
     {
-        bool canAlterAt = sculptStrategy.AssessTerrainAlterationAt(worldPos, isRaising);
+        bool canAlterAt = sculptStrategy.AssessTerrainAlterationAt(worldPos, isRaising, sculptSizeMod);
         ResetAlterStatus(canAlterAt);
     }
 

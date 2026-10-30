@@ -15780,6 +15780,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1452591798}
   - {fileID: 1457984839}
   - {fileID: 270939881}
   m_Father: {fileID: 1080549435}
@@ -20258,19 +20259,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1457984839}
     m_Modifications:
     - target: {fileID: 855195355245334166, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 315.42
+      value: -12.569985
       objectReference: {fileID: 0}
     - target: {fileID: 855195355245334166, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 19.943
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 855195355245334166, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.009999394
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 855195355245334166, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: m_LocalRotation.w
@@ -21941,6 +21942,37 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
+--- !u!1 &1452591797
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1452591798}
+  m_Layer: 0
+  m_Name: SandAlterPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1452591798
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452591797}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 55.931, y: 18.25, z: 62.618}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 942188886}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1457984838
 GameObject:
   m_ObjectHideFlags: 0
@@ -21969,7 +22001,8 @@ Transform:
   m_LocalPosition: {x: -1.61, y: 19.943, z: 62.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1257788154}
   m_Father: {fileID: 942188886}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1501256770 stripped
@@ -22480,7 +22513,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You won!
+  m_text: You won...?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e82841d0926f44ee086e644ba55bb50b, type: 2}
@@ -22652,6 +22685,7 @@ GameObject:
   - component: {fileID: 1680984857}
   - component: {fileID: 1680984859}
   - component: {fileID: 1680984858}
+  - component: {fileID: 1680984860}
   m_Layer: 0
   m_Name: WinCutscene
   m_TagString: Untagged
@@ -22695,6 +22729,8 @@ PlayableDirector:
     value: {fileID: 1257788137}
   - key: {fileID: -8580938715383280645, guid: b3f7d677c6f1d474ba27290318c7a4ba, type: 2}
     value: {fileID: 1501256770}
+  - key: {fileID: 6770621971320641450, guid: b3f7d677c6f1d474ba27290318c7a4ba, type: 2}
+    value: {fileID: 1680984860}
   m_ExposedReferences:
     m_References:
     - 83e3ff9d3cad04cbf8d7bbf41ab5405b: {fileID: 2028170556}
@@ -22716,6 +22752,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WinCutsceneController
   director: {fileID: 1680984858}
   playerSpawn: {fileID: 1457984839}
+  sandAlterPoint: {fileID: 1452591798}
+  terrainSculptSizeMod: 1.5
+--- !u!114 &1680984860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680984856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalReceiver
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: f58bbdb5e789a49eeb810b23f5201dd7, type: 2}
+    - {fileID: 11400000, guid: 18f21e9c152884bbd91a9686dbf867a8, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1680984859}
+          m_TargetAssemblyTypeName: WinCutsceneController, Assembly-CSharp
+          m_MethodName: RaiseSand
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1680984859}
+          m_TargetAssemblyTypeName: WinCutsceneController, Assembly-CSharp
+          m_MethodName: LowerSand
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!43 &1683212926
 Mesh:
   m_ObjectHideFlags: 0
@@ -24238,8 +24321,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2028170554}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.14117393, y: 0.6928708, z: -0.14117393, w: 0.6928708}
-  m_LocalPosition: {x: 52.545387, y: 21.803686, z: 62.57843}
+  m_LocalRotation: {x: 0.0857029, y: 0.7018939, z: -0.0857029, w: 0.7018939}
+  m_LocalPosition: {x: 52.328987, y: 21.203676, z: 62.578518}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -25046,7 +25129,6 @@ SceneRoots:
   - {fileID: 1178425338}
   - {fileID: 1632818353}
   - {fileID: 924054970}
-  - {fileID: 1257788134}
   - {fileID: 1369714740}
   - {fileID: 1666786497}
   - {fileID: 1249033010}

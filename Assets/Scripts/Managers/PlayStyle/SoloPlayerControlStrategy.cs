@@ -44,7 +44,26 @@ public class SoloPlayerControlStrategy : IPlayerControlStrategy
 
     public void SetPivot(Transform pivot)
     {
-        playerObject.transform.SetParent(pivot, true);
-        playerObject.transform.position = pivot.position;
+        if (playerObject != null)
+        {
+            playerObject.transform.SetParent(pivot, true);
+            playerObject.transform.position = pivot.position;
+        }
+        else
+        {
+            throw new NullReferenceException("Player object was null");
+        }
+    }
+
+    public TerrainSculptor GetTerrainSculptor()
+    {
+        if (playerObject != null)
+        {
+            return playerObject.GetComponentInChildren<TerrainSculptor>();
+        }
+        else
+        {
+            throw new NullReferenceException("Player object was null");
+        }
     }
 }

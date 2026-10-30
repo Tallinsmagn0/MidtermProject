@@ -21,10 +21,10 @@ public class TerrainDataAlterBehavior : MonoBehaviour
     int width, height = 0;
     float[,] startHeights, endHeights;
 
-    public bool CalculateTerrainDataAlter(Vector3 worldPos, Vector3 terrainPos, int brushSize, bool isRaising)
+    public bool CalculateTerrainDataAlter(Vector3 worldPos, Vector3 terrainPos, int brushSize, bool isRaising, float sculptSizeMod)
     {
         CalculateTerrainDataAlterVariables(worldPos, terrainPos, brushSize);
-        float finalSculptAmount = CalculateSculptAmountOnMatrix(brushSize, isRaising);
+        float finalSculptAmount = CalculateSculptAmountOnMatrix(brushSize, isRaising, sculptSizeMod);
         bool canSculptTerrain = CanSculptTerrainByAmount(finalSculptAmount, isRaising);
 
         if (!canSculptTerrain)
@@ -56,7 +56,7 @@ public class TerrainDataAlterBehavior : MonoBehaviour
         height = Mathf.Min(brushSize, terrainData.heightmapResolution - startZ);
     }
 
-    private float CalculateSculptAmountOnMatrix(int brushSize, bool isRaising)
+    private float CalculateSculptAmountOnMatrix(int brushSize, bool isRaising, float sculptSizeMod)
     {
         // Fetch the 2D array representing current heights
         startHeights = terrainData.GetHeights(startX, startZ, width, height);
@@ -77,7 +77,7 @@ public class TerrainDataAlterBehavior : MonoBehaviour
                 {
                     float distX = x + 0.5f - center.x;
                     float distZ = z + 0.5f - center.y;
-                    float deltaAmount = amountSign * sculptSize * Mathf.Exp(-( (distX * distX + distZ * distZ) / (2.0f * sigma * sigma)));
+                    float deltaAmount = amountSign * sculptSizeMod * sculptSize * Mathf.Exp(-( (distX * distX + distZ * distZ) / (2.0f * sigma * sigma)));
                     float endHeight = startHeights[z, x] + deltaAmount;
 
                     tempSculptAmount += deltaAmount;

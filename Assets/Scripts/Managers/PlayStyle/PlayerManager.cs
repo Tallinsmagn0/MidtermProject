@@ -52,4 +52,9 @@ public class PlayerManager : Singleton<PlayerManager>
     {
         controlStrategy.SetPivot(pivot);
     }
+
+    public TerrainSculptor GetPlayerTerrainSculptor()
+    {
+        return controlStrategy.GetTerrainSculptor();
+    }
 }
