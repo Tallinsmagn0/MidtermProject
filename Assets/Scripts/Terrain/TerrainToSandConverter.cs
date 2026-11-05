@@ -7,7 +7,6 @@ public class TerrainToSandConverter : MonoBehaviour
     public void ConvertTerrainToSandAmount(float sculptAmount)
     {
         float sandAmount = SandManager.Instance.ConvertTerrainToSandAmount(sculptAmount);
-        Debug.Log("Sand amount: " + sandAmount);
         OnGetSandAmount?.Invoke(sandAmount);
     }
 }

@@ -20641,15 +20641,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1233155723365965391, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 596.2
+      value: 558.64
       objectReference: {fileID: 0}
     - target: {fileID: 1233155723365965391, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: 8.22
       objectReference: {fileID: 0}
     - target: {fileID: 1233155723365965391, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.13
+      value: 0.36
       objectReference: {fileID: 0}
     - target: {fileID: 1233155723365965391, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
       propertyPath: m_LocalRotation.w
@@ -24297,7 +24297,7 @@ PrefabInstance:
       objectReference: {fileID: 15600000, guid: 1840bcc9dc2474e25b09dcb6614a122c, type: 2}
     - target: {fileID: 201513354241337042, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
       propertyPath: maxSandAmount
-      value: 0.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 718326043449946216, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
       propertyPath: m_Name
@@ -24363,6 +24363,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -16.89
       objectReference: {fileID: 0}
+    - target: {fileID: 3033257883597626823, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 108.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 3033257883597626823, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.96
+      objectReference: {fileID: 0}
     - target: {fileID: 3088913748793161888, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -24409,7 +24417,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6157826358760885750, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
       propertyPath: maxTime
-      value: 500
+      value: 480
       objectReference: {fileID: 0}
     - target: {fileID: 6157826358760885750, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
       propertyPath: OnAdvanceTimer.m_PersistentCalls.m_Calls.Array.size
@@ -24426,7 +24434,7 @@ PrefabInstance:
     - target: {fileID: 6157826358760885750, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
       propertyPath: OnTimerEnabled.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1992084752}
+      objectReference: {fileID: 1992084754}
     - target: {fileID: 6157826358760885750, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
       propertyPath: OnAdvanceTimer.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -24440,11 +24448,23 @@ PrefabInstance:
       value: SetTimerValue
       objectReference: {fileID: 0}
     - target: {fileID: 6157826358760885750, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
+      propertyPath: OnTimerEnabled.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetIsTimerTextActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 6157826358760885750, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
       propertyPath: OnAdvanceTimer.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: UIManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6157826358760885750, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
+      propertyPath: OnTimerEnabled.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6157826358760885750, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
       propertyPath: OnAdvanceTimer.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6157826358760885750, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
+      propertyPath: OnTimerEnabled.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6266610688756312708, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
@@ -32985,7 +33005,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8408915167414461207, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 25.16
+      value: 23.96
       objectReference: {fileID: 0}
     - target: {fileID: 8408915167414461207, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
       propertyPath: m_LocalPosition.z
