@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LevelController : MonoBehaviour
 {
-    [SerializeField] [Range(0f, 1f)] private float maxSandAmount;
+    [SerializeField] private float maxSandAmount;
     [SerializeField] private GameObject doorObject;
     [SerializeField] private string doorCameraTag;
     [SerializeField] private ILoader[] loaders;
