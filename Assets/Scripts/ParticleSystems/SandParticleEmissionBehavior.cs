@@ -83,6 +83,7 @@ public class SandParticleEmissionBehavior : MonoBehaviour
     private IEnumerator SandClickRoutine()
     {
         isEmitting = true;
+        AudioManager.Instance.PlayCastSpellSound();
         particleController.PlayParticles();
         yield return new WaitForSeconds(emissionDuration);
         particleController.StopParticles();

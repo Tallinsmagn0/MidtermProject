@@ -13,6 +13,9 @@ public class AudioManager : Singleton<AudioManager>
 
     [Header("Play Sounds")]
     public AudioClip gameMusic;
+    public AudioClip jumpSound;
+    public AudioClip stepSound;
+    public AudioClip castSpellSound;
 
     public bool IsPlayingMusic()
     {
@@ -27,7 +30,7 @@ public class AudioManager : Singleton<AudioManager>
         );
         foreach (Button button in buttons)
         {
-            button.onClick.AddListener(ClickButton);
+            button.onClick.AddListener(PlayClickButtonSound);
         }
     }
 
@@ -46,9 +49,24 @@ public class AudioManager : Singleton<AudioManager>
         PlayMusic(gameMusic);
     }
 
-    public void ClickButton()
+    public void PlayClickButtonSound()
     {
         PlaySFX(menuClickSound);
+    }
+
+    public void PlayJumpSound()
+    {
+        PlaySFX(jumpSound);
+    }
+
+    public void PlayWalkSound()
+    {
+        PlaySFX(stepSound);
+    }
+
+    public void PlayCastSpellSound()
+    {
+        PlaySFX(castSpellSound);
     }
 
     private void PlayMusic(AudioClip clip)

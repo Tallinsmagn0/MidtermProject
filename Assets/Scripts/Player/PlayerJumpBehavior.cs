@@ -47,5 +47,6 @@ public class PlayerJumpBehaviour : MonoBehaviour
     {
         rigidbody.AddForce(Vector3.up * force, ForceMode.Impulse);
         playerAnimator.SetTrigger("Jump");
+        AudioManager.Instance.PlayJumpSound();
     }
 }
