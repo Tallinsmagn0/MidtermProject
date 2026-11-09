@@ -16,6 +16,6 @@ public class WinState : EndState
 
     protected override void ShowPopup()
     {
-        UIManager.Instance.SetWinPopupVisibility(true);
+        UIManager.Instance.SetUpWinPopup();
     }
 }

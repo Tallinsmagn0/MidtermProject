@@ -86,9 +86,19 @@ public class UIManager : Singleton<UIManager>
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
+    public void SetUpGameOverPopup()
+    {
+        SetGameOverPopupVisibility(true);
+    }
+
     public void SetGameOverPopupVisibility(bool isActive)
     {
         gameOverPopup.SetActive(isActive);
+    }
+
+    public void SetUpWinPopup()
+    {
+        SetWinPopupVisibility(true);
     }
 
     public void SetWinPopupVisibility(bool isActive)

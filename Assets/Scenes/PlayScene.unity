@@ -33977,15 +33977,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 855195355245334166, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 460.35
+      value: 109.48
       objectReference: {fileID: 0}
     - target: {fileID: 855195355245334166, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 20.54
+      value: 20.94
       objectReference: {fileID: 0}
     - target: {fileID: 855195355245334166, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.19
+      value: -2.37
       objectReference: {fileID: 0}
     - target: {fileID: 855195355245334166, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: m_LocalRotation.w
@@ -39398,7 +39398,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4437532285447518905, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.99
+      value: -7.42
       objectReference: {fileID: 0}
     - target: {fileID: 4480567285878243175, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
       propertyPath: m_LocalPosition.x
@@ -39418,7 +39418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6157826358760885750, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
       propertyPath: maxTime
-      value: 90
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6157826358760885750, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
       propertyPath: OnAdvanceTimer.m_PersistentCalls.m_Calls.Array.size

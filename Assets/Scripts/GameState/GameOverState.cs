@@ -15,6 +15,6 @@ public class GameOverState : EndState
 
     protected override void ShowPopup()
     {
-        UIManager.Instance.SetGameOverPopupVisibility(true);
+        UIManager.Instance.SetUpGameOverPopup();
     }
 }

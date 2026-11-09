@@ -36,6 +36,12 @@ public class MenuState : LoadableState
 
     private void SetUpManagers()
     {
+        SetUpMenuManager();
+        SetUpAudioManager();
+    }
+
+    private void SetUpMenuManager()
+    {
         if (MenuManager.Instance != null)
         {
             MenuManager.Instance.enabled = true;
@@ -44,6 +50,18 @@ public class MenuState : LoadableState
         else
         {
             throw new NullReferenceException("No menu manager detected");
+        }
+    }
+
+    private void SetUpAudioManager()
+    {
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.AddClickSoundToButtonsInScene();
+        } 
+        else
+        {
+            throw new NullReferenceException("No audio manager detected");
         }
     }
 }

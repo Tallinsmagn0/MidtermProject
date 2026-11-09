@@ -21,7 +21,7 @@ public class IntroState : LoadableState
     protected override void RunScene(GameManager gm)
     {
         // RunIntroCutscene(gm);
-        gm.Transition(new PlayState());
+        GameManager.Instance.StartGameplay();
     }
 
     protected override void SetUpScene()
@@ -31,6 +31,7 @@ public class IntroState : LoadableState
         SetUpCutsceneManager();
         SetUpSandManager();
         SetUpUIManager();
+        SetUpAudioManager();
     }
 
     private void SetUpPlayerManager()
@@ -94,6 +95,18 @@ public class IntroState : LoadableState
         else
         {
             throw new NullReferenceException("No UI manager detected");
+        }
+    }
+
+    private void SetUpAudioManager()
+    {
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.AddClickSoundToButtonsInScene();
+        } 
+        else
+        {
+            throw new NullReferenceException("No audio manager detected");
         }
     }
 
