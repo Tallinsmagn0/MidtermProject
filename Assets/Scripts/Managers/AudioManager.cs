@@ -11,11 +11,17 @@ public class AudioManager : Singleton<AudioManager>
     public AudioClip menuMusic;
     public AudioClip menuClickSound;
 
-    [Header("Play Sounds")]
+    [Header("Global Sounds")]
     public AudioClip gameMusic;
+
+    [Header("Player Sounds")]
     public AudioClip jumpSound;
     public AudioClip footstepSound;
     public AudioClip castSpellSound;
+
+    [Header("Door Sounds")]
+    public AudioClip doorKnockSound;
+    public AudioClip doorOpenSound;
 
     public bool IsPlayingMusic()
     {
@@ -67,6 +73,16 @@ public class AudioManager : Singleton<AudioManager>
     public void PlayCastSpellSound()
     {
         PlaySFX(castSpellSound);
+    }
+
+    public void PlayDoorKnockSound()
+    {
+        PlaySFX(doorKnockSound);
+    }
+
+    public void PlayDoorOpenSound()
+    {
+        PlaySFX(doorOpenSound);
     }
 
     private void PlayMusic(AudioClip clip)

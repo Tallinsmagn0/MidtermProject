@@ -42,7 +42,7 @@ public class SoloTerrainSculptStrategy : ITerrainSculptStrategy
         {
             return false;
         }
-        float surfaceHeight = terrain.SampleHeight(worldPos) + terrainPos.y;
+        float surfaceHeight = terrain.SampleHeight(worldPos) + terrainPos.y + 0.2f;
         return worldPos.y <= surfaceHeight;
     }
 

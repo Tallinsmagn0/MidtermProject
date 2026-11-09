@@ -447,7 +447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9529412, g: 0.7372549, b: 0.7058824, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -848,8 +848,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4288945476
+  m_fontColor: {r: 0.26482087, g: 0.11196155, b: 0.6415094, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1000,8 +1000,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4288418101
+  m_fontColor: {r: 0.20952475, g: 0.06652725, b: 0.6132076, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1156,6 +1156,8 @@ MonoBehaviour:
   jumpSound: {fileID: 8300000, guid: f0ce8574ae6944eb5be961be1df285c4, type: 3}
   footstepSound: {fileID: 8300000, guid: da887fa4d59fd40e1a15d44a379a937f, type: 3}
   castSpellSound: {fileID: 8300000, guid: dbf62b9f217374787b5968d280b9dbef, type: 3}
+  doorKnockSound: {fileID: 8300000, guid: 47dc23f5c05a34725aad1a782e727483, type: 3}
+  doorOpenSound: {fileID: 8300000, guid: a2bbce954b2ad4e41a0cf3b8556278dc, type: 3}
 --- !u!1 &1776764075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1568,7 +1570,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.8509804, g: 0.5803922, b: 0.50980395, a: 0.5254902}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
