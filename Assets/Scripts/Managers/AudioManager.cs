@@ -14,7 +14,7 @@ public class AudioManager : Singleton<AudioManager>
     [Header("Play Sounds")]
     public AudioClip gameMusic;
     public AudioClip jumpSound;
-    public AudioClip stepSound;
+    public AudioClip footstepSound;
     public AudioClip castSpellSound;
 
     public bool IsPlayingMusic()
@@ -59,9 +59,9 @@ public class AudioManager : Singleton<AudioManager>
         PlaySFX(jumpSound);
     }
 
-    public void PlayWalkSound()
+    public void PlayFootstepSound()
     {
-        PlaySFX(stepSound);
+        PlaySFX(footstepSound);
     }
 
     public void PlayCastSpellSound()

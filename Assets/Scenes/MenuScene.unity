@@ -1154,7 +1154,7 @@ MonoBehaviour:
   menuClickSound: {fileID: 8300000, guid: 7e0c5031a8ed9444591ec49f9535d582, type: 3}
   gameMusic: {fileID: 8300000, guid: d7c915c0fbdb44688b7246d6e0d145d9, type: 3}
   jumpSound: {fileID: 8300000, guid: f0ce8574ae6944eb5be961be1df285c4, type: 3}
-  stepSound: {fileID: 8300000, guid: da887fa4d59fd40e1a15d44a379a937f, type: 3}
+  footstepSound: {fileID: 8300000, guid: da887fa4d59fd40e1a15d44a379a937f, type: 3}
   castSpellSound: {fileID: 8300000, guid: dbf62b9f217374787b5968d280b9dbef, type: 3}
 --- !u!1 &1776764075
 GameObject:

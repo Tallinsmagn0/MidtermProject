@@ -34160,6 +34160,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6239227789598618049, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1257788149}
+    - targetCorrespondingSourceObject: {fileID: 6239227789598618049, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1257788155}
   m_SourcePrefab: {fileID: 100100000, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
 --- !u!1 &1257788135 stripped
 GameObject:
@@ -34278,6 +34281,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 855195355245334166, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
   m_PrefabInstance: {fileID: 1257788134}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1257788155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257788135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 319de0e6cb2ce43549bf8776883f2e53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FootstepPlayer
+  playerAnimator: {fileID: 1501256770}
+  runStateName: PlayerRun
+  stepInterval: 0.4
+  minVelocity: 0.1
 --- !u!43 &1262447061
 Mesh:
   m_ObjectHideFlags: 0
