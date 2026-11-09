@@ -12,18 +12,11 @@ public class AudioManager : Singleton<AudioManager>
     public AudioClip menuClickSound;
 
     [Header("Play Sounds")]
-    public AudioClip playMusic;
+    public AudioClip gameMusic;
 
-    public void PlayMusic(AudioClip clip)
+    public bool IsPlayingMusic()
     {
-        musicSource.clip = clip;
-        musicSource.loop = true;
-        musicSource.Play();
-    }
-
-    public void PlaySFX(AudioClip clip)
-    {
-        sfxSource.PlayOneShot(clip);
+        return musicSource.isPlaying;
     }
 
     public void AddClickSoundToButtonsInScene()
@@ -38,8 +31,35 @@ public class AudioManager : Singleton<AudioManager>
         }
     }
 
+    public void StopMusic()
+    {
+        musicSource.Stop();
+    }
+
+    public void PlayMenuMusic()
+    {
+        PlayMusic(menuMusic);
+    }
+
+    public void PlayGameMusic()
+    {
+        PlayMusic(gameMusic);
+    }
+
     public void ClickButton()
     {
         PlaySFX(menuClickSound);
+    }
+
+    private void PlayMusic(AudioClip clip)
+    {
+        musicSource.clip = clip;
+        musicSource.loop = true;
+        musicSource.Play();
+    }
+
+    private void PlaySFX(AudioClip clip)
+    {
+        sfxSource.PlayOneShot(clip);
     }
 }

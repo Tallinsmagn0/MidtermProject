@@ -103,6 +103,7 @@ public class IntroState : LoadableState
         if (AudioManager.Instance != null)
         {
             AudioManager.Instance.AddClickSoundToButtonsInScene();
+            AudioManager.Instance.PlayGameMusic();
         } 
         else
         {

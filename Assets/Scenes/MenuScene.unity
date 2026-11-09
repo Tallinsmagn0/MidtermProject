@@ -1150,9 +1150,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   musicSource: {fileID: 736688157}
   sfxSource: {fileID: 67839688}
-  menuMusic: {fileID: 0}
+  menuMusic: {fileID: 8300000, guid: 56c725180ed044204887eb84b0acafc1, type: 3}
   menuClickSound: {fileID: 8300000, guid: 7e0c5031a8ed9444591ec49f9535d582, type: 3}
-  playMusic: {fileID: 0}
+  gameMusic: {fileID: 8300000, guid: d7c915c0fbdb44688b7246d6e0d145d9, type: 3}
 --- !u!1 &1776764075
 GameObject:
   m_ObjectHideFlags: 0

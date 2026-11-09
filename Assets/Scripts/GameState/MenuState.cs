@@ -58,6 +58,7 @@ public class MenuState : LoadableState
         if (AudioManager.Instance != null)
         {
             AudioManager.Instance.AddClickSoundToButtonsInScene();
+            AudioManager.Instance.PlayMenuMusic();
         } 
         else
         {
