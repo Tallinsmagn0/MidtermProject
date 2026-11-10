@@ -24335,7 +24335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6157826358760885750, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
       propertyPath: maxTime
-      value: 480
+      value: 420
       objectReference: {fileID: 0}
     - target: {fileID: 6157826358760885750, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
       propertyPath: OnAdvanceTimer.m_PersistentCalls.m_Calls.Array.size
@@ -33971,11 +33971,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 855195355245334166, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 110.98
+      value: -30.6
       objectReference: {fileID: 0}
     - target: {fileID: 855195355245334166, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 21.26
+      value: 9.66
       objectReference: {fileID: 0}
     - target: {fileID: 855195355245334166, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: m_LocalPosition.z
@@ -39239,7 +39239,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6157826358760885750, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
       propertyPath: maxTime
-      value: 10
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 6157826358760885750, guid: 3dd4b37b4533c4e84999f29cd28177ea, type: 3}
       propertyPath: OnAdvanceTimer.m_PersistentCalls.m_Calls.Array.size

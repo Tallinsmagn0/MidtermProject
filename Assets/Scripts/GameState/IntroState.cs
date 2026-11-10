@@ -20,8 +20,7 @@ public class IntroState : LoadableState
 
     protected override void RunScene(GameManager gm)
     {
-        // RunIntroCutscene(gm);
-        GameManager.Instance.StartGameplay();
+        RunIntroCutscene(gm);
     }
 
     protected override void SetUpScene()
