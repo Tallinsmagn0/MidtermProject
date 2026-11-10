@@ -22,6 +22,22 @@ public class GameManager : Singleton<GameManager>
         currState = newState;
     }
 
+    public void StartGame()
+    {
+        StartGame(false);
+    }
+
+    public void RestartGame()
+    {
+        StartGame(true);
+    }
+
+    public void StartGame(bool isRestart)
+    {
+        IGameState introState = new IntroState(isRestart);
+        Transition(introState);
+    }
+
     public void GameOver()
     {
         IGameState gameOverState = new GameOverState();
@@ -44,22 +60,6 @@ public class GameManager : Singleton<GameManager>
     {
         IGameState playState = new PlayState();
         Transition(playState);
-    }
-
-    public void StartGame()
-    {
-        StartGame(false);
-    }
-
-    public void RestartGame()
-    {
-        StartGame(true);
-    }
-
-    public void StartGame(bool isRestart)
-    {
-        IGameState introState = new IntroState(isRestart);
-        Transition(introState);
     }
 
     public void PauseGame()

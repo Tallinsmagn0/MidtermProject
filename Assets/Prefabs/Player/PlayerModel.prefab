@@ -62,8 +62,32 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7291268118709028146, guid: fc1c27fcd7c6dff4c821d5ff4ec2565d, type: 3}
       insertIndex: 0
       addedObject: {fileID: 5687498188524919312}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8124532002578555987, guid: fc1c27fcd7c6dff4c821d5ff4ec2565d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6153676931463697633}
   m_SourcePrefab: {fileID: 100100000, guid: fc1c27fcd7c6dff4c821d5ff4ec2565d, type: 3}
+--- !u!1 &7905469746782962588 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8124532002578555987, guid: fc1c27fcd7c6dff4c821d5ff4ec2565d, type: 3}
+  m_PrefabInstance: {fileID: 2122879971002443727}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6153676931463697633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7905469746782962588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 319de0e6cb2ce43549bf8776883f2e53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FootstepSoundBehavior
+  playerAnimator: {fileID: 0}
+  runStateName: 
+  stepInterval: 0
+  minVelocity: 0
 --- !u!4 &8672303058957116157 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7291268118709028146, guid: fc1c27fcd7c6dff4c821d5ff4ec2565d, type: 3}

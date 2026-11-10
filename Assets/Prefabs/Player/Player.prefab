@@ -297,9 +297,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  raycastLayers: []
-  sandLayer: 
-  playerAnimator: {fileID: 0}
+  raycastLayers:
+  - Default
+  - Ground
+  - Selectable
+  sandLayer: Ground
+  playerAnimator: {fileID: 4754067691092397171}
   clickDelay: 0.5
 --- !u!1 &1597502637767110460
 GameObject:
@@ -5183,6 +5186,104 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
+--- !u!1 &3479449242959276736
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2540773587587372317}
+  - component: {fileID: 4431802812040200375}
+  - component: {fileID: 8137976083488078556}
+  m_Layer: 0
+  m_Name: GameOverCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2540773587587372317
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3479449242959276736}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.074520595, y: 0.9251538, z: -0.25007963, w: 0.2756761}
+  m_LocalPosition: {x: -1.139331, y: 2.448572, z: 1.716721}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 855195355245334166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4431802812040200375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3479449242959276736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
+  Priority:
+    Enabled: 0
+    m_Value: 0
+  OutputChannel: 1
+  StandbyUpdate: 2
+  m_StreamingVersion: 20241001
+  m_LegacyPriority: 0
+  Target:
+    TrackingTarget: {fileID: 0}
+    LookAtTarget: {fileID: 0}
+    CustomLookAtTarget: 0
+  Lens:
+    FieldOfView: 60.000004
+    OrthographicSize: 10
+    NearClipPlane: 0.1
+    FarClipPlane: 5000
+    Dutch: 0
+    ModeOverride: 0
+    PhysicalProperties:
+      GateFit: 2
+      SensorSize: {x: 21.946, y: 16.002}
+      LensShift: {x: 0, y: 0}
+      FocusDistance: 10
+      Iso: 200
+      ShutterSpeed: 0.005
+      Aperture: 16
+      BladeCount: 5
+      Curvature: {x: 2, y: 11}
+      BarrelClipping: 0.25
+      Anamorphism: 0
+  BlendHint: 0
+--- !u!95 &8137976083488078556
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3479449242959276736}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4413279904353398395
 GameObject:
   m_ObjectHideFlags: 0
@@ -5343,6 +5444,8 @@ GameObject:
   - component: {fileID: 4014784276318537498}
   - component: {fileID: 3897694166069700418}
   - component: {fileID: 5078934974402743654}
+  - component: {fileID: 7190463070896451056}
+  - component: {fileID: 6748850770046174028}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5365,6 +5468,7 @@ Transform:
   m_Children:
   - {fileID: 7015692491997423312}
   - {fileID: 4780368283492396572}
+  - {fileID: 2540773587587372317}
   - {fileID: 1760096086016621281}
   - {fileID: 4558994279770743131}
   - {fileID: 8500671281806907468}
@@ -5579,7 +5683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerJumpBehaviour
   footPivot: {fileID: 7015692491997423312}
-  groundedDistance: 0.3
+  groundedDistance: 0.5
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -5669,6 +5773,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HighlightBehaviour
   layerMask: Selectable
   interactionDistance: 10
+--- !u!95 &7190463070896451056
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6239227789598618049}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6748850770046174028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6239227789598618049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4a169b1222b74066a1739cb11d3e02f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerControlsController
+  input: {fileID: 1224424292499613983}
+  movementBehaviour: {fileID: 6472278203738009418}
+  jumpBehaviour: {fileID: 8496937676093273343}
+  turnXBehaviour: {fileID: 9080122441964439349}
+  turnYBehaviour: {fileID: 3669886675937550098}
+  brushController: {fileID: 4014784276318537498}
+  animator: {fileID: 4754067691092397171}
 --- !u!1 &6536064739903044606
 GameObject:
   m_ObjectHideFlags: 0
@@ -5729,8 +5874,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6598526267546357224}
   serializedVersion: 2
-  m_LocalRotation: {x: -7.72049e-10, y: 0.68119144, z: -0.18967947, w: 0.7071068}
-  m_LocalPosition: {x: 104.46, y: 21.578, z: -12.797257}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5942,9 +6087,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  raycastLayers: []
-  sandLayer: 
-  playerAnimator: {fileID: 0}
+  raycastLayers:
+  - Default
+  - Ground
+  - Selectable
+  sandLayer: Ground
+  playerAnimator: {fileID: 4754067691092397171}
   clickDelay: 0.5
 --- !u!1 &8046038172632749987
 GameObject:
