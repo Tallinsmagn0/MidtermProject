@@ -1162,6 +1162,7 @@ MonoBehaviour:
   keyBallShrinkSound: {fileID: 8300000, guid: c261eff6a124448928d95356480e3c73, type: 3}
   keyHoleSpinSound: {fileID: 8300000, guid: 527d60002987443e184b61ac7adc6187, type: 3}
   keyHoleShrinkSound: {fileID: 8300000, guid: 87cc9883640ee4b9a9c7f53833fb8b5e, type: 3}
+  gameOverMusic: {fileID: 8300000, guid: e09c5d8f7a0d94a6daec22f3234ea04b, type: 3}
 --- !u!1 &1776764075
 GameObject:
   m_ObjectHideFlags: 0

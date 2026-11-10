@@ -6,6 +6,7 @@ public class GameOverState : EndState
     {
         CutsceneManager.Instance.ActivateGameOverCutscene();
         CutsceneManager.Instance.RunGameOverCutscene();
+        AudioManager.Instance.PlayGameOverMusic();
     }
 
     protected override bool HasFinishedEndingCutscene()

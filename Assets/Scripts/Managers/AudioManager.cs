@@ -29,6 +29,9 @@ public class AudioManager : Singleton<AudioManager>
     public AudioClip keyHoleSpinSound;
     public AudioClip keyHoleShrinkSound;
 
+    [Header("Game Over Sounds")]
+    public AudioClip gameOverMusic;
+
     public bool IsPlayingMusic()
     {
         return musicSource.isPlaying;
@@ -59,6 +62,11 @@ public class AudioManager : Singleton<AudioManager>
     public void PlayGameMusic()
     {
         PlayMusic(gameMusic);
+    }
+
+     public void PlayGameOverMusic()
+    {
+        PlaySFX(gameOverMusic);
     }
 
     public void PlayClickButtonSound()
