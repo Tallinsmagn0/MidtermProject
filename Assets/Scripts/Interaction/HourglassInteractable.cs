@@ -11,6 +11,7 @@ public class HourglassInteractable : MonoBehaviour, IInteractable
     public void Interact(Interactor interactor)
     {
         ResetHourglass();
+        AudioManager.Instance.PlayHourglassSound();
     }
 
     private void ResetHourglass()

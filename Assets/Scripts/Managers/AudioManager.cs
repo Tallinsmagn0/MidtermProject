@@ -23,6 +23,9 @@ public class AudioManager : Singleton<AudioManager>
     public AudioClip doorKnockSound;
     public AudioClip doorOpenSound;
 
+    [Header("Key and Hole Sounds")]
+    public AudioClip hourglassSound;
+
     public bool IsPlayingMusic()
     {
         return musicSource.isPlaying;
@@ -83,6 +86,11 @@ public class AudioManager : Singleton<AudioManager>
     public void PlayDoorOpenSound()
     {
         PlaySFX(doorOpenSound);
+    }
+
+    public void PlayHourglassSound()
+    {
+        PlaySFX(hourglassSound);
     }
 
     private void PlayMusic(AudioClip clip)

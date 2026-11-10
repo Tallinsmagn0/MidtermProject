@@ -1158,6 +1158,7 @@ MonoBehaviour:
   castSpellSound: {fileID: 8300000, guid: dbf62b9f217374787b5968d280b9dbef, type: 3}
   doorKnockSound: {fileID: 8300000, guid: 47dc23f5c05a34725aad1a782e727483, type: 3}
   doorOpenSound: {fileID: 8300000, guid: a2bbce954b2ad4e41a0cf3b8556278dc, type: 3}
+  hourglassSound: {fileID: 8300000, guid: ce8aad74e8e3242fca67130c1d22f76f, type: 3}
 --- !u!1 &1776764075
 GameObject:
   m_ObjectHideFlags: 0
