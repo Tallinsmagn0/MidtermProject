@@ -33257,6 +33257,8 @@ GameObject:
   - component: {fileID: 1150063327}
   - component: {fileID: 1150063326}
   - component: {fileID: 1150063328}
+  - component: {fileID: 1150063330}
+  - component: {fileID: 1150063329}
   m_Layer: 0
   m_Name: KeyBallInHoleCutscene
   m_TagString: Untagged
@@ -33289,6 +33291,8 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: -445676419847249047, guid: 7c64be830aef94248b1b1d06b71c8c2f, type: 2}
     value: {fileID: 0}
+  - key: {fileID: -9219110096027368566, guid: 7c64be830aef94248b1b1d06b71c8c2f, type: 2}
+    value: {fileID: 1150063329}
   m_ExposedReferences:
     m_References:
     - 7dd75bee0bb5240a793304e34739dd33: {fileID: 1444802002}
@@ -33337,6 +33341,78 @@ MonoBehaviour:
   keyHoleAnimationTrackName: KeyHoleAnimationTrack
   doorOpenAnimationTrackName: DoorOpenAnimationTrack
   keyBallMoveDuration: 3
+--- !u!114 &1150063329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150063325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalReceiver
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 0a059a2a6cbe34364a082f98f75c4c0b, type: 2}
+    - {fileID: 11400000, guid: f83964e75719f4f39aff2a7207ef824d, type: 2}
+    - {fileID: 11400000, guid: 20a9dd614cc21450a88aebe325684143, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1150063330}
+          m_TargetAssemblyTypeName: KeyInHoleSoundBehavior, Assembly-CSharp
+          m_MethodName: PlayBallShrinkSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1150063330}
+          m_TargetAssemblyTypeName: KeyInHoleSoundBehavior, Assembly-CSharp
+          m_MethodName: PlayHoleSpinSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1150063330}
+          m_TargetAssemblyTypeName: KeyInHoleSoundBehavior, Assembly-CSharp
+          m_MethodName: PlayHoleShrinkSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1150063330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150063325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e07bb10e1065c44e08ab31bc2e8da698, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeyInHoleSoundBehavior
 --- !u!1 &1178425336
 GameObject:
   m_ObjectHideFlags: 0
@@ -33977,11 +34053,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 855195355245334166, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -27.53
+      value: 110.98
       objectReference: {fileID: 0}
     - target: {fileID: 855195355245334166, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.34
+      value: 21.26
       objectReference: {fileID: 0}
     - target: {fileID: 855195355245334166, guid: 18c56bac9a3b544dda46cc72e830eb16, type: 3}
       propertyPath: m_LocalPosition.z

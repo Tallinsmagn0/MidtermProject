@@ -1159,6 +1159,9 @@ MonoBehaviour:
   doorKnockSound: {fileID: 8300000, guid: 47dc23f5c05a34725aad1a782e727483, type: 3}
   doorOpenSound: {fileID: 8300000, guid: a2bbce954b2ad4e41a0cf3b8556278dc, type: 3}
   hourglassSound: {fileID: 8300000, guid: ce8aad74e8e3242fca67130c1d22f76f, type: 3}
+  keyBallShrinkSound: {fileID: 8300000, guid: c261eff6a124448928d95356480e3c73, type: 3}
+  keyHoleSpinSound: {fileID: 8300000, guid: 527d60002987443e184b61ac7adc6187, type: 3}
+  keyHoleShrinkSound: {fileID: 8300000, guid: 87cc9883640ee4b9a9c7f53833fb8b5e, type: 3}
 --- !u!1 &1776764075
 GameObject:
   m_ObjectHideFlags: 0

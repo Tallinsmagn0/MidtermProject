@@ -25,6 +25,9 @@ public class AudioManager : Singleton<AudioManager>
 
     [Header("Key and Hole Sounds")]
     public AudioClip hourglassSound;
+    public AudioClip keyBallShrinkSound;
+    public AudioClip keyHoleSpinSound;
+    public AudioClip keyHoleShrinkSound;
 
     public bool IsPlayingMusic()
     {
@@ -91,6 +94,21 @@ public class AudioManager : Singleton<AudioManager>
     public void PlayHourglassSound()
     {
         PlaySFX(hourglassSound);
+    }
+
+    public void PlayKeyBallShrinkSound()
+    {
+        PlaySFX(keyBallShrinkSound);
+    }
+
+    public void PlayKeyHoleSpinSound()
+    {
+        PlaySFX(keyHoleSpinSound);
+    }
+
+    public void PlayKeyHoleShrinkSound()
+    {
+        PlaySFX(keyHoleShrinkSound);
     }
 
     private void PlayMusic(AudioClip clip)
